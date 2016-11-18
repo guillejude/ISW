@@ -62,7 +62,7 @@ public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
         lblTitulo.setText("CREAR FICHA RESTAURANTE");
 
         txtFldNombre.setForeground(new java.awt.Color(153, 153, 153));
-        txtFldNombre.setText("Ej: Juan");
+        txtFldNombre.setText("Ej: McDonalds");
         txtFldNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtFldNombreFocusGained(evt);

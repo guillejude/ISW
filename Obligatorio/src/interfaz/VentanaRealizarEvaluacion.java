@@ -7,6 +7,7 @@ package interfaz;
 
 import dominio.Restaurante;
 import dominio.Sistema;
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -47,7 +48,7 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cmbBxRestaurantes = new javax.swing.JComboBox<>();
+        cmbBxRestaurantes = new javax.swing.JComboBox<String>();
         rbtnStar1 = new javax.swing.JRadioButton();
         rbtnStar2 = new javax.swing.JRadioButton();
         rbtnStar3 = new javax.swing.JRadioButton();
@@ -72,7 +73,7 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
             }
         });
 
-        cmbBxRestaurantes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbBxRestaurantes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbBxRestaurantes.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cmbBxRestaurantesFocusLost(evt);
@@ -136,16 +137,37 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
         lblStarRating.setText("Ingrese su Puntaje:");
 
+        txtFldNombre.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldNombre.setText("Ej: Juan");
         txtFldNombre.setToolTipText("Ej.: Juan Perez");
+        txtFldNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldNombreFocusGained(evt);
+            }
+        });
 
+        txtFldEmail.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldEmail.setText("Ej: juan@gmail.com");
         txtFldEmail.setToolTipText("Ej.: Juan Perez");
+        txtFldEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldEmailFocusGained(evt);
+            }
+        });
 
         lblNombre.setText("Ingrese su Nombre:");
 
         lblEmail.setText("Ingrese su Email:");
 
         txtReseña.setColumns(20);
+        txtReseña.setForeground(new java.awt.Color(153, 153, 153));
         txtReseña.setRows(5);
+        txtReseña.setText("Ej: Me gusto mucho");
+        txtReseña.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtReseñaFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtReseña);
 
         lblReseña.setText("Escriba aquí su reseña:");
@@ -338,6 +360,30 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
         rbtnStar5.setSelected(false);
         puntuacion = 1;
     }//GEN-LAST:event_rbtnStar1MouseReleased
+
+    private void txtFldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldNombreFocusGained
+        // TODO add your handling code here:
+        if(txtFldNombre.getText().equals("Ej: Juan")){
+            txtFldNombre.setText("");
+            txtFldNombre.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldNombreFocusGained
+
+    private void txtFldEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldEmailFocusGained
+        // TODO add your handling code here:
+        if(txtFldEmail.getText().equals("Ej: juan@gmail.com")){
+            txtFldEmail.setText("");
+            txtFldEmail.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldEmailFocusGained
+
+    private void txtReseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtReseñaFocusGained
+        // TODO add your handling code here:
+        if(txtReseña.getText().equals("Ej: Me gusto mucho")){
+            txtReseña.setText("");
+            txtReseña.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtReseñaFocusGained
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
