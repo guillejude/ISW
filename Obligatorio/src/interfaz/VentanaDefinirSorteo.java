@@ -7,6 +7,7 @@ package interfaz;
 
 import dominio.Restaurante;
 import dominio.Sistema;
+import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -68,6 +69,24 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
             }
         });
 
+        txtFldCantGanadores.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldCantGanadores.setText("Ej: 3");
+        txtFldCantGanadores.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldCantGanadoresFocusGained(evt);
+            }
+        });
+        txtFldCantGanadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFldCantGanadoresActionPerformed(evt);
+            }
+        });
+        txtFldCantGanadores.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtFldCantGanadoresKeyPressed(evt);
+            }
+        });
+
         lblCantGanadores.setText("Defina la cantidad de ganadores:");
 
         cmbBxRestaurantes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -82,7 +101,19 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
         lblElegirRestaurante.setText("Elegir que restaurante realiza el sorteo");
 
         txtAreaDescripcionPremio.setColumns(20);
+        txtAreaDescripcionPremio.setForeground(new java.awt.Color(153, 153, 153));
         txtAreaDescripcionPremio.setRows(5);
+        txtAreaDescripcionPremio.setText("Ej: Una cena para dos");
+        txtAreaDescripcionPremio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtAreaDescripcionPremioFocusGained(evt);
+            }
+        });
+        txtAreaDescripcionPremio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtAreaDescripcionPremioKeyPressed(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtAreaDescripcionPremio);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,6 +222,34 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
         this.padre.setEnabled(true);
         this.padre.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
+
+    private void txtAreaDescripcionPremioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaDescripcionPremioKeyPressed
+        
+    }//GEN-LAST:event_txtAreaDescripcionPremioKeyPressed
+
+    private void txtFldCantGanadoresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresKeyPressed
+
+    }//GEN-LAST:event_txtFldCantGanadoresKeyPressed
+
+    private void txtFldCantGanadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresActionPerformed
+        
+    }//GEN-LAST:event_txtFldCantGanadoresActionPerformed
+
+    private void txtAreaDescripcionPremioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAreaDescripcionPremioFocusGained
+        // TODO add your handling code here:
+        if(txtAreaDescripcionPremio.getText().equals("Ej: Una cena para dos")){
+            txtAreaDescripcionPremio.setText("");
+            txtAreaDescripcionPremio.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtAreaDescripcionPremioFocusGained
+
+    private void txtFldCantGanadoresFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresFocusGained
+        // TODO add your handling code here:
+        if(txtFldCantGanadores.getText().equals("Ej: 3")){
+            txtFldCantGanadores.setText("");
+            txtFldCantGanadores.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldCantGanadoresFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

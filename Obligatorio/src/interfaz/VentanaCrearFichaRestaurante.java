@@ -6,6 +6,7 @@
 package interfaz;
 
 import dominio.Sistema;
+import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -60,13 +61,63 @@ public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
 
         lblTitulo.setText("CREAR FICHA RESTAURANTE");
 
+        txtFldNombre.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldNombre.setText("Ej: Juan");
+        txtFldNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldNombreFocusGained(evt);
+            }
+        });
+
         lblNombre.setText("Nombre:");
+
+        txtFldDireccion.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldDireccion.setText("Ej: Cuareim 1414");
+        txtFldDireccion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldDireccionFocusGained(evt);
+            }
+        });
+        txtFldDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFldDireccionActionPerformed(evt);
+            }
+        });
 
         lblDireccion.setText("Direccion:");
 
+        txtFldHorarioApertura.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldHorarioApertura.setText("Ej: 10:30");
+        txtFldHorarioApertura.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldHorarioAperturaFocusGained(evt);
+            }
+        });
+
         lblHorarioApertura.setText("Horario Apertura:");
 
+        txtFldHorarioCierre.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldHorarioCierre.setText("Ej: 22:00");
+        txtFldHorarioCierre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldHorarioCierreFocusGained(evt);
+            }
+        });
+        txtFldHorarioCierre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFldHorarioCierreActionPerformed(evt);
+            }
+        });
+
         lblHorarioCierre.setText("Horario Cierre:");
+
+        txtFldTipoComida.setForeground(new java.awt.Color(153, 153, 153));
+        txtFldTipoComida.setText("Ej: Parrillada");
+        txtFldTipoComida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtFldTipoComidaFocusGained(evt);
+            }
+        });
 
         lblTipoComida.setText("Tipo de Comida:");
 
@@ -177,6 +228,50 @@ public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
         this.padre.setEnabled(true);
         this.padre.setVisible(true);                             
     }//GEN-LAST:event_formWindowClosing
+
+    private void txtFldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldDireccionActionPerformed
+        
+    }//GEN-LAST:event_txtFldDireccionActionPerformed
+
+    private void txtFldHorarioCierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldHorarioCierreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFldHorarioCierreActionPerformed
+
+    private void txtFldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldNombreFocusGained
+        // TODO add your handling code here:
+        if(txtFldNombre.getText().equals("Ej: McDonalds")){
+            txtFldNombre.setText("");
+            txtFldNombre.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldNombreFocusGained
+
+    private void txtFldDireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldDireccionFocusGained
+        if(txtFldDireccion.getText().equals("Ej: Cuareim 1414")){
+            txtFldDireccion.setText("");
+            txtFldDireccion.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldDireccionFocusGained
+
+    private void txtFldHorarioAperturaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldHorarioAperturaFocusGained
+        if(txtFldHorarioApertura.getText().equals("Ej: 10:30")){
+            txtFldHorarioApertura.setText("");
+            txtFldHorarioApertura.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldHorarioAperturaFocusGained
+
+    private void txtFldHorarioCierreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldHorarioCierreFocusGained
+        if(txtFldHorarioCierre.getText().equals("Ej: 22:00")){
+            txtFldHorarioCierre.setText("");
+            txtFldHorarioCierre.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldHorarioCierreFocusGained
+
+    private void txtFldTipoComidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldTipoComidaFocusGained
+        if(txtFldTipoComida.getText().equals("Ej: Parrillada")){
+            txtFldTipoComida.setText("");
+            txtFldTipoComida.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_txtFldTipoComidaFocusGained
 
    private boolean verificarCampos(){
        boolean retorno = true;

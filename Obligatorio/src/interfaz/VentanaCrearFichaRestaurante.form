@@ -124,6 +124,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFldNombre">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ej: Juan"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFldNombreFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>
@@ -131,6 +140,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFldDireccion">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ej: Cuareim 1414"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFldDireccionFocusGained"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFldDireccionActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDireccion">
       <Properties>
@@ -138,6 +157,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFldHorarioApertura">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ej: 10:30"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFldHorarioAperturaFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblHorarioApertura">
       <Properties>
@@ -145,6 +173,16 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFldHorarioCierre">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ej: 22:00"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFldHorarioCierreFocusGained"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFldHorarioCierreActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblHorarioCierre">
       <Properties>
@@ -152,6 +190,15 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFldTipoComida">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ej: Parrillada"/>
+      </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFldTipoComidaFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblTipoComida">
       <Properties>
