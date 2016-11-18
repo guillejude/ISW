@@ -161,8 +161,6 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
             this.dispose();
             this.padre.setEnabled(true);
             this.padre.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "faltan campos a completar");
         }
     }//GEN-LAST:event_btnDefinirSorteoActionPerformed
 
@@ -171,9 +169,19 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbBxRestaurantesFocusLost
 
     private boolean verificarCampos() {
-        boolean retorno = true;
+        boolean retorno = false;
         if (txtFldCantGanadores.getText().isEmpty() || txtAreaDescripcionPremio.getText().isEmpty()) {
-            retorno = false;
+            JOptionPane.showMessageDialog(null, "Faltan campos a completar");
+        } else {
+            try {
+                int numero = Integer.parseInt(txtFldCantGanadores.getText());
+                if(numero>=1 && numero <= 5){
+                    retorno = true;
+                    JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser un numero entre 1 y 5");
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser un numero");
+            }
         }
         return retorno;
     }

@@ -128,7 +128,7 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
         Restaurante restaurante = sistema.buscarRestaurantePorNombre(nombre);
         ArrayList<Cliente> ganadores = restaurante.realizarSorteo();
         if(ganadores.size()!=0){
-            //mostrar en la pantalla
+            //hubo ganadores, mostrar su informacion
             String output = "";
             for(int i = 0 ; i < ganadores.size(); i++){
                 output = output + ganadores.get(i) + "\n";
