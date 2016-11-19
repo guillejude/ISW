@@ -103,9 +103,9 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(lblTitulo)
-                .addGap(40, 40, 40)
+                .addGap(53, 53, 53)
                 .addComponent(lblElegirRestaurante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
