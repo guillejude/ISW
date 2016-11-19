@@ -54,10 +54,10 @@ public class Sistema {
     }
     
     //Este metodo busca un restaurante en la lista por su nombre y en caso de encontrarlo devuelve toda la informacion de este
-    public Restaurante buscarRestaurantePorNombre(String Nombre) {
+    public Restaurante buscarRestaurantePorNombre(String nombre) {
         Restaurante ret = null;
         for(int i = 0; i < restaurantes.size(); i++){
-            if(restaurantes.get(i).getNombre()==Nombre){
+            if(restaurantes.get(i).getNombre().equals(nombre)){
                 ret = restaurantes.get(i);
             }
         }

@@ -41,6 +41,16 @@ public class Cliente {
         return "nombre: " + nombre + ", email: " + email;
     }
     
+    //Override de metodo Eguals, define que dos Clientes son iguales con igual mail
+    @Override
+    public boolean equals(Object obj) {
+        boolean retorno = false;
+        if (this.getEmail().equals(((Cliente) obj).getEmail())) {
+            retorno = true;
+        }
+        return retorno;
+    }
+    
     public boolean noEsAnonimo(){
         //retorna true si se posee informacion del cliente
         boolean retorno = true;

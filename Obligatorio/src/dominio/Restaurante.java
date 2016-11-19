@@ -120,7 +120,7 @@ public class Restaurante {
     @Override
     public boolean equals(Object obj) {
         boolean retorno = false;
-        if (this.getNombre().equals(((Restaurante) obj).getNombre())) {
+        if (this.getNombre().equals(((Restaurante) obj).getNombre()) && this.getDireccion().equals(((Restaurante) obj).getDireccion())) {
             retorno = true;
         }
         return retorno;
