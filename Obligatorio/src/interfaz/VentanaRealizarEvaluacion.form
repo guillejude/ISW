@@ -27,23 +27,25 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblElejirRestaurante" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="cmbBxRestaurantes" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                  <Component id="lblNombre" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="txtFldNombre" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
-                  <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFldEmail" min="-2" pref="139" max="-2" attributes="0"/>
-                  <Component id="lblElejirRestaurante" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFldEmail" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                  <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblReseña" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="180" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="rbtnStar1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblStarRating" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="rbtnStar2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="rbtnStar3" min="-2" max="-2" attributes="0"/>
@@ -54,19 +56,25 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblReseña" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Component id="lblRealizarEvaluacion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btnConfirmar" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
+                      <Component id="btnConfirmar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblInfoSorteo" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -77,43 +85,45 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblRealizarEvaluacion" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblStarRating" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblElejirRestaurante" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rbtnStar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbtnStar2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbtnStar3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbtnStar4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rbtnStar5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmbBxRestaurantes" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="lblNombre" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblElejirRestaurante" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="cmbBxRestaurantes" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblReseña" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="lblStarRating" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rbtnStar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbtnStar2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbtnStar3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbtnStar4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rbtnStar5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblReseña" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="txtFldNombre" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="txtFldEmail" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <Component id="lblInfoSorteo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnConfirmar" min="-2" pref="32" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -249,12 +259,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblElejirRestaurante">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Elija el Restaurante:"/>
+        <Property name="text" type="java.lang.String" value="Elija el Restaurante a Evaluar:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnConfirmar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Enviar Evaluaci&#xf3;n"/>
+        <Property name="text" type="java.lang.String" value="EVALUAR"/>
       </Properties>
       <Events>
         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfirmarMouseReleased"/>
@@ -263,9 +273,14 @@
     <Component class="javax.swing.JLabel" name="lblRealizarEvaluacion">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="1"/>
+          <Font name="Tahoma" size="15" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="REALIZAR EVALUACI&#xd3;N"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblInfoSorteo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Si desea participar de sorteos debe ingresar nombre, email y rese&#xf1;a"/>
       </Properties>
     </Component>
   </SubComponents>
