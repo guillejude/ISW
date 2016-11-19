@@ -31,11 +31,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="lblCantGanadores" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="214" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtFldCantGanadores" min="-2" pref="190" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="lblElegirRestaurante" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="cmbBxRestaurantes" min="-2" pref="119" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
@@ -60,13 +62,6 @@
                   </Group>
               </Group>
           </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="213" max="32767" attributes="0"/>
-                  <Component id="txtFldCantGanadores" min="-2" pref="190" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -79,8 +74,11 @@
                   <Component id="cmbBxRestaurantes" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblElegirRestaurante" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-              <Component id="lblCantGanadores" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblCantGanadores" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFldCantGanadores" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="lblDescripcionPremio" min="-2" max="-2" attributes="0"/>
@@ -89,13 +87,6 @@
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnDefinirSorteo" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="140" max="32767" attributes="0"/>
-                  <Component id="txtFldCantGanadores" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-              </Group>
           </Group>
       </Group>
     </DimensionLayout>
