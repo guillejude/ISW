@@ -187,7 +187,7 @@ public class Restaurante {
                     retorno.add(ganador);
                     //mandar mail a ganador
                     Mail mail = new Mail();
-                    mail.SendMail(ganador.getNombre(), ganador.getEmail(), descripcionPremio);
+                    mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio);
                 }
             }
         } else {

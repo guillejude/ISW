@@ -21,12 +21,13 @@ import javax.mail.internet.MimeMessage;
  * @author Guillermo
  */
 public class Mail {
+
     private final String usuario = "gralonsojude@gmail.com";
     private final String contraseña = "gralonsojude1";
 
-     //Metodo que envia mail a un email especifico con el texto de que gano el sorteo
+    //Metodo que envia mail a un email especifico con el texto de que gano el sorteo
     //codigo copiado de " http://panamahitek.com/javamail-enviar-correos-electronicos-desde-java/"
-    public boolean SendMail(String nombre, String email, String textoPremio) {
+    public boolean SendMail(String nombre,String restaurante, String email, String textoPremio) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -47,8 +48,7 @@ public class Mail {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));
             message.setSubject("Tu reseña te trajo suerte!");
-            message.setText(textoPremio);
-
+            message.setText("Has ganado un premio en el sorteo de " + restaurante + "!\nTu premio es: " + textoPremio);
             Transport.send(message);
             return true;
 
