@@ -15,10 +15,10 @@ import javax.swing.JOptionPane;
  * @author Guillermo
  */
 public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
+
     private JFrame padre;
     private Sistema sistema;
-    
-    
+
     //Constructor 
     public VentanaCrearFichaRestaurante(VentanaPrincipal ventanaPrincipal, Sistema sistema) {
         initComponents();
@@ -215,32 +215,31 @@ public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
 
     private void btnCrearFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFichaActionPerformed
         //Se verifica la informacion ingresada, se crea y se guarda ficha del nuevo restaurante
-        if(verificarCampos()){
-            if(this.sistema.agregarRestaurante(txtFldNombre.getText(), txtFldDireccion.getText(), txtFldHorarioApertura.getText(), txtFldHorarioCierre.getText(), txtFldTipoComida.getText())){
+        if (verificarCampos()) {
+            if (this.sistema.agregarRestaurante(txtFldNombre.getText(), txtFldDireccion.getText(), txtFldHorarioApertura.getText(), txtFldHorarioCierre.getText(), txtFldTipoComida.getText())) {
+                JOptionPane.showMessageDialog(null, "Ficha de Restaurante Creada Existosamente");
                 this.dispose();
                 this.padre.setEnabled(true);
                 this.padre.setVisible(true);
             }
-        }else{
-            JOptionPane.showMessageDialog(null, "faltan campos a completar");
         }
     }//GEN-LAST:event_btnCrearFichaActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         /*this.padre.setEnabled(true);
-        this.padre.setVisible(true);*/
+         this.padre.setVisible(true);*/
     }//GEN-LAST:event_formWindowClosed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         this.dispose();
         this.padre.setEnabled(true);
-        this.padre.setVisible(true);                             
+        this.padre.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
     private void txtFldDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldDireccionActionPerformed
-        
+
     }//GEN-LAST:event_txtFldDireccionActionPerformed
 
     private void txtFldHorarioCierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldHorarioCierreActionPerformed
@@ -249,47 +248,48 @@ public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
 
     private void txtFldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldNombreFocusGained
         // TODO add your handling code here:
-        if(txtFldNombre.getText().equals("Ej: McDonalds")){
+        if (txtFldNombre.getText().equals("Ej: McDonalds")) {
             txtFldNombre.setText("");
             txtFldNombre.setForeground(Color.black);
         }
     }//GEN-LAST:event_txtFldNombreFocusGained
 
     private void txtFldDireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldDireccionFocusGained
-        if(txtFldDireccion.getText().equals("Ej: Cuareim 1414")){
+        if (txtFldDireccion.getText().equals("Ej: Cuareim 1414")) {
             txtFldDireccion.setText("");
             txtFldDireccion.setForeground(Color.black);
         }
     }//GEN-LAST:event_txtFldDireccionFocusGained
 
     private void txtFldHorarioAperturaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldHorarioAperturaFocusGained
-        if(txtFldHorarioApertura.getText().equals("Ej: 10:30")){
+        if (txtFldHorarioApertura.getText().equals("Ej: 10:30")) {
             txtFldHorarioApertura.setText("");
             txtFldHorarioApertura.setForeground(Color.black);
         }
     }//GEN-LAST:event_txtFldHorarioAperturaFocusGained
 
     private void txtFldHorarioCierreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldHorarioCierreFocusGained
-        if(txtFldHorarioCierre.getText().equals("Ej: 22:00")){
+        if (txtFldHorarioCierre.getText().equals("Ej: 22:00")) {
             txtFldHorarioCierre.setText("");
             txtFldHorarioCierre.setForeground(Color.black);
         }
     }//GEN-LAST:event_txtFldHorarioCierreFocusGained
 
     private void txtFldTipoComidaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldTipoComidaFocusGained
-        if(txtFldTipoComida.getText().equals("Ej: Parrillada")){
+        if (txtFldTipoComida.getText().equals("Ej: Parrillada")) {
             txtFldTipoComida.setText("");
             txtFldTipoComida.setForeground(Color.black);
         }
     }//GEN-LAST:event_txtFldTipoComidaFocusGained
 
-   private boolean verificarCampos(){
-       boolean retorno = true;
-       if(txtFldNombre.getText().isEmpty() || txtFldDireccion.getText().isEmpty() || txtFldHorarioApertura.getText().isEmpty() || txtFldHorarioCierre.getText().isEmpty() || txtFldTipoComida.getText().isEmpty()){
-           retorno = false;
-       }
-       return retorno;
-   }
+    private boolean verificarCampos() {
+        boolean retorno = true;
+        if (txtFldNombre.getText().isEmpty() || txtFldDireccion.getText().isEmpty() || txtFldHorarioApertura.getText().isEmpty() || txtFldHorarioCierre.getText().isEmpty() || txtFldTipoComida.getText().isEmpty()) {
+            retorno = false;
+            JOptionPane.showMessageDialog(null, "Faltan campos a completar");
+        }
+        return retorno;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearFicha;

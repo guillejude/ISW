@@ -43,25 +43,14 @@ public class Sistema {
         }
     }
     
-     public void editarRestaurante(String original, String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){
+     public void editarRestaurante(Restaurante rest, String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){
         //edita los datos de un restaurante previamente ingresado al sistema
-        Restaurante restaurante = buscarRestaurantePorNombre(original);
+        Restaurante restaurante = rest;
         restaurante.setNombre(nombre);
         restaurante.setDireccion(direccion);
         restaurante.setHorarioAbrir(horarioApertura);
         restaurante.setHorarioCerrar(horarioCierre);
         restaurante.setTipoComida(tipoComida);
-    }
-    
-    //Este metodo busca un restaurante en la lista por su nombre y en caso de encontrarlo devuelve toda la informacion de este
-    public Restaurante buscarRestaurantePorNombre(String nombre) {
-        Restaurante ret = null;
-        for(int i = 0; i < restaurantes.size(); i++){
-            if(restaurantes.get(i).getNombre().equals(nombre)){
-                ret = restaurantes.get(i);
-            }
-        }
-        return ret;
     }
     
     

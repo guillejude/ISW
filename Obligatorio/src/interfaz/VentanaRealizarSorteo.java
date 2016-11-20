@@ -27,9 +27,9 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
         initComponents();
         this.padre = ventanaPrincipal;
         this.sistema = sistema;
-        String[] restaurantes = new String[this.sistema.getRestaurantes().size()];
+        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];
         for (int i = 0; i < restaurantes.length; i++) {
-            restaurantes[i] = this.sistema.getRestaurantes().get(i).getNombre();
+            restaurantes[i] = this.sistema.getRestaurantes().get(i);
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -125,10 +125,9 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
 
     private void btnRealizarSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarSorteoActionPerformed
         //Se realiza el sorteo con el restaurante seleccion
-        String nombre = (String) cmbBxRestaurantes.getSelectedItem();
-        Restaurante restaurante = sistema.buscarRestaurantePorNombre(nombre);
+        Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
         ArrayList<Cliente> ganadores = restaurante.realizarSorteo();
-        if(ganadores.size()!=0){
+        if(!ganadores.isEmpty()){
             //hubo ganadores, mostrar su informacion
             String output = "";
             for(int i = 0 ; i < ganadores.size(); i++){

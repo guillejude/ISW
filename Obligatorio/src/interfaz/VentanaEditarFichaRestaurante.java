@@ -18,16 +18,15 @@ import javax.swing.JOptionPane;
 public class VentanaEditarFichaRestaurante extends javax.swing.JFrame {
     private JFrame padre;
     private Sistema sistema;
-    private String nombre;
     
     //Constructor
     public VentanaEditarFichaRestaurante(VentanaPrincipal ventanaPrincipal, Sistema sistema) {
         initComponents();
         this.padre = ventanaPrincipal;
         this.sistema = sistema;
-        String[] restaurantes = new String[this.sistema.getRestaurantes().size()];
+        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];
         for(int i = 0; i<restaurantes.length; i++){
-            restaurantes[i] = this.sistema.getRestaurantes().get(i).getNombre();
+            restaurantes[i] = this.sistema.getRestaurantes().get(i);
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -184,32 +183,22 @@ public class VentanaEditarFichaRestaurante extends javax.swing.JFrame {
     private void btnCrearFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearFichaActionPerformed
         //Se verifica la informacion ingresada, se crea y se guarda ficha del nuevo restaurante
         if(verificarCampos()){
-            this.sistema.editarRestaurante(nombre, txtFldNombre.getText(), txtFldDireccion.getText(), txtFldHorarioApertura.getText(), txtFldHorarioCierre.getText(), txtFldTipoComida.getText());
+            this.sistema.editarRestaurante((Restaurante) cmbBxRestaurantes.getSelectedItem(), txtFldNombre.getText(), txtFldDireccion.getText(), txtFldHorarioApertura.getText(), txtFldHorarioCierre.getText(), txtFldTipoComida.getText());
             this.dispose();
             this.padre.setEnabled(true);
             this.padre.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "faltan campos a completar");
+            JOptionPane.showMessageDialog(null, "Faltan campos a completar");
         }
     }//GEN-LAST:event_btnCrearFichaActionPerformed
 
     private void cmbBxRestaurantesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesFocusLost
-        // TODO add your handling code here:
-        /*String nombre = (String) cmbBxRestaurantes.getSelectedItem();
-        Restaurante aEditar = this.sistema.buscarRestaurantePorNombre(nombre);
-        if(aEditar!=null){
-            txtFldNombre.setText(aEditar.getNombre());
-            txtFldDireccion.setText(aEditar.getDireccion());
-            txtFldHorarioApertura.setText(aEditar.getHorarioAbrir());
-            txtFldHorarioCierre.setText(aEditar.getHorarioCerrar());
-            txtFldTipoComida.setText(aEditar.getTipoComida());
-        }*/
+        // TODO add your handling code here
     }//GEN-LAST:event_cmbBxRestaurantesFocusLost
 
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
         // TODO add your handling code here:
-        nombre = (String) cmbBxRestaurantes.getSelectedItem();
-        Restaurante aEditar = this.sistema.buscarRestaurantePorNombre(nombre);
+        Restaurante aEditar =(Restaurante) cmbBxRestaurantes.getSelectedItem();
         if(aEditar!=null){
             txtFldNombre.setText(aEditar.getNombre());
             txtFldDireccion.setText(aEditar.getDireccion());

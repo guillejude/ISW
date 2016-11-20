@@ -21,17 +21,16 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
     private JFrame padre;
     private Sistema sistema;
-    private Restaurante aEvaluar;
     private int puntuacion;
-    
+
     //Constructor
     public VentanaRealizarEvaluacion(VentanaPrincipal ventanaPrincipal, Sistema sistema) {
         initComponents();
         this.padre = ventanaPrincipal;
         this.sistema = sistema;
-        String[] restaurantes = new String[this.sistema.getRestaurantes().size()];
-        for(int i = 0; i<restaurantes.length; i++){
-            restaurantes[i] = this.sistema.getRestaurantes().get(i).getNombre();
+        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];
+        for (int i = 0; i < restaurantes.length; i++) {
+            restaurantes[i] = this.sistema.getRestaurantes().get(i);
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -277,27 +276,18 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
     private void cmbBxRestaurantesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesFocusLost
         // TODO add your handling code here:
-        /*String nombre = (String) cmbBxRestaurantes.getSelectedItem();
-        Restaurante aEvaluar = this.sistema.buscarRestaurantePorNombre(nombre);
-        if(aEvaluar!=null){
-            txtFldNombre.setText(aEvaluar.getNombre());
-            txtFldDireccion.setText(aEvaluar.getDireccion());
-            txtFldHorarioApertura.setText(aEvaluar.getHorarioAbrir());
-            txtFldHorarioCierre.setText(aEvaluar.getHorarioCerrar());
-            txtFldTipoComida.setText(aEvaluar.getTipoComida());
-        }*/
+
     }//GEN-LAST:event_cmbBxRestaurantesFocusLost
 
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
         // TODO add your handling code here:
-        aEvaluar = this.sistema.buscarRestaurantePorNombre((String) cmbBxRestaurantes.getSelectedItem());
     }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
         this.dispose();
         this.padre.setEnabled(true);
-        this.padre.setVisible(true);   
+        this.padre.setVisible(true);
     }//GEN-LAST:event_formWindowClosing
 
     private void rbtnStar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnStar3ActionPerformed
@@ -350,15 +340,25 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
     private void btnConfirmarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarMouseReleased
         // TODO add your handling code here:
-        if(aEvaluar!=null){
-            aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), PROPERTIES, txtReseña.getText()); this.dispose();
-            JOptionPane.showMessageDialog(null, "Evaluación agregada con éxito");
-            this.dispose();
-            this.padre.setEnabled(true);
-            this.padre.setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(null, "Debe elejir un restaurante");
+        //Si la informacion que esta en los campos es la default de ejemplos, la borro
+        if(txtFldNombre.getText().equals("Ej: Juan")){
+           txtFldNombre.setText(""); 
         }
+        if(txtFldEmail.getText().equals("Ej: juan@gmail.com")){
+           txtFldEmail.setText(""); 
+        }
+        if(txtReseña.getText().equals("Ej: Me gusto mucho")){
+           txtReseña.setText(""); 
+        }
+        //realizo la evaluacion
+        Restaurante aEvaluar = (Restaurante) cmbBxRestaurantes.getSelectedItem();
+        aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), PROPERTIES, txtReseña.getText());
+        this.dispose();
+        JOptionPane.showMessageDialog(null, "Evaluación agregada con éxito");
+        this.dispose();
+        this.padre.setEnabled(true);
+        this.padre.setVisible(true);
+
     }//GEN-LAST:event_btnConfirmarMouseReleased
 
     private void rbtnStar1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnStar1MouseReleased
@@ -373,7 +373,7 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
     private void txtFldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldNombreFocusGained
         // TODO add your handling code here:
-        if(txtFldNombre.getText().equals("Ej: Juan")){
+        if (txtFldNombre.getText().equals("Ej: Juan")) {
             txtFldNombre.setText("");
             txtFldNombre.setForeground(Color.black);
         }
@@ -381,7 +381,7 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
     private void txtFldEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldEmailFocusGained
         // TODO add your handling code here:
-        if(txtFldEmail.getText().equals("Ej: juan@gmail.com")){
+        if (txtFldEmail.getText().equals("Ej: juan@gmail.com")) {
             txtFldEmail.setText("");
             txtFldEmail.setForeground(Color.black);
         }
@@ -389,13 +389,13 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
     private void txtReseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtReseñaFocusGained
         // TODO add your handling code here:
-        if(txtReseña.getText().equals("Ej: Me gusto mucho")){
+        if (txtReseña.getText().equals("Ej: Me gusto mucho")) {
             txtReseña.setText("");
             txtReseña.setForeground(Color.black);
         }
     }//GEN-LAST:event_txtReseñaFocusGained
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JComboBox<String> cmbBxRestaurantes;

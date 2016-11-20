@@ -26,9 +26,9 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
         initComponents();
         this.padre = ventanaPrincipal;
         this.sistema = sistema;
-        String[] restaurantes = new String[this.sistema.getRestaurantes().size()];
+        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];
         for (int i = 0; i < restaurantes.length; i++) {
-            restaurantes[i] = this.sistema.getRestaurantes().get(i).getNombre();
+            restaurantes[i] = this.sistema.getRestaurantes().get(i);
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
@@ -178,8 +178,7 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
     private void btnDefinirSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefinirSorteoActionPerformed
         //Se verifica la informacion ingresada y se guarda la informacion del nuevo sorteo, si ya existe uno anteriormente, se sobreescribe
         if (verificarCampos()) {
-            String nombre = (String) cmbBxRestaurantes.getSelectedItem();
-            Restaurante restaurante = sistema.buscarRestaurantePorNombre(nombre);
+            Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
             restaurante.definirSorteo(Integer.parseInt(txtFldCantGanadores.getText()), txtAreaDescripcionPremio.getText());
             JOptionPane.showMessageDialog(null, "Se definio exitosamente el sorteo");
             this.dispose();
@@ -194,16 +193,17 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
 
     private boolean verificarCampos() {
         boolean retorno = false;
-        if (txtFldCantGanadores.getText().isEmpty() || txtAreaDescripcionPremio.getText().isEmpty()) {
+        if (txtFldCantGanadores.getText().isEmpty() || txtAreaDescripcionPremio.getText().isEmpty() || txtAreaDescripcionPremio.getText().equals("Ej: Una cena para dos") || txtFldCantGanadores.getText().equals("Ej: 3")) {
             JOptionPane.showMessageDialog(null, "Faltan campos a completar");
         } else {
             try {
                 int numero = Integer.parseInt(txtFldCantGanadores.getText());
-                if(numero>=1 && numero <= 5){
+                if (numero >= 1 && numero <= 5) {
                     retorno = true;
+                } else {
                     JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser un numero entre 1 y 5");
                 }
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser un numero");
             }
         }
@@ -217,7 +217,7 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void txtAreaDescripcionPremioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaDescripcionPremioKeyPressed
-        
+
     }//GEN-LAST:event_txtAreaDescripcionPremioKeyPressed
 
     private void txtFldCantGanadoresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresKeyPressed
@@ -225,12 +225,12 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFldCantGanadoresKeyPressed
 
     private void txtFldCantGanadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresActionPerformed
-        
+
     }//GEN-LAST:event_txtFldCantGanadoresActionPerformed
 
     private void txtAreaDescripcionPremioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAreaDescripcionPremioFocusGained
         // TODO add your handling code here:
-        if(txtAreaDescripcionPremio.getText().equals("Ej: Una cena para dos")){
+        if (txtAreaDescripcionPremio.getText().equals("Ej: Una cena para dos")) {
             txtAreaDescripcionPremio.setText("");
             txtAreaDescripcionPremio.setForeground(Color.black);
         }
@@ -238,7 +238,7 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
 
     private void txtFldCantGanadoresFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresFocusGained
         // TODO add your handling code here:
-        if(txtFldCantGanadores.getText().equals("Ej: 3")){
+        if (txtFldCantGanadores.getText().equals("Ej: 3")) {
             txtFldCantGanadores.setText("");
             txtFldCantGanadores.setForeground(Color.black);
         }

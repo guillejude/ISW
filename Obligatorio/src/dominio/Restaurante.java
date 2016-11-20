@@ -19,6 +19,7 @@ public class Restaurante {
     private ArrayList<Evaluacion> evaluaciones;
     //Aqui se guardan todos los clientes que pueden participar del sorteo
     private ArrayList<Cliente> participantes;
+    //info relevante al sorteo definido por el restaurante
     private boolean estaDefinidoSorteo;
     private int cantidadGanadores;
     private String descripcionPremio;
@@ -126,6 +127,11 @@ public class Restaurante {
         return retorno;
     }
 
+    @Override
+    public String toString() {
+        return nombre + ", " + direccion;
+    }
+
     public void agregarEvaluacion(String nombre, String mail, int puntuacion, String resena) {
         //crea el cliente y si eligio no ser anonimo se guarda en la lista de clientes para participar en la rifa
         //crea la evaluacion y la guarda en la lista
@@ -146,9 +152,11 @@ public class Restaurante {
     }
 
     public ArrayList<Cliente> realizarSorteo() {
+        //realiza el sorteo con los clientes que hayan realizado evaluaciones validas hasta la fecha de realizacion del sorteo,
+        //segun los parametros definidos. Si no se definio un sorteo no se hace nada y se avisa al usuario.
         ArrayList<Cliente> retorno = new ArrayList();
         if (estaDefinidoSorteo) {
-            if (participantes.size() == 0) {
+            if (participantes.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No hay clientes participantes del sorteo");
             } else {
                 //me defino los numeros de los participantes ganadores
