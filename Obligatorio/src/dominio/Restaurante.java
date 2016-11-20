@@ -186,7 +186,8 @@ public class Restaurante {
                     //lo agrego a la lista de retorno
                     retorno.add(ganador);
                     //mandar mail a ganador
-                    
+                    Mail mail = new Mail();
+                    mail.SendMail(ganador.getNombre(), ganador.getEmail(), descripcionPremio);
                 }
             }
         } else {
