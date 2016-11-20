@@ -54,7 +54,7 @@ public class Cliente {
     public boolean noEsAnonimo(){
         //retorna true si se posee informacion del cliente
         boolean retorno = true;
-        if(this.nombre == "" && this.email == ""){
+        if(this.nombre.equals("") || this.email.equals("")){
             retorno = false;
         }
         return retorno;
