@@ -184,6 +184,7 @@ public class VentanaEditarFichaRestaurante extends javax.swing.JFrame {
         //Se verifica la informacion ingresada, se crea y se guarda ficha del nuevo restaurante
         if(verificarCampos()){
             this.sistema.editarRestaurante((Restaurante) cmbBxRestaurantes.getSelectedItem(), txtFldNombre.getText(), txtFldDireccion.getText(), txtFldHorarioApertura.getText(), txtFldHorarioCierre.getText(), txtFldTipoComida.getText());
+            JOptionPane.showMessageDialog(null, "Restaurante Editado Exitosamente");
             this.dispose();
             this.padre.setEnabled(true);
             this.padre.setVisible(true);

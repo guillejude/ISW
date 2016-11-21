@@ -8,6 +8,8 @@ package interfaz;
 import dominio.Restaurante;
 import dominio.Sistema;
 import java.awt.Color;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -340,24 +342,17 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 
     private void btnConfirmarMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmarMouseReleased
         // TODO add your handling code here:
-        //Si la informacion que esta en los campos es la default de ejemplos, la borro
-        if(txtFldNombre.getText().equals("Ej: Juan")){
-           txtFldNombre.setText(""); 
-        }
-        if(txtFldEmail.getText().equals("Ej: juan@gmail.com")){
-           txtFldEmail.setText(""); 
-        }
-        if(txtReseña.getText().equals("Ej: Me gusto mucho")){
-           txtReseña.setText(""); 
-        }
         //realizo la evaluacion
-        Restaurante aEvaluar = (Restaurante) cmbBxRestaurantes.getSelectedItem();
-        aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), PROPERTIES, txtReseña.getText());
-        this.dispose();
-        JOptionPane.showMessageDialog(null, "Evaluación agregada con éxito");
-        this.dispose();
-        this.padre.setEnabled(true);
-        this.padre.setVisible(true);
+        if (validarCampos()) {
+            Restaurante aEvaluar = (Restaurante) cmbBxRestaurantes.getSelectedItem();
+            aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), PROPERTIES, txtReseña.getText());
+            this.dispose();
+            JOptionPane.showMessageDialog(null, "Evaluación agregada con éxito");
+            this.dispose();
+            this.padre.setEnabled(true);
+            this.padre.setVisible(true);
+        }
+
 
     }//GEN-LAST:event_btnConfirmarMouseReleased
 
@@ -395,6 +390,30 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtReseñaFocusGained
 
+    public boolean validarCampos(){
+        //Si la informacion que esta en los campos es la default de ejemplos, la borro
+        if (txtFldNombre.getText().equals("Ej: Juan")) {
+            txtFldNombre.setText("");
+        }
+        if (txtFldEmail.getText().equals("Ej: juan@gmail.com")) {
+            txtFldEmail.setText("");
+        }
+        if (txtReseña.getText().equals("Ej: Me gusto mucho")) {
+            txtReseña.setText("");
+        }
+        //Si escribio algun tipo de mail, lo verfico
+        try{
+           InternetAddress address = new InternetAddress(txtFldEmail.getText()); 
+           if(!txtFldEmail.getText().isEmpty()){
+               address.validate();
+           }
+           return true;
+        }catch (AddressException e){
+           JOptionPane.showMessageDialog(null, "Email no valido");
+           return false;
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;

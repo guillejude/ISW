@@ -37,20 +37,18 @@ public class Sistema {
             restaurantes.add(restaurante);
             return true;
         }else{
-            //ya existe, no se agrega y se avisa al usuario 
-            JOptionPane.showMessageDialog(null, "Ya se encuentra creado el restaurante");
+            //ya existe, no se agrega
             return false;
         }
     }
     
      public void editarRestaurante(Restaurante rest, String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){
         //edita los datos de un restaurante previamente ingresado al sistema
-        Restaurante restaurante = rest;
-        restaurante.setNombre(nombre);
-        restaurante.setDireccion(direccion);
-        restaurante.setHorarioAbrir(horarioApertura);
-        restaurante.setHorarioCerrar(horarioCierre);
-        restaurante.setTipoComida(tipoComida);
+        rest.setNombre(nombre);
+        rest.setDireccion(direccion);
+        rest.setHorarioAbrir(horarioApertura);
+        rest.setHorarioCerrar(horarioCierre);
+        rest.setTipoComida(tipoComida);
     }
     
     

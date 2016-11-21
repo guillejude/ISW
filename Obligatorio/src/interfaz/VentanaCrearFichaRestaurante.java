@@ -221,6 +221,8 @@ public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
                 this.dispose();
                 this.padre.setEnabled(true);
                 this.padre.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Ya se encuentra creado el restaurante");
             }
         }
     }//GEN-LAST:event_btnCrearFichaActionPerformed
