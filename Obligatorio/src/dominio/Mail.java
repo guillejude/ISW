@@ -13,6 +13,7 @@ import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -44,6 +45,8 @@ public class Mail {
         try {
 
             Message message = new MimeMessage(session);
+            //InternetAddress address = new InternetAddress(email);
+            //address.validate();
             message.setFrom(new InternetAddress(usuario));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(email));

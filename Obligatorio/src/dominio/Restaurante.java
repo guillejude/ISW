@@ -34,6 +34,8 @@ public class Restaurante {
         this.evaluaciones = new ArrayList();
         this.participantes = new ArrayList();
         this.estaDefinidoSorteo = false;
+        this.cantidadGanadores = 0;
+        this.descripcionPremio = "";
     }
 
     //Metodos Getters y Setter
@@ -179,14 +181,14 @@ public class Restaurante {
                         numerosGanadores.add(numeroAzar);
                     }
                 }
-                //aviso a ganadores
+                //aviso a ganadores y guardo para el retorno
+                Mail mail = new Mail();
                 for (int i = 0; i < cantGanadores; i++) {
                     int numero = numerosGanadores.get(i);
                     Cliente ganador = participantes.get(numero);
                     //lo agrego a la lista de retorno
                     retorno.add(ganador);
                     //mandar mail a ganador
-                    Mail mail = new Mail();
                     mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio);
                 }
             }

@@ -198,10 +198,10 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
         } else {
             try {
                 int numero = Integer.parseInt(txtFldCantGanadores.getText());
-                if (numero >= 1 && numero <= 5) {
+                if (numero > 0) {
                     retorno = true;
                 } else {
-                    JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser un numero entre 1 y 5");
+                    JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser positivo");
                 }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser un numero");

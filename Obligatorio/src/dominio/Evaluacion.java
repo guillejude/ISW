@@ -5,6 +5,8 @@
  */
 package dominio;
 
+import java.util.Objects;
+
 /**
  *
  * @author pepe1
@@ -46,5 +48,13 @@ public class Evaluacion {
         this.resena = resena;
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        boolean retorno = false;
+        if (this.getCliente().equals(((Evaluacion) obj).getCliente()) && this.getPuntuacion()==((Evaluacion) obj).getPuntuacion() && this.getResena().equals(((Evaluacion) obj).getResena())) {
+            retorno = true;
+        }
+        return retorno;
+    }
     
 }
