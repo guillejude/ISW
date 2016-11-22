@@ -132,8 +132,8 @@ public class Sorteo {
                     //ganan algunos al azar
 <span class="fc bfc" id="L133" title="All 2 branches covered.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
 <span class="fc" id="L134">                        int numeroAzar = rand.nextInt(cantParticipantes);</span>
-<span class="fc bfc" id="L135" title="All 2 branches covered.">                        while (numerosGanadores.contains(numeroAzar)) {</span>
-<span class="fc" id="L136">                            numeroAzar = rand.nextInt(cantParticipantes);</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">                        while (numerosGanadores.contains(numeroAzar)) {</span>
+<span class="nc" id="L136">                            numeroAzar = rand.nextInt(cantParticipantes);</span>
                         }
 <span class="fc" id="L138">                        numerosGanadores.add(numeroAzar);</span>
                     }
