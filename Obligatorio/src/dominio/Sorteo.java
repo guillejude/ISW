@@ -116,7 +116,7 @@ public class Sorteo {
         ArrayList<Cliente> retorno = new ArrayList();
         if (!realizado) {
             if (participantes.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No hay clientes participantes del sorteo");
+                //JOptionPane.showMessageDialog(null, "No hay clientes participantes del sorteo");
             } else {
                 //me defino los numeros de los participantes ganadores
                 Random rand = new Random();
@@ -155,8 +155,6 @@ public class Sorteo {
                     }
                 }
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Este restaurante no tiene definido ningun sorteo");
         }
         return retorno;
     }

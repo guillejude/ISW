@@ -19,213 +19,24 @@ import static org.junit.Assert.*;
  * @author Guillermo
  */
 public class SorteoTest {
-    
+
     public SorteoTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
-    }
-
-    /**
-     * Test of getNombre method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testGetNombre() {
-        System.out.println("getNombre");
-        Sorteo instance = null;
-        String expResult = "";
-        String result = instance.getNombre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setNombre method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testSetNombre() {
-        System.out.println("setNombre");
-        String nombre = "";
-        Sorteo instance = null;
-        instance.setNombre(nombre);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getParticipantes method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testGetParticipantes() {
-        System.out.println("getParticipantes");
-        Sorteo instance = null;
-        ArrayList<Cliente> expResult = null;
-        ArrayList<Cliente> result = instance.getParticipantes();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setParticipantes method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testSetParticipantes() {
-        System.out.println("setParticipantes");
-        ArrayList<Cliente> participantes = null;
-        Sorteo instance = null;
-        instance.setParticipantes(participantes);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of isRealizado method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testIsRealizado() {
-        System.out.println("isRealizado");
-        Sorteo instance = null;
-        boolean expResult = false;
-        boolean result = instance.isRealizado();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setRealizado method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testSetRealizado() {
-        System.out.println("setRealizado");
-        boolean realizado = false;
-        Sorteo instance = null;
-        instance.setRealizado(realizado);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getCantidadGanadores method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testGetCantidadGanadores() {
-        System.out.println("getCantidadGanadores");
-        Sorteo instance = null;
-        int expResult = 0;
-        int result = instance.getCantidadGanadores();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setCantidadGanadores method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testSetCantidadGanadores() {
-        System.out.println("setCantidadGanadores");
-        int cantidadGanadores = 0;
-        Sorteo instance = null;
-        instance.setCantidadGanadores(cantidadGanadores);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getDescripcionPremio method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testGetDescripcionPremio() {
-        System.out.println("getDescripcionPremio");
-        Sorteo instance = null;
-        String expResult = "";
-        String result = instance.getDescripcionPremio();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setDescripcionPremio method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testSetDescripcionPremio() {
-        System.out.println("setDescripcionPremio");
-        String descripcionPremio = "";
-        Sorteo instance = null;
-        instance.setDescripcionPremio(descripcionPremio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getFechaInicio method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testGetFechaInicio() {
-        System.out.println("getFechaInicio");
-        Sorteo instance = null;
-        Date expResult = null;
-        Date result = instance.getFechaInicio();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setFechaInicio method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testSetFechaInicio() {
-        System.out.println("setFechaInicio");
-        Date fechaInicio = null;
-        Sorteo instance = null;
-        instance.setFechaInicio(fechaInicio);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getFechaFin method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testGetFechaFin() {
-        System.out.println("getFechaFin");
-        Sorteo instance = null;
-        Date expResult = null;
-        Date result = instance.getFechaFin();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setFechaFin method, of class Sorteo.
-     */
-    @org.junit.Test
-    public void testSetFechaFin() {
-        System.out.println("setFechaFin");
-        Date fechaFin = null;
-        Sorteo instance = null;
-        instance.setFechaFin(fechaFin);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -233,27 +44,90 @@ public class SorteoTest {
      */
     @org.junit.Test
     public void testToString() {
-        System.out.println("toString");
-        Sorteo instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("test toString");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertEquals("Pizza", sorteo.toString());
+    }
+
+    /**
+     * Test of equals method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testEquals() {
+        System.out.println("test equals");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        Sorteo sorteo2 = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertEquals(sorteo, sorteo2);
     }
 
     /**
      * Test of realizarSorteo method, of class Sorteo.
      */
     @org.junit.Test
-    public void testRealizarSorteo() {
-        System.out.println("realizarSorteo");
-        Sorteo instance = null;
-        ArrayList<Cliente> expResult = null;
-        ArrayList<Cliente> result = instance.realizarSorteo();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testRealizarSorteoConParticipante() {
+        System.out.println("test realizarSorteo con participante");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        //Agrego participantes
+        Cliente cliente = new Cliente("Juan", "juan@hotmail.com");
+        sorteo.getParticipantes().add(cliente);
+        //ganadores del sorteo tendria que quedar
+        ArrayList<Cliente> ganadores = new ArrayList();
+        ganadores.add(cliente);
+        //pruebo
+        assertEquals(ganadores, sorteo.realizarSorteo());
     }
-    
+
+    @Test
+    public void testRealizarSorteoConMasParticipantesQueGanadores() {
+        System.out.println("test realizarSorteo con mas participantes que ganadores");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 2, "Pizza", inicio, fin);
+        //Agrego participantesa
+        Cliente cliente1 = new Cliente("Juan", "juan@hotmail.com");
+        Cliente cliente2 = new Cliente("A", "juan@hotmail.com");
+        Cliente cliente3 = new Cliente("B", "juan@hotmail.com");
+        Cliente cliente4 = new Cliente("C", "juan@hotmail.com");
+        sorteo.getParticipantes().add(cliente1);
+        sorteo.getParticipantes().add(cliente2);
+        sorteo.getParticipantes().add(cliente3);
+        sorteo.getParticipantes().add(cliente4);
+        //pruebo que hay dos ganadores
+        assertEquals(2, sorteo.realizarSorteo().size());
+    }
+
+    @Test
+    public void testRealizarSorteoConParticipantesSorteoYaRealizado() {
+        System.out.println("test realizarSorteo con participantes pero con sorteo ya realizado");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        //Agrego participantes
+        Cliente cliente = new Cliente("Juan", "juan@hotmail.com");
+        sorteo.getParticipantes().add(cliente);
+        //ganadores del sorteo tendria que quedar
+        ArrayList<Cliente> ganadores = new ArrayList();
+        //pruebo
+        sorteo.realizarSorteo();
+        assertEquals(ganadores, sorteo.realizarSorteo());
+    }
+
+
+    @Test
+    public void testRealizarSorteoSinParticipantes() {
+        System.out.println("test realizarSorteo sin participantes");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        //ganadores del sorteo tendria que quedar
+        ArrayList<Cliente> ganadores = new ArrayList();
+        //pruebo
+        assertEquals(ganadores, sorteo.realizarSorteo());
+    }
 }

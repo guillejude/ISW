@@ -34,6 +34,16 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
             restaurantes[i] = this.sistema.getRestaurantes().get(i);
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
+        Restaurante restaurante = this.sistema.getRestaurantes().get(0);
+        Sorteo[] sorteos = new Sorteo[restaurante.getSorteos().size()];
+        for (int i = 0; i < sorteos.length; i++) {
+            Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(i);
+            if (!elSorteo.isRealizado()) {
+                sorteos[i] = (Sorteo) restaurante.getSorteos().get(i);
+            }
+        }
+        cmbBxSorteos.setModel(new DefaultComboBoxModel(sorteos));
+
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
@@ -52,6 +62,7 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
         lblCantGanadores = new javax.swing.JLabel();
         cmbBxRestaurantes = new javax.swing.JComboBox<String>();
         cmbBxSorteos = new javax.swing.JComboBox<String>();
+        LblElegirRestaurante = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -78,13 +89,23 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
                 cmbBxRestaurantesFocusLost(evt);
             }
         });
+        cmbBxRestaurantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbBxRestaurantesActionPerformed(evt);
+            }
+        });
 
         cmbBxSorteos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Elija un Restaurant" }));
         cmbBxSorteos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                cmbBxSorteosFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 cmbBxSorteosFocusLost(evt);
             }
         });
+
+        LblElegirRestaurante.setText("Elegir sorteo (si aparece en blanco no hay sorteos)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -93,18 +114,21 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(lblTitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(btnRealizarSorteo))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(81, 81, 81)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblElegirRestaurante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmbBxRestaurantes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(cmbBxSorteos, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(lblTitulo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(btnRealizarSorteo)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addGap(54, 54, 54)
+                        .addComponent(LblElegirRestaurante)))
+                .addContainerGap(54, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -116,13 +140,15 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblTitulo)
-                .addGap(53, 53, 53)
+                .addGap(38, 38, 38)
                 .addComponent(lblElegirRestaurante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(LblElegirRestaurante)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cmbBxSorteos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(btnRealizarSorteo)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,37 +165,30 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
     private void btnRealizarSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarSorteoActionPerformed
         //Se realiza el sorteo con el restaurante seleccion
         Sorteo sorteo = (Sorteo) cmbBxSorteos.getSelectedItem();
-        
-        if(sorteo!=null){
-        ArrayList<Cliente> ganadores = sorteo.realizarSorteo();
-        if(!ganadores.isEmpty()){
-            //hubo ganadores, mostrar su informacion
-            String output = "";
-            for(int i = 0 ; i < ganadores.size(); i++){
-                output = output + ganadores.get(i) + "\n";
+        if (sorteo != null) {
+            if (!sorteo.getParticipantes().isEmpty()) {
+                ArrayList<Cliente> ganadores = sorteo.realizarSorteo();
+                if (!ganadores.isEmpty()) {
+                    //hubo ganadores, mostrar su informacion
+                    String output = "";
+                    for (int i = 0; i < ganadores.size(); i++) {
+                        output = output + ganadores.get(i) + "\n";
+                    }
+                    JOptionPane.showMessageDialog(null, output);
+                    this.dispose();
+                    this.padre.setEnabled(true);
+                    this.padre.setVisible(true);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay clientes participantes del sorteo");
             }
-            JOptionPane.showMessageDialog(null, output);
-            this.dispose();
-            this.padre.setEnabled(true);
-            this.padre.setVisible(true);
-        }
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Debe elejir un sorteo");
         }
     }//GEN-LAST:event_btnRealizarSorteoActionPerformed
 
     private void cmbBxRestaurantesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesFocusLost
-        Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
-        //carga el combobox de sorteos con todos los sorteos disponibles para el restaurante seleccionado
-        Sorteo[] sorteos = new Sorteo[restaurante.getSorteos().size()];
-        for (int i = 0; i < sorteos.length; i++) {
-            Sorteo elSorteo =(Sorteo) restaurante.getSorteos().get(i);
-            if(!elSorteo.isRealizado()){
-                sorteos[i] = (Sorteo) restaurante.getSorteos().get(i);
-            }
-        }
-        cmbBxSorteos.setModel(new DefaultComboBoxModel(sorteos));
+
     }//GEN-LAST:event_cmbBxRestaurantesFocusLost
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -183,8 +202,28 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbBxSorteosFocusLost
 
+    private void cmbBxSorteosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbBxSorteosFocusGained
+  
+
+    }//GEN-LAST:event_cmbBxSorteosFocusGained
+
+    private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
+         // TODO add your handling code here:
+        Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
+        //carga el combobox de sorteos con todos los sorteos disponibles para el restaurante seleccionado
+        Sorteo[] sorteos = new Sorteo[restaurante.getSorteos().size()];
+        for (int i = 0; i < sorteos.length; i++) {
+            Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(i);
+            if (!elSorteo.isRealizado()) {
+                sorteos[i] = (Sorteo) restaurante.getSorteos().get(i);
+            }
+        }
+        cmbBxSorteos.setModel(new DefaultComboBoxModel(sorteos));
+    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LblElegirRestaurante;
     private javax.swing.JButton btnRealizarSorteo;
     private javax.swing.JComboBox<String> cmbBxRestaurantes;
     private javax.swing.JComboBox<String> cmbBxSorteos;

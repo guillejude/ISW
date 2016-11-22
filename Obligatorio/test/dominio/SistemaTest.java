@@ -43,13 +43,10 @@ public class SistemaTest {
      */
     @Test
     public void testGetRestaurantes() {
-        System.out.println("getRestaurantes");
-        Sistema instance = new Sistema();
-        ArrayList<Restaurante> expResult = null;
-        ArrayList<Restaurante> result = instance.getRestaurantes();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println(" testgetRestaurantes");
+        Sistema sistema = new Sistema();
+        ArrayList<Restaurante> restaurantes = new ArrayList();
+        assertEquals(restaurantes, sistema.getRestaurantes());
     }
 
     /**
@@ -57,49 +54,56 @@ public class SistemaTest {
      */
     @Test
     public void testSetRestaurantes() {
-        System.out.println("setRestaurantes");
-        ArrayList<Restaurante> restaurantes = null;
-        Sistema instance = new Sistema();
-        instance.setRestaurantes(restaurantes);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("test setRestaurantes");
+        Sistema sistema = new Sistema();
+        ArrayList<Restaurante> restaurantes = new ArrayList();
+        Restaurante restaurante = new Restaurante("", "", "", "", "");
+        restaurantes.add(restaurante);
+        sistema.setRestaurantes(restaurantes);
+        assertEquals(restaurantes, sistema.getRestaurantes());
     }
 
     /**
      * Test of agregarRestaurante method, of class Sistema.
      */
     @Test
-    public void testAgregarRestaurante() {
-        System.out.println("agregarRestaurante");
-        String nombre = "";
-        String direccion = "";
-        String horarioApertura = "";
-        String horarioCierre = "";
-        String tipoComida = "";
-        Sistema instance = new Sistema();
-        boolean expResult = false;
-        boolean result = instance.agregarRestaurante(nombre, direccion, horarioApertura, horarioCierre, tipoComida);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testAgregarRestauranteNuevo() {
+        System.out.println("test agregarRestaurante nuevo");
+        Sistema sistema = new Sistema();
+        ArrayList<Restaurante> restaurantes = new ArrayList();
+        Restaurante restaurante = new Restaurante("", "", "", "", "");
+        restaurantes.add(restaurante);
+        sistema.agregarRestaurante("", "", "", "", "");
+        assertEquals(restaurantes, sistema.getRestaurantes());
     }
 
+    @Test
+    public void testAgregarRestauranteExistente() {
+        System.out.println("test agregarRestaurante nuevo");
+        Sistema sistema = new Sistema();
+        ArrayList<Restaurante> restaurantes = new ArrayList();
+        Restaurante restaurante = new Restaurante("", "", "", "", "");
+        restaurantes.add(restaurante);
+        sistema.agregarRestaurante("", "", "", "", "");
+        //no se agrega
+        sistema.agregarRestaurante("", "", "", "", "");
+        assertEquals(restaurantes, sistema.getRestaurantes());
+    }
+    
     /**
      * Test of editarRestaurante method, of class Sistema.
      */
     @Test
     public void testEditarRestaurante() {
-        System.out.println("editarRestaurante");
-        Restaurante rest = null;
-        String nombre = "";
-        String direccion = "";
-        String horarioApertura = "";
-        String horarioCierre = "";
-        String tipoComida = "";
-        Sistema instance = new Sistema();
-        instance.editarRestaurante(rest, nombre, direccion, horarioApertura, horarioCierre, tipoComida);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("test editarRestaurante");
+        Sistema sistema = new Sistema();
+        ArrayList<Restaurante> restaurantes = new ArrayList();
+        Restaurante restaurante = new Restaurante("McDonalds", "", "", "", "");
+        restaurantes.add(restaurante);
+        sistema.agregarRestaurante("Pasiva", "", "", "", "");
+        Restaurante aEditar = sistema.getRestaurantes().get(0);
+        sistema.editarRestaurante(aEditar, "McDonalds", "", "", "", "");
+        assertEquals(restaurantes, sistema.getRestaurantes());
     }
     
 }

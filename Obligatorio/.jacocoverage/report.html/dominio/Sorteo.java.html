@@ -99,7 +99,7 @@ public class Sorteo {
     
     @Override
     public String toString() {
-<span class="nc" id="L102">        return nombre;</span>
+<span class="fc" id="L102">        return nombre;</span>
     }
 
 
@@ -113,52 +113,50 @@ public class Sorteo {
     public ArrayList&lt;Cliente&gt; realizarSorteo() {
         //realiza el sorteo con los clientes que hayan realizado evaluaciones validas hasta la fecha de realizacion del sorteo,
         //segun los parametros definidos. Si no se definio un sorteo no se hace nada y se avisa al usuario.
-<span class="nc" id="L116">        ArrayList&lt;Cliente&gt; retorno = new ArrayList();</span>
-<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (!realizado) {</span>
-<span class="nc bnc" id="L118" title="All 2 branches missed.">            if (participantes.isEmpty()) {</span>
-<span class="nc" id="L119">                JOptionPane.showMessageDialog(null, &quot;No hay clientes participantes del sorteo&quot;);</span>
+<span class="fc" id="L116">        ArrayList&lt;Cliente&gt; retorno = new ArrayList();</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        if (!realizado) {</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">            if (participantes.isEmpty()) {</span>
+                //JOptionPane.showMessageDialog(null, &quot;No hay clientes participantes del sorteo&quot;);
             } else {
                 //me defino los numeros de los participantes ganadores
-<span class="nc" id="L122">                Random rand = new Random();</span>
-<span class="nc" id="L123">                int cantParticipantes = participantes.size();</span>
-<span class="nc" id="L124">                int cantGanadores = Math.min(cantidadGanadores, cantParticipantes);</span>
-<span class="nc" id="L125">                ArrayList&lt;Integer&gt; numerosGanadores = new ArrayList(cantGanadores);</span>
-<span class="nc bnc" id="L126" title="All 2 branches missed.">                if (cantParticipantes &lt;= cantGanadores) {</span>
+<span class="fc" id="L122">                Random rand = new Random();</span>
+<span class="fc" id="L123">                int cantParticipantes = participantes.size();</span>
+<span class="fc" id="L124">                int cantGanadores = Math.min(cantidadGanadores, cantParticipantes);</span>
+<span class="fc" id="L125">                ArrayList&lt;Integer&gt; numerosGanadores = new ArrayList(cantGanadores);</span>
+<span class="fc bfc" id="L126" title="All 2 branches covered.">                if (cantParticipantes &lt;= cantGanadores) {</span>
                     //ganan todos
-<span class="nc bnc" id="L128" title="All 2 branches missed.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
-<span class="nc" id="L129">                        numerosGanadores.add(i);</span>
+<span class="fc bfc" id="L128" title="All 2 branches covered.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
+<span class="fc" id="L129">                        numerosGanadores.add(i);</span>
                     }
                 } else {
                     //ganan algunos al azar
-<span class="nc bnc" id="L133" title="All 2 branches missed.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
-<span class="nc" id="L134">                        int numeroAzar = rand.nextInt(cantParticipantes);</span>
-<span class="nc bnc" id="L135" title="All 2 branches missed.">                        while (numerosGanadores.contains(numeroAzar)) {</span>
-<span class="nc" id="L136">                            numeroAzar = rand.nextInt(cantParticipantes);</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
+<span class="fc" id="L134">                        int numeroAzar = rand.nextInt(cantParticipantes);</span>
+<span class="fc bfc" id="L135" title="All 2 branches covered.">                        while (numerosGanadores.contains(numeroAzar)) {</span>
+<span class="fc" id="L136">                            numeroAzar = rand.nextInt(cantParticipantes);</span>
                         }
-<span class="nc" id="L138">                        numerosGanadores.add(numeroAzar);</span>
+<span class="fc" id="L138">                        numerosGanadores.add(numeroAzar);</span>
                     }
                 }
                 //aviso a ganadores y guardo para el retorno
-<span class="nc" id="L142">                Mail mail = new Mail();</span>
-<span class="nc bnc" id="L143" title="All 2 branches missed.">                for (int i = 0; i &lt; cantGanadores; i++) {</span>
-<span class="nc" id="L144">                    int numero = numerosGanadores.get(i);</span>
-<span class="nc" id="L145">                    Cliente ganador = participantes.get(numero);</span>
+<span class="fc" id="L142">                Mail mail = new Mail();</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">                for (int i = 0; i &lt; cantGanadores; i++) {</span>
+<span class="fc" id="L144">                    int numero = numerosGanadores.get(i);</span>
+<span class="fc" id="L145">                    Cliente ganador = participantes.get(numero);</span>
                     //lo agrego a la lista de retorno
-<span class="nc" id="L147">                    retorno.add(ganador);</span>
-<span class="nc" id="L148">                    this.ganadores.add(ganador);</span>
+<span class="fc" id="L147">                    retorno.add(ganador);</span>
+<span class="fc" id="L148">                    this.ganadores.add(ganador);</span>
                     //mandar mail a ganador
-<span class="nc bnc" id="L150" title="All 2 branches missed.">                    if(mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio)){</span>
-<span class="nc" id="L151">                        this.realizado = true;</span>
+<span class="pc bpc" id="L150" title="1 of 2 branches missed.">                    if(mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio)){</span>
+<span class="fc" id="L151">                        this.realizado = true;</span>
                     }
                     else{
 <span class="nc" id="L154">                        JOptionPane.showMessageDialog(null, &quot;Hubo un error en el envio del correo, verifique su conexión&quot;);</span>
                     }
                 }
-<span class="nc" id="L157">            }</span>
-        } else {
-<span class="nc" id="L159">            JOptionPane.showMessageDialog(null, &quot;Este restaurante no tiene definido ningun sorteo&quot;);</span>
+            }
         }
-<span class="nc" id="L161">        return retorno;</span>
+<span class="fc" id="L159">        return retorno;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

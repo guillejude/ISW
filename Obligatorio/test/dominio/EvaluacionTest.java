@@ -107,4 +107,47 @@ public class EvaluacionTest {
         assertEquals("Meh", evaluacion.getResena());
     }
     
+    /**
+     * Test of equals method, of class Evaluacion.
+     */
+    @Test
+    public void testEqualsIguales() {
+        System.out.println("Test equals iguales");
+        Cliente cliente = new Cliente("Juan", "juan@gmail.com");
+        Cliente cliente2 = new Cliente("Juan", "juan@gmail.com");
+        Evaluacion evaluacion = new Evaluacion(cliente, 3, "Bueno");
+        Evaluacion evaluacion2 = new Evaluacion(cliente2, 3, "Bueno");
+        assertTrue(evaluacion.equals(evaluacion2));
+    }
+    
+    @Test
+    public void testEqualsNoIgualesResena() {
+        System.out.println("Test equals no iguales");
+        Cliente cliente = new Cliente("Juan", "juan@gmail.com");
+        Cliente cliente2 = new Cliente("Juan", "juan@gmail.com");
+        Evaluacion evaluacion = new Evaluacion(cliente, 3, "Bueno");
+        Evaluacion evaluacion2 = new Evaluacion(cliente2, 3, "Malo");
+        assertFalse(evaluacion.equals(evaluacion2));
+    }
+    
+    @Test
+    public void testEqualsNoIgualesPuntaje() {
+        System.out.println("Test equals no iguales");
+        Cliente cliente = new Cliente("Juan", "juan@gmail.com");
+        Cliente cliente2 = new Cliente("Martin", "martin@gmail.com");
+        Evaluacion evaluacion = new Evaluacion(cliente, 3, "Bueno");
+        Evaluacion evaluacion2 = new Evaluacion(cliente2, 3, "Bueno");
+        assertFalse(evaluacion.equals(evaluacion2));
+    }
+    
+    @Test
+    public void testEqualsNoIgualesClientes() {
+        System.out.println("Test equals no iguales");
+        Cliente cliente = new Cliente("Juan", "juan@gmail.com");
+        Cliente cliente2 = new Cliente("Juan", "juan@gmail.com");
+        Evaluacion evaluacion = new Evaluacion(cliente, 3, "Bueno");
+        Evaluacion evaluacion2 = new Evaluacion(cliente2, 4, "Bueno");
+        assertFalse(evaluacion.equals(evaluacion2));
+    }
+    
 }

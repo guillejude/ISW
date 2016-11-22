@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="GUILLE" name="dominio.RestauranteTest" skipped="0" tests="26" time="0.208" timestamp="2016-11-22T20:37:04">
+<testsuite errors="0" failures="0" hostname="GUILLE" name="dominio.RestauranteTest" skipped="0" tests="26" time="0.148" timestamp="2016-11-22T22:08:09">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="ant.file.Obligatorio" value="C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build.xml" />
@@ -38,7 +38,7 @@
     <property name="user.name" value="Guillermo" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dominio.RestauranteTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\test\results\TEST-dominio.RestauranteTest.xml crashfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junitvmwatcher8346617277619909996.properties propsfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junit7689496370041213542.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dominio.RestauranteTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\test\results\TEST-dominio.RestauranteTest.xml crashfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junitvmwatcher8702045003741965027.properties propsfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junit7695089365744925741.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -167,6 +167,7 @@
     <property name="org.openide.major.version" value="IDE/1" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
     <property name="netbeans.user" value="C:\Users\Guillermo\AppData\Roaming\NetBeans\8.0.2" />
+    <property name="tests.failed" value="true" />
     <property name="javadoc.additionalparam" value="" />
     <property name="java.io.tmpdir" value="C:\Users\GUILLE~1\AppData\Local\Temp\" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
@@ -183,6 +184,7 @@
     <property name="javadoc.encoding.used" value="UTF-8" />
     <property name="dist.jar" value="dist/Obligatorio.jar" />
     <property name="libs.spring-framework400.maven-pom" value="" />
+    <property name="netbeans.automatic.build" value="true" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="Obligatorio" />
     <property name="netbeans.hash.code" value="unique=NB_EXTIDE_JAVA0ecddc53b-8286-4633-8287-727a0f5319c0_81c78419-54b8-4997-b74c-53d848d53538" />
@@ -284,7 +286,7 @@
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 8.0.2\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 8.0.2\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
-    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\Guillermo\AppData\Roaming\NetBeans\8.0.2\modules\ext\jacocoagent.jar&quot;=includes=defaultpackage.*:dominio.*:interfaz.*,destfile=&quot;C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\jacoco.exec-276645694994767&quot;" />
+    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\Guillermo\AppData\Roaming\NetBeans\8.0.2\modules\ext\jacocoagent.jar&quot;=includes=defaultpackage.*:dominio.*:interfaz.*,destfile=&quot;C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\jacoco.exec-282110623627975&quot;" />
     <property name="libs.hibernate4-persistence.classpath" value="C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
     <property name="dist.archive.excludes" value="" />
     <property name="libs.JAXB-ENDORSED.src" value="" />
@@ -307,58 +309,58 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="dominio.RestauranteTest" name="testGetHorarioCerrar" time="0.006" />
+  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteNuevoConResena" time="0.011" />
+  <testcase classname="dominio.RestauranteTest" name="testEqualsMismoNombreDistintaDireccion" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteExistenteSinResena" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteAnonimoSinResena" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testEqualsDistintoNombreDistintaDireccion" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteAnonimoConResena" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testEqualsDistintoNombreMismaDireccion" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteExistenteConResena" time="0.001" />
+  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteNuevoSinResena" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testGetEvaluaciones" time="0.001" />
+  <testcase classname="dominio.RestauranteTest" name="testGetHorarioCerrar" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testDefinirSorteo" time="0.001" />
   <testcase classname="dominio.RestauranteTest" name="testEqualsMismoNombreDireccion" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testSetHorarioCerrar" time="0.001" />
-  <testcase classname="dominio.RestauranteTest" name="testGetHorarioAbrir" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testSetEvaluaciones" time="0.055" />
-  <testcase classname="dominio.RestauranteTest" name="testSetHorarioAbrir" time="0.0" />
   <testcase classname="dominio.RestauranteTest" name="testGetTipoComida" time="0.0" />
   <testcase classname="dominio.RestauranteTest" name="testSetTipoComida" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testDefinirSorteo" time="0.011" />
-  <testcase classname="dominio.RestauranteTest" name="testGetEvaluaciones" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testSetEvaluaciones" time="0.001" />
+  <testcase classname="dominio.RestauranteTest" name="testGetHorarioAbrir" time="0.0" />
+  <testcase classname="dominio.RestauranteTest" name="testSetHorarioAbrir" time="0.001" />
+  <testcase classname="dominio.RestauranteTest" name="testSetHorarioCerrar" time="0.001" />
   <testcase classname="dominio.RestauranteTest" name="testSetNombre" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testGetDireccion" time="0.001" />
   <testcase classname="dominio.RestauranteTest" name="testGetNombre" time="0.0" />
   <testcase classname="dominio.RestauranteTest" name="testSetSorteos" time="0.0" />
   <testcase classname="dominio.RestauranteTest" name="testSetDireccion" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testGetSorteos" time="0.002" />
+  <testcase classname="dominio.RestauranteTest" name="testGetDireccion" time="0.036" />
+  <testcase classname="dominio.RestauranteTest" name="testGetSorteos" time="0.001" />
   <testcase classname="dominio.RestauranteTest" name="testToString" time="0.001" />
-  <testcase classname="dominio.RestauranteTest" name="testEqualsMismoNombreDistintaDireccion" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testEqualsDistintoNombreMismaDireccion" time="0.001" />
-  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteExistenteConResena" time="0.004" />
-  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteAnonimoConResena" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteNuevoSinResena" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testEqualsDistintoNombreDistintaDireccion" time="0.001" />
-  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteExistenteSinResena" time="0.001" />
-  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteAnonimoSinResena" time="0.0" />
-  <testcase classname="dominio.RestauranteTest" name="testAgregarEvaluacionClienteNuevoConResena" time="0.0" />
-  <system-out><![CDATA[test getHorarioCerrar
-test equals mismo nombre y direccion
-test setHorarioCerrar
-test getHorarioAbrir
+  <system-out><![CDATA[test agregarEvaluacion cliente nuevo y con resena
+test equals mismo nombre y distinta direccion
+test agregarEvaluacion cliente existente y con resena
+test agregarEvaluacion cliente existente y con resena
+test equals distinto nombre y distinta direccion
+test agregarEvaluacion cliente existente y con resena
+test equals distinto nombre y misma direccion
+test agregarEvaluacion cliente existente y con resena
+test agregarEvaluacion cliente nuevo y sin resena
 test getEvaluaciones
-test setHorarioAbrir
+test getHorarioCerrar
+test definirSorteo
+test equals mismo nombre y direccion
 test getTipoComida
 test setTipoComida
-test definirSorteo
 test getEvaluaciones
+test getHorarioAbrir
+test setHorarioAbrir
+test setHorarioCerrar
 test setNombre
-test getDireccion
 test getNombre
 test setParticipantes
 test setDireccion
+test getDireccion
 test getParticipantes
 test equals distinto nombre y distinta direccion
-test equals mismo nombre y distinta direccion
-test equals distinto nombre y misma direccion
-test agregarEvaluacion cliente existente y con resena
-test agregarEvaluacion cliente existente y con resena
-test agregarEvaluacion cliente nuevo y sin resena
-test equals distinto nombre y distinta direccion
-test agregarEvaluacion cliente existente y con resena
-test agregarEvaluacion cliente existente y con resena
-test agregarEvaluacion cliente nuevo y con resena
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
