@@ -18,11 +18,14 @@ public class Sorteo {
     private String nombre;
     //aqui se guardan todos los participantes para este torneo
     private ArrayList<Cliente> participantes;
+    //aqui se guardan todos los ganadores para este torneo
+    private ArrayList<Cliente> ganadores;
     private boolean realizado;
     private int cantidadGanadores;
     private String descripcionPremio;
     private Date fechaInicio;
     private Date fechaFin;
+    
 
     //Constructor
     public Sorteo(String nombre, int cantidadGanadores, String descripcionPremio, Date inicio, Date fin) {
@@ -30,6 +33,7 @@ public class Sorteo {
         this.cantidadGanadores = cantidadGanadores;
         this.descripcionPremio = descripcionPremio;
         this.participantes = new ArrayList();
+        this.ganadores = new ArrayList();
         this.realizado = false;
         this.fechaInicio = inicio;
         this.fechaFin = fin;
@@ -132,6 +136,7 @@ public class Sorteo {
                     Cliente ganador = participantes.get(numero);
                     //lo agrego a la lista de retorno
                     retorno.add(ganador);
+                    this.ganadores.add(ganador);
                     //mandar mail a ganador
                     if(mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio)){
                         this.realizado = true;
