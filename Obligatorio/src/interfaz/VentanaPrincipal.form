@@ -25,7 +25,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
+                      <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="btnEditarFichaRestaurante" max="32767" attributes="0"/>
@@ -33,11 +37,9 @@
                           <Component id="btnDefinirSorteo" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnRealizarSorteo" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnCrearFichaRestaurante" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btnVerRestaurantes" max="32767" attributes="0"/>
+                          <Component id="btnVerEvaluaciones" max="32767" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
-                      <Component id="lblTitulo" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="115" max="32767" attributes="0"/>
@@ -59,7 +61,11 @@
               <Component id="btnDefinirSorteo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnRealizarSorteo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btnVerRestaurantes" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnVerEvaluaciones" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="30" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -111,6 +117,22 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRealizarSorteoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVerRestaurantes">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver Restaurantes"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnVerRestaurantesMouseReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVerEvaluaciones">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver Evaluaciones"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnVerEvaluacionesMouseReleased"/>
       </Events>
     </Component>
   </SubComponents>

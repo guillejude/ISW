@@ -43,6 +43,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnRealizarEvaluacion = new javax.swing.JToggleButton();
         btnDefinirSorteo = new javax.swing.JToggleButton();
         btnRealizarSorteo = new javax.swing.JToggleButton();
+        btnVerRestaurantes = new javax.swing.JButton();
+        btnVerEvaluaciones = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +86,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnVerRestaurantes.setText("Ver Restaurantes");
+        btnVerRestaurantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnVerRestaurantesMouseReleased(evt);
+            }
+        });
+
+        btnVerEvaluaciones.setText("Ver Evaluaciones");
+        btnVerEvaluaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnVerEvaluacionesMouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,16 +107,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(lblTitulo))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnEditarFichaRestaurante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnRealizarEvaluacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDefinirSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCrearFichaRestaurante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(lblTitulo)))
+                            .addComponent(btnCrearFichaRestaurante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVerRestaurantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVerEvaluaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,7 +136,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnDefinirSorteo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRealizarSorteo)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnVerRestaurantes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnVerEvaluaciones)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -177,12 +199,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRealizarSorteoActionPerformed
 
+    private void btnVerRestaurantesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerRestaurantesMouseReleased
+        // TODO add your handling code here:
+        if (VentanaPrincipal.sistema.getRestaurantes().size() > 0) {
+            VentanaVerRestaurantes ventana = new VentanaVerRestaurantes(this, sistema);
+            ventana.setVisible(true);
+            this.setVisible(false);
+            this.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "no hay restaurantes cargados para ver");
+        }
+    }//GEN-LAST:event_btnVerRestaurantesMouseReleased
+
+    private void btnVerEvaluacionesMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerEvaluacionesMouseReleased
+        // TODO add your handling code here:
+        if (VentanaPrincipal.sistema.getRestaurantes().size() > 0) {
+            VentanaVerEvaluaciones ventana = new VentanaVerEvaluaciones(this, sistema);
+            ventana.setVisible(true);
+            this.setVisible(false);
+            this.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "no hay restaurantes cargados para ver");
+        }
+    }//GEN-LAST:event_btnVerEvaluacionesMouseReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCrearFichaRestaurante;
     private javax.swing.JToggleButton btnDefinirSorteo;
     private javax.swing.JToggleButton btnEditarFichaRestaurante;
     private javax.swing.JToggleButton btnRealizarEvaluacion;
     private javax.swing.JToggleButton btnRealizarSorteo;
+    private javax.swing.JButton btnVerEvaluaciones;
+    private javax.swing.JButton btnVerRestaurantes;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }
