@@ -345,8 +345,7 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
         //realizo la evaluacion
         if (validarCampos()) {
             Restaurante aEvaluar = (Restaurante) cmbBxRestaurantes.getSelectedItem();
-            aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), PROPERTIES, txtReseña.getText());
-            this.dispose();
+            aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), puntuacion, txtReseña.getText());
             JOptionPane.showMessageDialog(null, "Evaluación agregada con éxito");
             this.dispose();
             this.padre.setEnabled(true);
@@ -390,7 +389,7 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtReseñaFocusGained
 
-    public boolean validarCampos(){
+    public boolean validarCampos() {
         //Si la informacion que esta en los campos es la default de ejemplos, la borro
         if (txtFldNombre.getText().equals("Ej: Juan")) {
             txtFldNombre.setText("");
@@ -402,17 +401,17 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
             txtReseña.setText("");
         }
         //Si escribio algun tipo de mail, lo verfico
-        try{
-           InternetAddress address = new InternetAddress(txtFldEmail.getText()); 
-           if(!txtFldEmail.getText().isEmpty()){
-               address.validate();
-           }
-           return true;
-        }catch (AddressException e){
-           JOptionPane.showMessageDialog(null, "Email no valido");
-           return false;
+        try {
+            InternetAddress address = new InternetAddress(txtFldEmail.getText());
+            if (!txtFldEmail.getText().isEmpty()) {
+                address.validate();
+            }
+            return true;
+        } catch (AddressException e) {
+            JOptionPane.showMessageDialog(null, "Email no valido");
+            return false;
         }
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

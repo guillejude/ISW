@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Restaurante.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Obligatorio&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dominio</a> &gt; <span class="el_source">Restaurante.java</span></div><h1>Restaurante.java</h1><pre class="source lang-java linenums">package dominio;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Random;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Guillermo
+ */
+public class Restaurante {
+
+    private String nombre;
+    private String direccion;
+    private String horarioAbrir;
+    private String horarioCerrar;
+    private String tipoComida;
+    //Aqui se guardan todas las evaluaciones del restaurante
+    private ArrayList&lt;Evaluacion&gt; evaluaciones;
+    //Aqui se guardan todos los sorteos que pertenecen al restaurante
+    private ArrayList&lt;Sorteo&gt; sorteos;
+
+    //Constructor para nuevo restaurante;
+<span class="fc" id="L27">    public Restaurante(String nombre, String direccion, String horarioAbrir, String horarioCerrar, String tipoComida) {</span>
+<span class="fc" id="L28">        this.nombre = nombre;</span>
+<span class="fc" id="L29">        this.direccion = direccion;</span>
+<span class="fc" id="L30">        this.horarioAbrir = horarioAbrir;</span>
+<span class="fc" id="L31">        this.horarioCerrar = horarioCerrar;</span>
+<span class="fc" id="L32">        this.tipoComida = tipoComida;</span>
+<span class="fc" id="L33">        this.evaluaciones = new ArrayList();</span>
+<span class="fc" id="L34">        this.sorteos = new ArrayList();</span>
+<span class="fc" id="L35">    }</span>
+
+    //Metodos Getters y Setter
+    public String getNombre() {
+<span class="fc" id="L39">        return nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="fc" id="L43">        this.nombre = nombre;</span>
+<span class="fc" id="L44">    }</span>
+
+    public String getDireccion() {
+<span class="fc" id="L47">        return direccion;</span>
+    }
+
+    public void setDireccion(String direccion) {
+<span class="fc" id="L51">        this.direccion = direccion;</span>
+<span class="fc" id="L52">    }</span>
+
+    public String getHorarioAbrir() {
+<span class="fc" id="L55">        return horarioAbrir;</span>
+    }
+
+    public void setHorarioAbrir(String horarioAbrir) {
+<span class="fc" id="L59">        this.horarioAbrir = horarioAbrir;</span>
+<span class="fc" id="L60">    }</span>
+
+    public String getHorarioCerrar() {
+<span class="fc" id="L63">        return horarioCerrar;</span>
+    }
+
+    public void setHorarioCerrar(String horarioCerrar) {
+<span class="fc" id="L67">        this.horarioCerrar = horarioCerrar;</span>
+<span class="fc" id="L68">    }</span>
+
+    public String getTipoComida() {
+<span class="fc" id="L71">        return tipoComida;</span>
+    }
+
+    public void setTipoComida(String tipoComida) {
+<span class="fc" id="L75">        this.tipoComida = tipoComida;</span>
+<span class="fc" id="L76">    }</span>
+
+    public ArrayList getEvaluaciones() {
+<span class="fc" id="L79">        return evaluaciones;</span>
+    }
+
+    public void setEvaluaciones(ArrayList&lt;Evaluacion&gt; evaluaciones) {
+<span class="fc" id="L83">        this.evaluaciones = evaluaciones;</span>
+<span class="fc" id="L84">    }</span>
+
+    public ArrayList getSorteos() {
+<span class="fc" id="L87">        return sorteos;</span>
+    }
+
+    public void setSorteos(ArrayList&lt;Sorteo&gt; sorteos) {
+<span class="fc" id="L91">        this.sorteos = sorteos;</span>
+<span class="fc" id="L92">    }</span>
+
+    //Override de metodo Eguals, define que dos Restaurantes son iguales con igual nombre y direccion
+    @Override
+    public boolean equals(Object obj) {
+<span class="fc" id="L97">        boolean retorno = false;</span>
+<span class="fc bfc" id="L98" title="All 4 branches covered.">        if (this.getNombre().equals(((Restaurante) obj).getNombre()) &amp;&amp; this.getDireccion().equals(((Restaurante) obj).getDireccion())) {</span>
+<span class="fc" id="L99">            retorno = true;</span>
+        }
+<span class="fc" id="L101">        return retorno;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L106">        return nombre + &quot;, &quot; + direccion;</span>
+    }
+
+    public void agregarEvaluacion(String nombre, String mail, int puntuacion, String resena) {
+        //crea el cliente y si eligio no ser anonimo se guarda en la lista de clientes para participar en la rifa
+        //crea la evaluacion y la guarda en la lista
+<span class="fc" id="L112">        Date date = new Date();</span>
+<span class="fc" id="L113">        Cliente cliente = new Cliente(nombre, mail);</span>
+<span class="fc" id="L114">        Evaluacion evaluacion = new Evaluacion(cliente, puntuacion, resena);</span>
+<span class="fc" id="L115">        evaluaciones.add(evaluacion);</span>
+        //se fija por cada sorteo de este restaurante si el cliente esta en condiciones de participar
+<span class="fc bfc" id="L117" title="All 2 branches covered.">        for (int i = 0; i &lt; sorteos.size(); i++) {</span>
+<span class="pc bpc" id="L118" title="3 of 12 branches missed.">            if (!date.before(sorteos.get(i).getFechaInicio()) &amp;&amp; !date.after(sorteos.get(i).getFechaFin()) &amp;&amp; !sorteos.get(i).isRealizado() &amp;&amp; !sorteos.get(i).getParticipantes().contains(cliente) &amp;&amp; cliente.noEsAnonimo() &amp;&amp; !resena.equals(&quot;&quot;)) {</span>
+                //cliente y resena valido para participar del sorteo, entonces lo agrego a la lista de participantes
+<span class="fc" id="L120">                sorteos.get(i).getParticipantes().add(cliente);</span>
+            }
+        }
+
+<span class="fc" id="L124">    }</span>
+
+    public void definirSorteo(String nombre, int cantidadGanadores, String premio, Date inicio, Date fin) {
+        //define los parametros del sorteo y lo agrega a la lista de sorteos del restaurante
+<span class="fc" id="L128">        Sorteo sorteo = new Sorteo(nombre, cantidadGanadores, premio, inicio, fin);</span>
+<span class="fc" id="L129">        this.sorteos.add(sorteo);</span>
+<span class="fc" id="L130">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

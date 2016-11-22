@@ -22,11 +22,10 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
 /*import java.util.Date; 
-import javax.swing.JLabel;
-import org.jdatepicker.impl.JDatePanelImpl;
-import org.jdatepicker.impl.JDatePickerImpl;
-import org.jdatepicker.impl.UtilDateModel;*/
-
+ import javax.swing.JLabel;
+ import org.jdatepicker.impl.JDatePanelImpl;
+ import org.jdatepicker.impl.JDatePickerImpl;
+ import org.jdatepicker.impl.UtilDateModel;*/
 /**
  *
  * @author Guillermo
@@ -39,9 +38,7 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
     private JDatePickerImpl datePickerStart;
     private JDatePickerImpl datePickerEnd;
     private Date date;
-    
-    
-    
+
     //Constructor
     public VentanaDefinirSorteo(VentanaPrincipal ventanaPrincipal, Sistema sistema) {
         initComponents();
@@ -65,8 +62,7 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
         this.add(datePickerStart);
         datePickerStart.setSize(200, 32);
         datePickerStart.setLocation(220, 300);
-        
-        
+
         UtilDateModel modelEnd = new UtilDateModel();
         Properties pEnd = new Properties();
         pEnd.put("text.today", "Dia");
@@ -292,7 +288,7 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
 
     private boolean verificarCampos() {
         boolean retorno = false;
-        if (txtFldCantGanadores.getText().isEmpty() || txtAreaDescripcionPremio.getText().isEmpty() || txtAreaDescripcionPremio.getText().equals("Ej: Una cena para dos") || txtFldCantGanadores.getText().equals("Ej: 3") || (Date) datePickerStart.getModel().getValue()==null|| (Date) datePickerEnd.getModel().getValue()==null) {
+        if (txtFldCantGanadores.getText().isEmpty() || txtAreaDescripcionPremio.getText().isEmpty() || txtAreaDescripcionPremio.getText().equals("Ej: Una cena para dos") || txtFldCantGanadores.getText().equals("Ej: 3") || (Date) datePickerStart.getModel().getValue() == null || (Date) datePickerEnd.getModel().getValue() == null) {
             JOptionPane.showMessageDialog(null, "Faltan campos a completar");
         } else {
             try {
@@ -305,17 +301,17 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "La cantidad de ganadores debe ser un numero");
             }
-            if(((Date) datePickerEnd.getModel().getValue()).before((Date) datePickerStart.getModel().getValue())){
+            if (((Date) datePickerEnd.getModel().getValue()).before((Date) datePickerStart.getModel().getValue())) {
                 JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser menor a la de finalización");
                 retorno = false;
             }
-            
-            if(((Date) datePickerStart.getModel().getValue()).before(date)){
+
+            if (((Date) datePickerStart.getModel().getValue()).before(date)) {
                 JOptionPane.showMessageDialog(null, "La fecha de inicio no puede ser previas a la creación del sorteo");
                 retorno = false;
             }
             Date fecha = new Date();
-            if(((Date) datePickerEnd.getModel().getValue()).before(fecha)){
+            if (((Date) datePickerEnd.getModel().getValue()).before(fecha)) {
                 JOptionPane.showMessageDialog(null, "La fecha de fin debe de ser en un futuro (mañana en adelante)");
                 retorno = false;
             }

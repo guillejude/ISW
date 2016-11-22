@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Sorteo.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Obligatorio&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dominio</a> &gt; <span class="el_source">Sorteo.java</span></div><h1>Sorteo.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dominio;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Objects;
+import java.util.Random;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Usuario
+ */
+public class Sorteo {
+    private String nombre;
+    //aqui se guardan todos los participantes para este sorteo
+    private ArrayList&lt;Cliente&gt; participantes;
+    //aqui se guardan todos los ganadores para este sorteo
+    private ArrayList&lt;Cliente&gt; ganadores;
+    private boolean realizado;
+    private int cantidadGanadores;
+    private String descripcionPremio;
+    private Date fechaInicio;
+    private Date fechaFin;
+    
+
+    //Constructor
+<span class="fc" id="L32">    public Sorteo(String nombre, int cantidadGanadores, String descripcionPremio, Date inicio, Date fin) {</span>
+<span class="fc" id="L33">        this.nombre = nombre;</span>
+<span class="fc" id="L34">        this.cantidadGanadores = cantidadGanadores;</span>
+<span class="fc" id="L35">        this.descripcionPremio = descripcionPremio;</span>
+<span class="fc" id="L36">        this.participantes = new ArrayList();</span>
+<span class="fc" id="L37">        this.ganadores = new ArrayList();</span>
+<span class="fc" id="L38">        this.realizado = false;</span>
+<span class="fc" id="L39">        this.fechaInicio = inicio;</span>
+<span class="fc" id="L40">        this.fechaFin = fin;</span>
+<span class="fc" id="L41">    }</span>
+
+    //Getters &amp; Setters
+    public String getNombre() {
+<span class="fc" id="L45">        return nombre;</span>
+    }
+
+    public void setNombre(String nombre) {
+<span class="nc" id="L49">        this.nombre = nombre;</span>
+<span class="nc" id="L50">    }</span>
+
+    public ArrayList&lt;Cliente&gt; getParticipantes() {
+<span class="fc" id="L53">        return participantes;</span>
+    }
+
+    public void setParticipantes(ArrayList&lt;Cliente&gt; participantes) {
+<span class="nc" id="L57">        this.participantes = participantes;</span>
+<span class="nc" id="L58">    }</span>
+
+    public boolean isRealizado() {
+<span class="fc" id="L61">        return realizado;</span>
+    }
+
+    public void setRealizado(boolean realizado) {
+<span class="nc" id="L65">        this.realizado = realizado;</span>
+<span class="nc" id="L66">    }</span>
+
+    public int getCantidadGanadores() {
+<span class="nc" id="L69">        return cantidadGanadores;</span>
+    }
+
+    public void setCantidadGanadores(int cantidadGanadores) {
+<span class="nc" id="L73">        this.cantidadGanadores = cantidadGanadores;</span>
+<span class="nc" id="L74">    }</span>
+
+    public String getDescripcionPremio() {
+<span class="nc" id="L77">        return descripcionPremio;</span>
+    }
+
+    public void setDescripcionPremio(String descripcionPremio) {
+<span class="nc" id="L81">        this.descripcionPremio = descripcionPremio;</span>
+<span class="nc" id="L82">    }</span>
+    
+    public Date getFechaInicio() {
+<span class="fc" id="L85">        return fechaInicio;</span>
+    }
+
+    public void setFechaInicio(Date fechaInicio) {
+<span class="nc" id="L89">        this.fechaInicio = fechaInicio;</span>
+<span class="nc" id="L90">    }</span>
+    
+    public Date getFechaFin() {
+<span class="fc" id="L93">        return fechaFin;</span>
+    }
+
+    public void setFechaFin(Date fechaFin) {
+<span class="nc" id="L97">        this.fechaFin = fechaFin;</span>
+<span class="nc" id="L98">    }</span>
+    
+    @Override
+    public String toString() {
+<span class="nc" id="L102">        return nombre;</span>
+    }
+
+
+    @Override
+    //Define dos sorteos iguales cuando tienen igual nombre
+    public boolean equals(Object obj) {
+<span class="fc" id="L109">        return (this.nombre.equals(((Sorteo) obj).getNombre()));</span>
+    }
+    
+    
+    public ArrayList&lt;Cliente&gt; realizarSorteo() {
+        //realiza el sorteo con los clientes que hayan realizado evaluaciones validas hasta la fecha de realizacion del sorteo,
+        //segun los parametros definidos. Si no se definio un sorteo no se hace nada y se avisa al usuario.
+<span class="nc" id="L116">        ArrayList&lt;Cliente&gt; retorno = new ArrayList();</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        if (!realizado) {</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">            if (participantes.isEmpty()) {</span>
+<span class="nc" id="L119">                JOptionPane.showMessageDialog(null, &quot;No hay clientes participantes del sorteo&quot;);</span>
+            } else {
+                //me defino los numeros de los participantes ganadores
+<span class="nc" id="L122">                Random rand = new Random();</span>
+<span class="nc" id="L123">                int cantParticipantes = participantes.size();</span>
+<span class="nc" id="L124">                int cantGanadores = Math.min(cantidadGanadores, cantParticipantes);</span>
+<span class="nc" id="L125">                ArrayList&lt;Integer&gt; numerosGanadores = new ArrayList(cantGanadores);</span>
+<span class="nc bnc" id="L126" title="All 2 branches missed.">                if (cantParticipantes &lt;= cantGanadores) {</span>
+                    //ganan todos
+<span class="nc bnc" id="L128" title="All 2 branches missed.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
+<span class="nc" id="L129">                        numerosGanadores.add(i);</span>
+                    }
+                } else {
+                    //ganan algunos al azar
+<span class="nc bnc" id="L133" title="All 2 branches missed.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
+<span class="nc" id="L134">                        int numeroAzar = rand.nextInt(cantParticipantes);</span>
+<span class="nc bnc" id="L135" title="All 2 branches missed.">                        while (numerosGanadores.contains(numeroAzar)) {</span>
+<span class="nc" id="L136">                            numeroAzar = rand.nextInt(cantParticipantes);</span>
+                        }
+<span class="nc" id="L138">                        numerosGanadores.add(numeroAzar);</span>
+                    }
+                }
+                //aviso a ganadores y guardo para el retorno
+<span class="nc" id="L142">                Mail mail = new Mail();</span>
+<span class="nc bnc" id="L143" title="All 2 branches missed.">                for (int i = 0; i &lt; cantGanadores; i++) {</span>
+<span class="nc" id="L144">                    int numero = numerosGanadores.get(i);</span>
+<span class="nc" id="L145">                    Cliente ganador = participantes.get(numero);</span>
+                    //lo agrego a la lista de retorno
+<span class="nc" id="L147">                    retorno.add(ganador);</span>
+<span class="nc" id="L148">                    this.ganadores.add(ganador);</span>
+                    //mandar mail a ganador
+<span class="nc bnc" id="L150" title="All 2 branches missed.">                    if(mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio)){</span>
+<span class="nc" id="L151">                        this.realizado = true;</span>
+                    }
+                    else{
+<span class="nc" id="L154">                        JOptionPane.showMessageDialog(null, &quot;Hubo un error en el envio del correo, verifique su conexión&quot;);</span>
+                    }
+                }
+<span class="nc" id="L157">            }</span>
+        } else {
+<span class="nc" id="L159">            JOptionPane.showMessageDialog(null, &quot;Este restaurante no tiene definido ningun sorteo&quot;);</span>
+        }
+<span class="nc" id="L161">        return retorno;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -7,6 +7,7 @@ package dominio;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -16,9 +17,9 @@ import javax.swing.JOptionPane;
  */
 public class Sorteo {
     private String nombre;
-    //aqui se guardan todos los participantes para este torneo
+    //aqui se guardan todos los participantes para este sorteo
     private ArrayList<Cliente> participantes;
-    //aqui se guardan todos los ganadores para este torneo
+    //aqui se guardan todos los ganadores para este sorteo
     private ArrayList<Cliente> ganadores;
     private boolean realizado;
     private int cantidadGanadores;
@@ -100,6 +101,14 @@ public class Sorteo {
     public String toString() {
         return nombre;
     }
+
+
+    @Override
+    //Define dos sorteos iguales cuando tienen igual nombre
+    public boolean equals(Object obj) {
+        return (this.nombre.equals(((Sorteo) obj).getNombre()));
+    }
+    
     
     public ArrayList<Cliente> realizarSorteo() {
         //realiza el sorteo con los clientes que hayan realizado evaluaciones validas hasta la fecha de realizacion del sorteo,

@@ -82,11 +82,11 @@ public class Restaurante {
     public void setEvaluaciones(ArrayList<Evaluacion> evaluaciones) {
         this.evaluaciones = evaluaciones;
     }
-    
-    public ArrayList getSorteos(){
+
+    public ArrayList getSorteos() {
         return sorteos;
     }
-    
+
     public void setSorteos(ArrayList<Sorteo> sorteos) {
         this.sorteos = sorteos;
     }
@@ -114,13 +114,13 @@ public class Restaurante {
         Evaluacion evaluacion = new Evaluacion(cliente, puntuacion, resena);
         evaluaciones.add(evaluacion);
         //se fija por cada sorteo de este restaurante si el cliente esta en condiciones de participar
-        for(int i = 0; i<sorteos.size(); i++){
-            if (!date.before(sorteos.get(i).getFechaInicio())&&!date.after(sorteos.get(i).getFechaFin())&&!sorteos.get(i).isRealizado()&&!sorteos.get(i).getParticipantes().contains(cliente) && cliente.noEsAnonimo() && !resena.equals("")) {
-            //cliente y resena valido para participar del sorteo, entonces lo agrego a la lista de participantes
-            sorteos.get(i).getParticipantes().add(cliente);
+        for (int i = 0; i < sorteos.size(); i++) {
+            if (!date.before(sorteos.get(i).getFechaInicio()) && !date.after(sorteos.get(i).getFechaFin()) && !sorteos.get(i).isRealizado() && !sorteos.get(i).getParticipantes().contains(cliente) && cliente.noEsAnonimo() && !resena.equals("")) {
+                //cliente y resena valido para participar del sorteo, entonces lo agrego a la lista de participantes
+                sorteos.get(i).getParticipantes().add(cliente);
+            }
         }
-        }
-        
+
     }
 
     public void definirSorteo(String nombre, int cantidadGanadores, String premio, Date inicio, Date fin) {
@@ -129,5 +129,4 @@ public class Restaurante {
         this.sorteos.add(sorteo);
     }
 
-    
 }

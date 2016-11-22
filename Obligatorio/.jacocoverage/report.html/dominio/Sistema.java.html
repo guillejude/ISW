@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Sistema.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Obligatorio&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">dominio</a> &gt; <span class="el_source">Sistema.java</span></div><h1>Sistema.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dominio;
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Guillermo
+ */
+public class Sistema {
+    private ArrayList&lt;Restaurante&gt; restaurantes;
+
+    //Metodo Constructor de Sistema
+<span class="fc" id="L19">    public Sistema() {</span>
+<span class="fc" id="L20">        this.restaurantes = new ArrayList();</span>
+        //para testear
+<span class="fc" id="L22">        this.restaurantes.add(new Restaurante(&quot;Garcia&quot;,&quot;Arocena&quot;,&quot;10am&quot;,&quot;8pm&quot;,&quot;Parrillada&quot;));</span>
+<span class="fc" id="L23">    }</span>
+
+    //Metodos Getters y Setters
+    public ArrayList&lt;Restaurante&gt; getRestaurantes() {
+<span class="fc" id="L27">        return restaurantes;</span>
+    }
+
+    public void setRestaurantes(ArrayList&lt;Restaurante&gt; restaurantes) {
+<span class="fc" id="L31">        this.restaurantes = restaurantes;</span>
+<span class="fc" id="L32">    }</span>
+    
+    public boolean agregarRestaurante(String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){
+        //crea y agrega un nuevo restaurante al sistema si es que no se encuentra ya en el sistema
+<span class="fc" id="L36">        Restaurante restaurante = new Restaurante(nombre, direccion, horarioApertura, horarioCierre, tipoComida);</span>
+<span class="pc bpc" id="L37" title="1 of 2 branches missed.">        if(!restaurantes.contains(restaurante)){</span>
+            //no existe, entonces se agrega
+<span class="fc" id="L39">            restaurantes.add(restaurante);</span>
+<span class="fc" id="L40">            return true;</span>
+        }else{
+            //ya existe, no se agrega
+<span class="nc" id="L43">            return false;</span>
+        }
+    }
+    
+     public void editarRestaurante(Restaurante rest, String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){
+        //edita los datos de un restaurante previamente ingresado al sistema
+<span class="nc" id="L49">        rest.setNombre(nombre);</span>
+<span class="nc" id="L50">        rest.setDireccion(direccion);</span>
+<span class="nc" id="L51">        rest.setHorarioAbrir(horarioApertura);</span>
+<span class="nc" id="L52">        rest.setHorarioCerrar(horarioCierre);</span>
+<span class="nc" id="L53">        rest.setTipoComida(tipoComida);</span>
+<span class="nc" id="L54">    }</span>
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

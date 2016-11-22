@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>VentanaDefinirSorteo.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;Obligatorio&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">interfaz</a> &gt; <span class="el_source">VentanaDefinirSorteo.java</span></div><h1>VentanaDefinirSorteo.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package interfaz;
+
+import dominio.DateLabelFormatter;
+import dominio.Restaurante;
+import dominio.Sistema;
+import java.awt.Color;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Properties;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import org.jdatepicker.DateModel;
+import org.jdatepicker.impl.JDatePanelImpl;
+import org.jdatepicker.impl.JDatePickerImpl;
+import org.jdatepicker.impl.UtilDateModel;
+
+/*import java.util.Date; 
+ import javax.swing.JLabel;
+ import org.jdatepicker.impl.JDatePanelImpl;
+ import org.jdatepicker.impl.JDatePickerImpl;
+ import org.jdatepicker.impl.UtilDateModel;*/
+/**
+ *
+ * @author Guillermo
+ */
+public class VentanaDefinirSorteo extends javax.swing.JFrame {
+
+    private JFrame padre;
+    private Sistema sistema;
+    // datepicker  y sus metodos fueron obtenidos de http://www.codejava.net/java-se/swing/how-to-use-jdatepicker-to-display-calendar-component
+    private JDatePickerImpl datePickerStart;
+    private JDatePickerImpl datePickerEnd;
+    private Date date;
+
+    //Constructor
+<span class="nc" id="L43">    public VentanaDefinirSorteo(VentanaPrincipal ventanaPrincipal, Sistema sistema) {</span>
+<span class="nc" id="L44">        initComponents();</span>
+<span class="nc" id="L45">        date = new Date();</span>
+<span class="nc" id="L46">        this.padre = ventanaPrincipal;</span>
+<span class="nc" id="L47">        this.sistema = sistema;</span>
+<span class="nc" id="L48">        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        for (int i = 0; i &lt; restaurantes.length; i++) {</span>
+<span class="nc" id="L50">            restaurantes[i] = this.sistema.getRestaurantes().get(i);</span>
+        }
+<span class="nc" id="L52">        cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));</span>
+
+<span class="nc" id="L54">        UtilDateModel modelStart = new UtilDateModel();</span>
+<span class="nc" id="L55">        Properties pStart = new Properties();</span>
+<span class="nc" id="L56">        pStart.put(&quot;text.today&quot;, &quot;Today&quot;);</span>
+<span class="nc" id="L57">        pStart.put(&quot;text.month&quot;, &quot;Month&quot;);</span>
+<span class="nc" id="L58">        pStart.put(&quot;text.year&quot;, &quot;Year&quot;);</span>
+<span class="nc" id="L59">        JDatePanelImpl datePanelStart = new JDatePanelImpl(modelStart, pStart);</span>
+<span class="nc" id="L60">        datePickerStart = new JDatePickerImpl(datePanelStart, new DateLabelFormatter());</span>
+
+<span class="nc" id="L62">        this.add(datePickerStart);</span>
+<span class="nc" id="L63">        datePickerStart.setSize(200, 32);</span>
+<span class="nc" id="L64">        datePickerStart.setLocation(220, 300);</span>
+
+<span class="nc" id="L66">        UtilDateModel modelEnd = new UtilDateModel();</span>
+<span class="nc" id="L67">        Properties pEnd = new Properties();</span>
+<span class="nc" id="L68">        pEnd.put(&quot;text.today&quot;, &quot;Dia&quot;);</span>
+<span class="nc" id="L69">        pEnd.put(&quot;text.month&quot;, &quot;Mes&quot;);</span>
+<span class="nc" id="L70">        pEnd.put(&quot;text.year&quot;, &quot;Año&quot;);</span>
+<span class="nc" id="L71">        JDatePanelImpl datePanelEnd = new JDatePanelImpl(modelEnd, pEnd);</span>
+<span class="nc" id="L72">        datePickerEnd = new JDatePickerImpl(datePanelEnd, new DateLabelFormatter());</span>
+
+<span class="nc" id="L74">        this.add(datePickerEnd);</span>
+<span class="nc" id="L75">        datePickerEnd.setSize(200, 32);</span>
+<span class="nc" id="L76">        datePickerEnd.setLocation(220, 360);</span>
+<span class="nc" id="L77">        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);</span>
+<span class="nc" id="L78">    }</span>
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+<span class="nc" id="L89">        lblTitulo = new javax.swing.JLabel();</span>
+<span class="nc" id="L90">        btnDefinirSorteo = new javax.swing.JButton();</span>
+<span class="nc" id="L91">        txtFldCantGanadores = new javax.swing.JTextField();</span>
+<span class="nc" id="L92">        lblCantGanadores = new javax.swing.JLabel();</span>
+<span class="nc" id="L93">        cmbBxRestaurantes = new javax.swing.JComboBox&lt;String&gt;();</span>
+<span class="nc" id="L94">        lblDescripcionPremio = new javax.swing.JLabel();</span>
+<span class="nc" id="L95">        lblElegirRestaurante = new javax.swing.JLabel();</span>
+<span class="nc" id="L96">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L97">        txtAreaDescripcionPremio = new javax.swing.JTextArea();</span>
+<span class="nc" id="L98">        lblNombreSorteo = new javax.swing.JLabel();</span>
+<span class="nc" id="L99">        txtFldNombreSorteo = new javax.swing.JTextField();</span>
+<span class="nc" id="L100">        lblFechaFin = new javax.swing.JLabel();</span>
+<span class="nc" id="L101">        lblFechaInicio1 = new javax.swing.JLabel();</span>
+
+<span class="nc" id="L103">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L104">        addWindowListener(new java.awt.event.WindowAdapter() {</span>
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+<span class="nc" id="L106">                formWindowClosing(evt);</span>
+<span class="nc" id="L107">            }</span>
+        });
+
+<span class="nc" id="L110">        lblTitulo.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 15)); // NOI18N</span>
+<span class="nc" id="L111">        lblTitulo.setText(&quot;DEFINIR SORTEO&quot;);</span>
+
+<span class="nc" id="L113">        btnDefinirSorteo.setText(&quot;DEFINIR SORTEO&quot;);</span>
+<span class="nc" id="L114">        btnDefinirSorteo.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L116">                btnDefinirSorteoActionPerformed(evt);</span>
+<span class="nc" id="L117">            }</span>
+        });
+
+<span class="nc" id="L120">        txtFldCantGanadores.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L121">        txtFldCantGanadores.setText(&quot;Ej: 3&quot;);</span>
+<span class="nc" id="L122">        txtFldCantGanadores.addFocusListener(new java.awt.event.FocusAdapter() {</span>
+            public void focusGained(java.awt.event.FocusEvent evt) {
+<span class="nc" id="L124">                txtFldCantGanadoresFocusGained(evt);</span>
+<span class="nc" id="L125">            }</span>
+        });
+<span class="nc" id="L127">        txtFldCantGanadores.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L129">                txtFldCantGanadoresActionPerformed(evt);</span>
+<span class="nc" id="L130">            }</span>
+        });
+<span class="nc" id="L132">        txtFldCantGanadores.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L134">                txtFldCantGanadoresKeyPressed(evt);</span>
+<span class="nc" id="L135">            }</span>
+        });
+
+<span class="nc" id="L138">        lblCantGanadores.setText(&quot;Defina la cantidad de ganadores:&quot;);</span>
+
+<span class="nc" id="L140">        cmbBxRestaurantes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
+<span class="nc" id="L141">        cmbBxRestaurantes.addFocusListener(new java.awt.event.FocusAdapter() {</span>
+            public void focusLost(java.awt.event.FocusEvent evt) {
+<span class="nc" id="L143">                cmbBxRestaurantesFocusLost(evt);</span>
+<span class="nc" id="L144">            }</span>
+        });
+
+<span class="nc" id="L147">        lblDescripcionPremio.setText(&quot;Describa el premio a sortear:&quot;);</span>
+
+<span class="nc" id="L149">        lblElegirRestaurante.setText(&quot;Elegir que restaurante realiza el sorteo:&quot;);</span>
+
+<span class="nc" id="L151">        txtAreaDescripcionPremio.setColumns(20);</span>
+<span class="nc" id="L152">        txtAreaDescripcionPremio.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L153">        txtAreaDescripcionPremio.setRows(5);</span>
+<span class="nc" id="L154">        txtAreaDescripcionPremio.setText(&quot;Ej: Una cena para dos&quot;);</span>
+<span class="nc" id="L155">        txtAreaDescripcionPremio.addFocusListener(new java.awt.event.FocusAdapter() {</span>
+            public void focusGained(java.awt.event.FocusEvent evt) {
+<span class="nc" id="L157">                txtAreaDescripcionPremioFocusGained(evt);</span>
+<span class="nc" id="L158">            }</span>
+        });
+<span class="nc" id="L160">        txtAreaDescripcionPremio.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L162">                txtAreaDescripcionPremioKeyPressed(evt);</span>
+<span class="nc" id="L163">            }</span>
+        });
+<span class="nc" id="L165">        jScrollPane1.setViewportView(txtAreaDescripcionPremio);</span>
+
+<span class="nc" id="L167">        lblNombreSorteo.setText(&quot;Defina el nombre del sorteo:&quot;);</span>
+
+<span class="nc" id="L169">        txtFldNombreSorteo.setForeground(new java.awt.Color(153, 153, 153));</span>
+<span class="nc" id="L170">        txtFldNombreSorteo.setText(&quot;Ej: Sorteo viaje Europa&quot;);</span>
+<span class="nc" id="L171">        txtFldNombreSorteo.addFocusListener(new java.awt.event.FocusAdapter() {</span>
+            public void focusGained(java.awt.event.FocusEvent evt) {
+<span class="nc" id="L173">                txtFldNombreSorteoFocusGained(evt);</span>
+<span class="nc" id="L174">            }</span>
+        });
+<span class="nc" id="L176">        txtFldNombreSorteo.addActionListener(new java.awt.event.ActionListener() {</span>
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+<span class="nc" id="L178">                txtFldNombreSorteoActionPerformed(evt);</span>
+<span class="nc" id="L179">            }</span>
+        });
+<span class="nc" id="L181">        txtFldNombreSorteo.addKeyListener(new java.awt.event.KeyAdapter() {</span>
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+<span class="nc" id="L183">                txtFldNombreSorteoKeyPressed(evt);</span>
+<span class="nc" id="L184">            }</span>
+        });
+
+<span class="nc" id="L187">        lblFechaFin.setText(&quot;Elija la fecha de finalización:&quot;);</span>
+
+<span class="nc" id="L189">        lblFechaInicio1.setText(&quot;Elija la fecha de inicio:&quot;);</span>
+
+<span class="nc" id="L191">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L192">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L193">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L194">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L195">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L196">                .addContainerGap()</span>
+<span class="nc" id="L197">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L198">                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L199">                        .addGap(0, 0, Short.MAX_VALUE)</span>
+<span class="nc" id="L200">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L201">                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L202">                                .addComponent(btnDefinirSorteo)</span>
+<span class="nc" id="L203">                                .addGap(129, 129, 129))</span>
+<span class="nc" id="L204">                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L205">                                .addComponent(lblTitulo)</span>
+<span class="nc" id="L206">                                .addGap(128, 128, 128))))</span>
+<span class="nc" id="L207">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L208">                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L209">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L210">                                .addComponent(lblCantGanadores)</span>
+<span class="nc" id="L211">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L212">                                .addComponent(txtFldCantGanadores, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L213">                                .addGap(0, 0, Short.MAX_VALUE))</span>
+<span class="nc" id="L214">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L215">                                .addComponent(lblDescripcionPremio)</span>
+<span class="nc" id="L216">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L217">                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L218">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L219">                                .addComponent(lblElegirRestaurante)</span>
+<span class="nc" id="L220">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L221">                                .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L222">                            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L223">                                .addComponent(lblNombreSorteo)</span>
+<span class="nc" id="L224">                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)</span>
+<span class="nc" id="L225">                                .addComponent(txtFldNombreSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L226">                        .addContainerGap())</span>
+<span class="nc" id="L227">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L228">                        .addGap(8, 8, 8)</span>
+<span class="nc" id="L229">                        .addComponent(lblFechaFin)</span>
+<span class="nc" id="L230">                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))</span>
+<span class="nc" id="L231">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L232">                .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L233">                    .addGap(25, 25, 25)</span>
+<span class="nc" id="L234">                    .addComponent(lblFechaInicio1)</span>
+<span class="nc" id="L235">                    .addContainerGap(283, Short.MAX_VALUE)))</span>
+        );
+<span class="nc" id="L237">        layout.setVerticalGroup(</span>
+<span class="nc" id="L238">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L239">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L240">                .addContainerGap()</span>
+<span class="nc" id="L241">                .addComponent(lblTitulo)</span>
+<span class="nc" id="L242">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L243">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L244">                    .addComponent(lblElegirRestaurante)</span>
+<span class="nc" id="L245">                    .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L246">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L247">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L248">                    .addComponent(lblNombreSorteo)</span>
+<span class="nc" id="L249">                    .addComponent(txtFldNombreSorteo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L250">                .addGap(24, 24, 24)</span>
+<span class="nc" id="L251">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)</span>
+<span class="nc" id="L252">                    .addComponent(lblCantGanadores)</span>
+<span class="nc" id="L253">                    .addComponent(txtFldCantGanadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L254">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L255">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L256">                    .addComponent(lblDescripcionPremio)</span>
+<span class="nc" id="L257">                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L258">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)</span>
+<span class="nc" id="L259">                .addComponent(lblFechaFin)</span>
+<span class="nc" id="L260">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L261">                .addComponent(btnDefinirSorteo)</span>
+<span class="nc" id="L262">                .addContainerGap())</span>
+<span class="nc" id="L263">            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L264">                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L265">                    .addContainerGap(307, Short.MAX_VALUE)</span>
+<span class="nc" id="L266">                    .addComponent(lblFechaInicio1)</span>
+<span class="nc" id="L267">                    .addGap(107, 107, 107)))</span>
+        );
+
+<span class="nc" id="L270">        pack();</span>
+<span class="nc" id="L271">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+
+    private void btnDefinirSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDefinirSorteoActionPerformed
+        //Se verifica la informacion ingresada y se guarda la informacion del nuevo sorteo, si ya existe uno anteriormente, se sobreescribe
+<span class="nc bnc" id="L275" title="All 2 branches missed.">        if (verificarCampos()) {</span>
+<span class="nc" id="L276">            Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();</span>
+<span class="nc" id="L277">            restaurante.definirSorteo(txtFldNombreSorteo.getText(), Integer.parseInt(txtFldCantGanadores.getText()), txtAreaDescripcionPremio.getText(), (Date) datePickerStart.getModel().getValue(), (Date) datePickerEnd.getModel().getValue());</span>
+<span class="nc" id="L278">            JOptionPane.showMessageDialog(null, &quot;Se definio exitosamente el sorteo&quot;);</span>
+<span class="nc" id="L279">            this.dispose();</span>
+<span class="nc" id="L280">            this.padre.setEnabled(true);</span>
+<span class="nc" id="L281">            this.padre.setVisible(true);</span>
+        }
+<span class="nc" id="L283">    }//GEN-LAST:event_btnDefinirSorteoActionPerformed</span>
+
+    private void cmbBxRestaurantesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesFocusLost
+
+<span class="nc" id="L287">    }//GEN-LAST:event_cmbBxRestaurantesFocusLost</span>
+
+    private boolean verificarCampos() {
+<span class="nc" id="L290">        boolean retorno = false;</span>
+<span class="nc bnc" id="L291" title="All 12 branches missed.">        if (txtFldCantGanadores.getText().isEmpty() || txtAreaDescripcionPremio.getText().isEmpty() || txtAreaDescripcionPremio.getText().equals(&quot;Ej: Una cena para dos&quot;) || txtFldCantGanadores.getText().equals(&quot;Ej: 3&quot;) || (Date) datePickerStart.getModel().getValue() == null || (Date) datePickerEnd.getModel().getValue() == null) {</span>
+<span class="nc" id="L292">            JOptionPane.showMessageDialog(null, &quot;Faltan campos a completar&quot;);</span>
+        } else {
+            try {
+<span class="nc" id="L295">                int numero = Integer.parseInt(txtFldCantGanadores.getText());</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">                if (numero &gt; 0) {</span>
+<span class="nc" id="L297">                    retorno = true;</span>
+                } else {
+<span class="nc" id="L299">                    JOptionPane.showMessageDialog(null, &quot;La cantidad de ganadores debe ser positivo&quot;);</span>
+                }
+<span class="nc" id="L301">            } catch (NumberFormatException e) {</span>
+<span class="nc" id="L302">                JOptionPane.showMessageDialog(null, &quot;La cantidad de ganadores debe ser un numero&quot;);</span>
+<span class="nc" id="L303">            }</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">            if (((Date) datePickerEnd.getModel().getValue()).before((Date) datePickerStart.getModel().getValue())) {</span>
+<span class="nc" id="L305">                JOptionPane.showMessageDialog(null, &quot;La fecha de inicio debe ser menor a la de finalización&quot;);</span>
+<span class="nc" id="L306">                retorno = false;</span>
+            }
+
+<span class="nc bnc" id="L309" title="All 2 branches missed.">            if (((Date) datePickerStart.getModel().getValue()).before(date)) {</span>
+<span class="nc" id="L310">                JOptionPane.showMessageDialog(null, &quot;La fecha de inicio no puede ser previas a la creación del sorteo&quot;);</span>
+<span class="nc" id="L311">                retorno = false;</span>
+            }
+<span class="nc" id="L313">            Date fecha = new Date();</span>
+<span class="nc bnc" id="L314" title="All 2 branches missed.">            if (((Date) datePickerEnd.getModel().getValue()).before(fecha)) {</span>
+<span class="nc" id="L315">                JOptionPane.showMessageDialog(null, &quot;La fecha de fin debe de ser en un futuro (mañana en adelante)&quot;);</span>
+<span class="nc" id="L316">                retorno = false;</span>
+            }
+        }
+<span class="nc" id="L319">        return retorno;</span>
+    }
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+<span class="nc" id="L323">        this.dispose();</span>
+<span class="nc" id="L324">        this.padre.setEnabled(true);</span>
+<span class="nc" id="L325">        this.padre.setVisible(true);</span>
+<span class="nc" id="L326">    }//GEN-LAST:event_formWindowClosing</span>
+
+    private void txtAreaDescripcionPremioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAreaDescripcionPremioKeyPressed
+
+<span class="nc" id="L330">    }//GEN-LAST:event_txtAreaDescripcionPremioKeyPressed</span>
+
+    private void txtFldCantGanadoresKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresKeyPressed
+
+<span class="nc" id="L334">    }//GEN-LAST:event_txtFldCantGanadoresKeyPressed</span>
+
+    private void txtFldCantGanadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresActionPerformed
+
+<span class="nc" id="L338">    }//GEN-LAST:event_txtFldCantGanadoresActionPerformed</span>
+
+    private void txtAreaDescripcionPremioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAreaDescripcionPremioFocusGained
+        // TODO add your handling code here:
+<span class="nc bnc" id="L342" title="All 2 branches missed.">        if (txtAreaDescripcionPremio.getText().equals(&quot;Ej: Una cena para dos&quot;)) {</span>
+<span class="nc" id="L343">            txtAreaDescripcionPremio.setText(&quot;&quot;);</span>
+<span class="nc" id="L344">            txtAreaDescripcionPremio.setForeground(Color.black);</span>
+        }
+<span class="nc" id="L346">    }//GEN-LAST:event_txtAreaDescripcionPremioFocusGained</span>
+
+    private void txtFldCantGanadoresFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldCantGanadoresFocusGained
+        // TODO add your handling code here:
+<span class="nc bnc" id="L350" title="All 2 branches missed.">        if (txtFldCantGanadores.getText().equals(&quot;Ej: 3&quot;)) {</span>
+<span class="nc" id="L351">            txtFldCantGanadores.setText(&quot;&quot;);</span>
+<span class="nc" id="L352">            txtFldCantGanadores.setForeground(Color.black);</span>
+        }
+<span class="nc" id="L354">    }//GEN-LAST:event_txtFldCantGanadoresFocusGained</span>
+
+    private void txtFldNombreSorteoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldNombreSorteoFocusGained
+        // TODO add your handling code here:
+<span class="nc bnc" id="L358" title="All 2 branches missed.">        if (txtFldNombreSorteo.getText().equals(&quot;Ej: Sorteo viaje Europa&quot;)) {</span>
+<span class="nc" id="L359">            txtFldNombreSorteo.setText(&quot;&quot;);</span>
+<span class="nc" id="L360">            txtFldNombreSorteo.setForeground(Color.black);</span>
+        }
+<span class="nc" id="L362">    }//GEN-LAST:event_txtFldNombreSorteoFocusGained</span>
+
+    private void txtFldNombreSorteoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldNombreSorteoActionPerformed
+        // TODO add your handling code here:
+<span class="nc" id="L366">    }//GEN-LAST:event_txtFldNombreSorteoActionPerformed</span>
+
+    private void txtFldNombreSorteoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFldNombreSorteoKeyPressed
+        // TODO add your handling code here:
+<span class="nc" id="L370">    }//GEN-LAST:event_txtFldNombreSorteoKeyPressed</span>
+
+//private JDatePickerImpl datePicker;
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDefinirSorteo;
+    private javax.swing.JComboBox&lt;String&gt; cmbBxRestaurantes;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCantGanadores;
+    private javax.swing.JLabel lblDescripcionPremio;
+    private javax.swing.JLabel lblElegirRestaurante;
+    private javax.swing.JLabel lblFechaFin;
+    private javax.swing.JLabel lblFechaInicio1;
+    private javax.swing.JLabel lblNombreSorteo;
+    private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextArea txtAreaDescripcionPremio;
+    private javax.swing.JTextField txtFldCantGanadores;
+    private javax.swing.JTextField txtFldNombreSorteo;
+    // End of variables declaration//GEN-END:variables
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
