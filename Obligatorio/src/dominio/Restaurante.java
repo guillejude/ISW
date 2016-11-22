@@ -1,6 +1,9 @@
 package dominio;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -17,12 +20,8 @@ public class Restaurante {
     private String tipoComida;
     //Aqui se guardan todas las evaluaciones del restaurante
     private ArrayList<Evaluacion> evaluaciones;
-    //Aqui se guardan todos los clientes que pueden participar del sorteo
-    private ArrayList<Cliente> participantes;
-    //info relevante al sorteo definido por el restaurante
-    private boolean estaDefinidoSorteo;
-    private int cantidadGanadores;
-    private String descripcionPremio;
+    //Aqui se guardan todos los sorteos que pertenecen al restaurante
+    private ArrayList<Sorteo> sorteos;
 
     //Constructor para nuevo restaurante;
     public Restaurante(String nombre, String direccion, String horarioAbrir, String horarioCerrar, String tipoComida) {
@@ -32,10 +31,7 @@ public class Restaurante {
         this.horarioCerrar = horarioCerrar;
         this.tipoComida = tipoComida;
         this.evaluaciones = new ArrayList();
-        this.participantes = new ArrayList();
-        this.estaDefinidoSorteo = false;
-        this.cantidadGanadores = 0;
-        this.descripcionPremio = "";
+        this.sorteos = new ArrayList();
     }
 
     //Metodos Getters y Setter
@@ -86,37 +82,13 @@ public class Restaurante {
     public void setEvaluaciones(ArrayList<Evaluacion> evaluaciones) {
         this.evaluaciones = evaluaciones;
     }
-
-    public ArrayList getParticipantes() {
-        return participantes;
+    
+    public ArrayList getSorteos(){
+        return sorteos;
     }
-
-    public void setParticipantes(ArrayList<Cliente> participantes) {
-        this.participantes = participantes;
-    }
-
-    public boolean isEstaDefinidoSorteo() {
-        return estaDefinidoSorteo;
-    }
-
-    public void setEstaDefinidoSorteo(boolean estaDefinidoSorteo) {
-        this.estaDefinidoSorteo = estaDefinidoSorteo;
-    }
-
-    public int getCantidadGanadores() {
-        return cantidadGanadores;
-    }
-
-    public void setCantidadGanadores(int cantidadGanadores) {
-        this.cantidadGanadores = cantidadGanadores;
-    }
-
-    public String getDescripcionPremio() {
-        return descripcionPremio;
-    }
-
-    public void setDescripcionPremio(String descripcionPremio) {
-        this.descripcionPremio = descripcionPremio;
+    
+    public void setSorteos(ArrayList<Sorteo> sorteos) {
+        this.sorteos = sorteos;
     }
 
     //Override de metodo Eguals, define que dos Restaurantes son iguales con igual nombre y direccion
@@ -137,64 +109,25 @@ public class Restaurante {
     public void agregarEvaluacion(String nombre, String mail, int puntuacion, String resena) {
         //crea el cliente y si eligio no ser anonimo se guarda en la lista de clientes para participar en la rifa
         //crea la evaluacion y la guarda en la lista
+        Date date = new Date();
         Cliente cliente = new Cliente(nombre, mail);
         Evaluacion evaluacion = new Evaluacion(cliente, puntuacion, resena);
         evaluaciones.add(evaluacion);
-        if (!participantes.contains(cliente) && cliente.noEsAnonimo() && !resena.equals("")) {
+        //se fija por cada sorteo de este restaurante si el cliente esta en condiciones de participar
+        for(int i = 0; i<sorteos.size(); i++){
+            if (!date.before(sorteos.get(i).getFechaInicio())&&!date.after(sorteos.get(i).getFechaFin())&&!sorteos.get(i).isRealizado()&&!sorteos.get(i).getParticipantes().contains(cliente) && cliente.noEsAnonimo() && !resena.equals("")) {
             //cliente y resena valido para participar del sorteo, entonces lo agrego a la lista de participantes
-            participantes.add(cliente);
+            sorteos.get(i).getParticipantes().add(cliente);
         }
+        }
+        
     }
 
-    public void definirSorteo(int cantidadGanadores, String premio) {
-        //define los parametros del sorteo
-        this.estaDefinidoSorteo = true;
-        this.cantidadGanadores = cantidadGanadores;
-        this.descripcionPremio = premio;
+    public void definirSorteo(String nombre, int cantidadGanadores, String premio, Date inicio, Date fin) {
+        //define los parametros del sorteo y lo agrega a la lista de sorteos del restaurante
+        Sorteo sorteo = new Sorteo(nombre, cantidadGanadores, premio, inicio, fin);
+        this.sorteos.add(sorteo);
     }
 
-    public ArrayList<Cliente> realizarSorteo() {
-        //realiza el sorteo con los clientes que hayan realizado evaluaciones validas hasta la fecha de realizacion del sorteo,
-        //segun los parametros definidos. Si no se definio un sorteo no se hace nada y se avisa al usuario.
-        ArrayList<Cliente> retorno = new ArrayList();
-        if (estaDefinidoSorteo) {
-            if (participantes.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No hay clientes participantes del sorteo");
-            } else {
-                //me defino los numeros de los participantes ganadores
-                Random rand = new Random();
-                int cantParticipantes = participantes.size();
-                int cantGanadores = Math.min(cantidadGanadores, cantParticipantes);
-                ArrayList<Integer> numerosGanadores = new ArrayList(cantGanadores);
-                if (cantParticipantes <= cantGanadores) {
-                    //ganan todos
-                    for (int i = 0; i < cantGanadores; i++) {
-                        numerosGanadores.add(i);
-                    }
-                } else {
-                    //ganan algunos al azar
-                    for (int i = 0; i < cantGanadores; i++) {
-                        int numeroAzar = rand.nextInt(cantParticipantes);
-                        while (numerosGanadores.contains(numeroAzar)) {
-                            numeroAzar = rand.nextInt(cantParticipantes);
-                        }
-                        numerosGanadores.add(numeroAzar);
-                    }
-                }
-                //aviso a ganadores y guardo para el retorno
-                Mail mail = new Mail();
-                for (int i = 0; i < cantGanadores; i++) {
-                    int numero = numerosGanadores.get(i);
-                    Cliente ganador = participantes.get(numero);
-                    //lo agrego a la lista de retorno
-                    retorno.add(ganador);
-                    //mandar mail a ganador
-                    mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio);
-                }
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Este restaurante no tiene definido ningun sorteo");
-        }
-        return retorno;
-    }
+    
 }

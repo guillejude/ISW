@@ -18,6 +18,8 @@ public class Sistema {
     //Metodo Constructor de Sistema
     public Sistema() {
         this.restaurantes = new ArrayList();
+        //para testear
+        this.restaurantes.add(new Restaurante("Garcia","Arocena","10am","8pm","Parrillada"));
     }
 
     //Metodos Getters y Setters
