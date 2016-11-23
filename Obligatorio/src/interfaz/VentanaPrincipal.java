@@ -236,7 +236,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btnVerSorteosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerSorteosMouseReleased
         // TODO add your handling code here:
-        if (VentanaPrincipal.sistema.getCantSorteos() > 0) {
+        if (VentanaPrincipal.sistema.getRestaurantes().size() > 0) {
             VentanaVerSorteos ventana = new VentanaVerSorteos(this, sistema);
             ventana.setVisible(true);
             this.setVisible(false);
