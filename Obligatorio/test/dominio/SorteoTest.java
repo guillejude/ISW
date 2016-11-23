@@ -40,6 +40,187 @@ public class SorteoTest {
     }
 
     /**
+     * Test of getNombre method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testGetNombre() {
+        System.out.println("test getNombre");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertEquals("Pizza", sorteo.getNombre());
+    }
+    
+    /**
+     * Test of setNombre method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testSetNombre() {
+        System.out.println("test setNombre");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        sorteo.setNombre("Pop");
+        assertEquals("Pop", sorteo.getNombre());
+    }
+    
+    /**
+     * Test of isRealizado method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testIsRealizado() {
+        System.out.println("test isRealizado");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertFalse(sorteo.isRealizado());
+    }
+    
+    /**
+     * Test of setRealizado method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testSetRealizado() {
+        System.out.println("test setRealizado");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        sorteo.setRealizado(true);
+        assertTrue(sorteo.isRealizado());
+    }
+    
+    /**
+     * Test of getParticipantes method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testGetParticipantes() {
+        System.out.println("test getParticipantes");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        ArrayList<Cliente> participantes = new ArrayList();
+        assertEquals(participantes, sorteo.getParticipantes());
+    }
+    
+    /**
+     * Test of setParticipantes method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testSetParticipantes() {
+        System.out.println("test setParticipantes");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        ArrayList<Cliente> participantes = new ArrayList();
+        Cliente cliente = new Cliente("uan", "1@2");
+        participantes.add(cliente);
+        sorteo.setParticipantes(participantes);
+        assertEquals(participantes, sorteo.getParticipantes());
+    }
+    
+    /**
+     * Test of getCantidadGanadores method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testGetCantidadGanadores() {
+        System.out.println("test getCantidadGanadores");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertEquals(4, sorteo.getCantidadGanadores());
+    }
+    
+    /**
+     * Test of setCantidadGanadores method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testSetCantidadGanadores() {
+        System.out.println("test getCantidadGanadores");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        sorteo.setCantidadGanadores(3);
+        assertEquals(3, sorteo.getCantidadGanadores());
+    }
+    
+    /**
+     * Test of getDescripcionPremio method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testGetDescripcionPremio() {
+        System.out.println("test getDescripcionPremio");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertEquals("Pizza", sorteo.getDescripcionPremio());
+    }
+    
+    /**
+     * Test of setDescripcionPremio method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testSetDescripcionPremio() {
+        System.out.println("test setDescripcionPremio");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        sorteo.setDescripcionPremio("Pop");
+        assertEquals("Pop", sorteo.getDescripcionPremio());
+    }
+    
+    /**
+     * Test of getFechaInicio method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testGetFechaInicio() {
+        System.out.println("test setFechaInicio");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertEquals(inicio, sorteo.getFechaInicio());
+    }
+    
+    /**
+     * Test of setFechaInicio method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testSetFechaInicio() {
+        System.out.println("test setFechaInicio");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        inicio = new Date(118, 10, 10);
+        sorteo.setFechaInicio(inicio);
+        assertEquals(inicio, sorteo.getFechaInicio());
+    }
+    
+    /**
+     * Test of getFechaFin method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testGetFechaFin() {
+        System.out.println("test setFechaFin");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        assertEquals(fin, sorteo.getFechaFin());
+    }
+    
+    /**
+     * Test of setFechaFin method, of class Sorteo.
+     */
+    @org.junit.Test
+    public void testSetFechaFin() {
+        System.out.println("test setFechaInicio");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        fin = new Date(119, 10, 10);
+        sorteo.setFechaFin(fin);
+        assertEquals(fin, sorteo.getFechaFin());
+    }
+    
+    /**
      * Test of toString method, of class Sorteo.
      */
     @org.junit.Test
