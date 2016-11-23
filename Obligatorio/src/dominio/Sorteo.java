@@ -147,12 +147,8 @@ public class Sorteo {
                     retorno.add(ganador);
                     this.ganadores.add(ganador);
                     //mandar mail a ganador
-                    if(mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio)){
-                        this.realizado = true;
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "Hubo un error en el envio del correo, verifique su conexión");
-                    }
+                    mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio);
+                    this.realizado = true;
                 }
             }
         }

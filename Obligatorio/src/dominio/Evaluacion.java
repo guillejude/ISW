@@ -49,6 +49,7 @@ public class Evaluacion {
     }
     
     @Override
+    //Se define misma evaluacion con mismo cliente, mismo puntaje y misma resena
     public boolean equals(Object obj) {
         boolean retorno = false;
         if (this.getCliente().equals(((Evaluacion) obj).getCliente()) && this.getPuntuacion()==((Evaluacion) obj).getPuntuacion() && this.getResena().equals(((Evaluacion) obj).getResena())) {

@@ -21,11 +21,7 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.UtilDateModel;
 
-/*import java.util.Date; 
- import javax.swing.JLabel;
- import org.jdatepicker.impl.JDatePanelImpl;
- import org.jdatepicker.impl.JDatePickerImpl;
- import org.jdatepicker.impl.UtilDateModel;*/
+
 /**
  *
  * @author Guillermo
@@ -304,17 +300,13 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
             }
             if (((Date) datePickerEnd.getModel().getValue()).before((Date) datePickerStart.getModel().getValue())) {
                 JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser menor a la de finalización");
-                retorno = false;
             }
-
             if (((Date) datePickerStart.getModel().getValue()).before(date)) {
-                JOptionPane.showMessageDialog(null, "La fecha de inicio no puede ser previas a la creación del sorteo");
-                retorno = false;
+                JOptionPane.showMessageDialog(null, "La fecha de inicio no puede ser previa a la creación del sorteo");
             }
             Date fecha = new Date();
             if (((Date) datePickerEnd.getModel().getValue()).before(fecha)) {
                 JOptionPane.showMessageDialog(null, "La fecha de fin debe de ser en un futuro (mañana en adelante)");
-                retorno = false;
             }
         }
         return retorno;

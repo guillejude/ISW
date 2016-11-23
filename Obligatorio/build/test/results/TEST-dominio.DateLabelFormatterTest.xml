@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="GUILLE" name="dominio.ClienteTest" skipped="0" tests="12" time="0.074" timestamp="2016-11-23T09:17:42">
+<testsuite errors="0" failures="0" hostname="GUILLE" name="dominio.DateLabelFormatterTest" skipped="0" tests="3" time="0.048" timestamp="2016-11-23T09:17:43">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="ant.file.Obligatorio" value="C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build.xml" />
@@ -38,7 +38,7 @@
     <property name="user.name" value="Guillermo" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dominio.ClienteTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\test\results\TEST-dominio.ClienteTest.xml crashfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junitvmwatcher1288419159502374741.properties propsfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junit6684824690144964761.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dominio.DateLabelFormatterTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\test\results\TEST-dominio.DateLabelFormatterTest.xml crashfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junitvmwatcher1606582702509406562.properties propsfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junit8353128849878084533.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -308,30 +308,12 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="dominio.ClienteTest" name="testEqualsNoIgualesNada" time="0.005" />
-  <testcase classname="dominio.ClienteTest" name="testEqualsIguales" time="0.001" />
-  <testcase classname="dominio.ClienteTest" name="testNoEsAnonimoSinNombre" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testNoEsAnonimoNoAnonimo" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testEqualsNoIgualesEmail" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testNoEsAnonimoSinEmail" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testEqualsNoIgualesNombre" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testGetNombre" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testGetEmail" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testToString" time="0.001" />
-  <testcase classname="dominio.ClienteTest" name="testSetEmail" time="0.0" />
-  <testcase classname="dominio.ClienteTest" name="testSetNombre" time="0.0" />
-  <system-out><![CDATA[Test equals con clientes de nombre y mails diferentes
-Test equals con clientes con mismo nombre y mail
-Test noEsAnonimo con cliente sin nombre
-Test noEsAnonimo con cliente no anonimo
-Test equals con clientes con distinto mail
-Test noEsAnonimo con cliente sin email
-Test equals con clientes con distinto nombre
-Test getNombre
-Test getEmail
-Test toString
-Test setEmail
-Test setNombre
+  <testcase classname="dominio.DateLabelFormatterTest" name="testValueToStringNull" time="0.004" />
+  <testcase classname="dominio.DateLabelFormatterTest" name="testValueToStringNoNull" time="0.0" />
+  <testcase classname="dominio.DateLabelFormatterTest" name="testStringToValue" time="0.001" />
+  <system-out><![CDATA[test valueToString null
+test valueToString no null
+test stringToValue
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -115,7 +115,7 @@ public class Restaurante {
 <span class="fc" id="L115">        evaluaciones.add(evaluacion);</span>
         //se fija por cada sorteo de este restaurante si el cliente esta en condiciones de participar
 <span class="fc bfc" id="L117" title="All 2 branches covered.">        for (int i = 0; i &lt; sorteos.size(); i++) {</span>
-<span class="pc bpc" id="L118" title="3 of 12 branches missed.">            if (!date.before(sorteos.get(i).getFechaInicio()) &amp;&amp; !date.after(sorteos.get(i).getFechaFin()) &amp;&amp; !sorteos.get(i).isRealizado() &amp;&amp; !sorteos.get(i).getParticipantes().contains(cliente) &amp;&amp; cliente.noEsAnonimo() &amp;&amp; !resena.equals(&quot;&quot;)) {</span>
+<span class="fc bfc" id="L118" title="All 12 branches covered.">            if (!date.before(sorteos.get(i).getFechaInicio()) &amp;&amp; !date.after(sorteos.get(i).getFechaFin()) &amp;&amp; !sorteos.get(i).isRealizado() &amp;&amp; !sorteos.get(i).getParticipantes().contains(cliente) &amp;&amp; cliente.noEsAnonimo() &amp;&amp; !resena.equals(&quot;&quot;)) {</span>
                 //cliente y resena valido para participar del sorteo, entonces lo agrego a la lista de participantes
 <span class="fc" id="L120">                sorteos.get(i).getParticipantes().add(cliente);</span>
             }

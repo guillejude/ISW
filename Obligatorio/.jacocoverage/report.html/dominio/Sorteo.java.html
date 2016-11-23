@@ -147,16 +147,12 @@ public class Sorteo {
 <span class="fc" id="L147">                    retorno.add(ganador);</span>
 <span class="fc" id="L148">                    this.ganadores.add(ganador);</span>
                     //mandar mail a ganador
-<span class="pc bpc" id="L150" title="1 of 2 branches missed.">                    if(mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio)){</span>
-<span class="fc" id="L151">                        this.realizado = true;</span>
-                    }
-                    else{
-<span class="nc" id="L154">                        JOptionPane.showMessageDialog(null, &quot;Hubo un error en el envio del correo, verifique su conexión&quot;);</span>
-                    }
+<span class="fc" id="L150">                    mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio);</span>
+<span class="fc" id="L151">                    this.realizado = true;</span>
                 }
             }
         }
-<span class="fc" id="L159">        return retorno;</span>
+<span class="fc" id="L155">        return retorno;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

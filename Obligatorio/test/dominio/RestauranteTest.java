@@ -390,6 +390,82 @@ public class RestauranteTest {
         Sorteo sorteo = (Sorteo) restaurante.getSorteos().get(0);
         assertEquals(participantes, sorteo.getParticipantes());
     }
+    
+    @Test
+    public void testAgregarEvaluacionConClienteSorteoYaRealizado() {
+        System.out.println("test agregarEvaluacion con cliente pero con los sorteos ya realizados");
+        //agrega la evaluacion y al cliente 
+        Restaurante restaurante = new Restaurante("La Pasiva", "Cuareim 1414", "10:00", "23:00", "Pizzeria");
+        //me defino un sorteo vigente para chequear si se le agregan participantes
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        restaurante.definirSorteo("Pizza", 4, "Pizza", inicio, fin);
+        restaurante.agregarEvaluacion("Juan", "1@2", 4, "Bbueno");
+        ((Sorteo) restaurante.getSorteos().get(0)).realizarSorteo();
+        boolean hola = ((Sorteo) restaurante.getSorteos().get(0)).isRealizado();
+        restaurante.agregarEvaluacion("", "", 3, "");
+        //Como tendria que quedar la lista de evaluaciones
+        Cliente cliente = new Cliente("", "");
+        Evaluacion evaluacion = new Evaluacion(cliente, 3, "");
+        Cliente cliente2 = new Cliente("Juan", "1@2");
+        Evaluacion evaluacion2 = new Evaluacion(cliente2, 4, "Bbueno");
+        ArrayList<Evaluacion> evaluaciones = new ArrayList();
+        evaluaciones.add(evaluacion2);
+        evaluaciones.add(evaluacion);
+        //como tendria que quedar la lista de participantes
+        ArrayList<Cliente> participantes = new ArrayList();
+        participantes.add(cliente2);
+        //pruebo
+        assertEquals(evaluaciones, restaurante.getEvaluaciones());
+        Sorteo sorteo = (Sorteo) restaurante.getSorteos().get(0);
+        assertEquals(participantes, sorteo.getParticipantes());
+    }
+    
+    @Test
+    public void testAgregarEvaluacionConClienteSorteoPasado() {
+        System.out.println("test agregarEvaluacion con cliente pero con los sorteos ya habiendo vencido");
+        //agrega la evaluacion y al cliente 
+        Restaurante restaurante = new Restaurante("La Pasiva", "Cuareim 1414", "10:00", "23:00", "Pizzeria");
+        //me defino un sorteo vigente para chequear si se le agregan participantes
+        Date inicio = new Date(115, 10, 10);
+        Date fin = new Date(116, 10, 10);
+        restaurante.definirSorteo("Pizza", 4, "Pizza", inicio, fin);
+        restaurante.agregarEvaluacion("", "", 3, "");
+        //Como tendria que quedar la lista de evaluaciones
+        Cliente cliente = new Cliente("", "");
+        Evaluacion evaluacion = new Evaluacion(cliente, 3, "");
+        ArrayList<Evaluacion> evaluaciones = new ArrayList();
+        evaluaciones.add(evaluacion);
+        //como tendria que quedar la lista de participantes
+        ArrayList<Cliente> participantes = new ArrayList();
+        //pruebo
+        assertEquals(evaluaciones, restaurante.getEvaluaciones());
+        Sorteo sorteo = (Sorteo) restaurante.getSorteos().get(0);
+        assertEquals(participantes, sorteo.getParticipantes());
+    }
+    
+    @Test
+    public void testAgregarEvaluacionConClienteSorteoFuturo() {
+        System.out.println("test agregarEvaluacion con cliente pero con los sorteos no habiendo arrancado");
+        //agrega la evaluacion y al cliente 
+        Restaurante restaurante = new Restaurante("La Pasiva", "Cuareim 1414", "10:00", "23:00", "Pizzeria");
+        //me defino un sorteo vigente para chequear si se le agregan participantes
+        Date inicio = new Date(2017, 10, 10);
+        Date fin = new Date(2018, 10, 10);
+        restaurante.definirSorteo("Pizza", 4, "Pizza", inicio, fin);
+        restaurante.agregarEvaluacion("", "", 3, "");
+        //Como tendria que quedar la lista de evaluaciones
+        Cliente cliente = new Cliente("", "");
+        Evaluacion evaluacion = new Evaluacion(cliente, 3, "");
+        ArrayList<Evaluacion> evaluaciones = new ArrayList();
+        evaluaciones.add(evaluacion);
+        //como tendria que quedar la lista de participantes
+        ArrayList<Cliente> participantes = new ArrayList();
+        //pruebo
+        assertEquals(evaluaciones, restaurante.getEvaluaciones());
+        Sorteo sorteo = (Sorteo) restaurante.getSorteos().get(0);
+        assertEquals(participantes, sorteo.getParticipantes());
+    }
 
     /**
      * Test of definirSorteo method, of class Restaurante.

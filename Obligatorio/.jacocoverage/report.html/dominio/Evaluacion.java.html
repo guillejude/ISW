@@ -49,12 +49,13 @@ public class Evaluacion {
 <span class="fc" id="L49">    }</span>
     
     @Override
+    //Se define misma evaluacion con mismo cliente, mismo puntaje y misma resena
     public boolean equals(Object obj) {
-<span class="fc" id="L53">        boolean retorno = false;</span>
-<span class="fc bfc" id="L54" title="All 6 branches covered.">        if (this.getCliente().equals(((Evaluacion) obj).getCliente()) &amp;&amp; this.getPuntuacion()==((Evaluacion) obj).getPuntuacion() &amp;&amp; this.getResena().equals(((Evaluacion) obj).getResena())) {</span>
-<span class="fc" id="L55">            retorno = true;</span>
+<span class="fc" id="L54">        boolean retorno = false;</span>
+<span class="fc bfc" id="L55" title="All 6 branches covered.">        if (this.getCliente().equals(((Evaluacion) obj).getCliente()) &amp;&amp; this.getPuntuacion()==((Evaluacion) obj).getPuntuacion() &amp;&amp; this.getResena().equals(((Evaluacion) obj).getResena())) {</span>
+<span class="fc" id="L56">            retorno = true;</span>
         }
-<span class="fc" id="L57">        return retorno;</span>
+<span class="fc" id="L58">        return retorno;</span>
     }
     
 }
