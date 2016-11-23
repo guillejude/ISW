@@ -14,10 +14,12 @@ import javax.swing.JOptionPane;
  */
 public class Sistema {
     private ArrayList<Restaurante> restaurantes;
+    private int cantSorteos;
 
     //Metodo Constructor de Sistema
     public Sistema() {
         this.restaurantes = new ArrayList();
+        this.cantSorteos = 0;
     }
 
     //Metodos Getters y Setters
@@ -27,6 +29,14 @@ public class Sistema {
 
     public void setRestaurantes(ArrayList<Restaurante> restaurantes) {
         this.restaurantes = restaurantes;
+    }
+
+    public int getCantSorteos() {
+        return cantSorteos;
+    }
+
+    public void setCantSorteos(int cantSorteos) {
+        this.cantSorteos = cantSorteos;
     }
     
     public boolean agregarRestaurante(String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){

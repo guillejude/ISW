@@ -45,6 +45,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         btnRealizarSorteo = new javax.swing.JToggleButton();
         btnVerRestaurantes = new javax.swing.JButton();
         btnVerEvaluaciones = new javax.swing.JButton();
+        btnVerSorteos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,6 +101,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnVerSorteos.setText("Ver Sorteos");
+        btnVerSorteos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnVerSorteosMouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,7 +126,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(btnRealizarSorteo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCrearFichaRestaurante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnVerRestaurantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnVerEvaluaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnVerEvaluaciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVerSorteos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -136,11 +145,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(btnDefinirSorteo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRealizarSorteo)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVerRestaurantes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVerEvaluaciones)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVerSorteos)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -223,6 +234,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnVerEvaluacionesMouseReleased
 
+    private void btnVerSorteosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerSorteosMouseReleased
+        // TODO add your handling code here:
+        if (VentanaPrincipal.sistema.getCantSorteos() > 0) {
+            VentanaVerSorteos ventana = new VentanaVerSorteos(this, sistema);
+            ventana.setVisible(true);
+            this.setVisible(false);
+            this.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(null, "no hay restaurantes cargados para ver");
+        }
+    }//GEN-LAST:event_btnVerSorteosMouseReleased
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnCrearFichaRestaurante;
     private javax.swing.JToggleButton btnDefinirSorteo;
@@ -231,6 +254,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnRealizarSorteo;
     private javax.swing.JButton btnVerEvaluaciones;
     private javax.swing.JButton btnVerRestaurantes;
+    private javax.swing.JButton btnVerSorteos;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 }

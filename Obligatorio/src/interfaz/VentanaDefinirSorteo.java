@@ -275,6 +275,8 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
             Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
             restaurante.definirSorteo(txtFldNombreSorteo.getText(), Integer.parseInt(txtFldCantGanadores.getText()), txtAreaDescripcionPremio.getText(), (Date) datePickerStart.getModel().getValue(), (Date) datePickerEnd.getModel().getValue());
             JOptionPane.showMessageDialog(null, "Se definio exitosamente el sorteo");
+            int cantidad = this.sistema.getCantSorteos();
+            this.sistema.setCantSorteos(cantidad+1);
             this.dispose();
             this.padre.setEnabled(true);
             this.padre.setVisible(true);

@@ -39,6 +39,7 @@
                           <Component id="btnCrearFichaRestaurante" alignment="0" max="32767" attributes="0"/>
                           <Component id="btnVerRestaurantes" max="32767" attributes="0"/>
                           <Component id="btnVerEvaluaciones" max="32767" attributes="0"/>
+                          <Component id="btnVerSorteos" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -61,11 +62,13 @@
               <Component id="btnDefinirSorteo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnRealizarSorteo" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnVerRestaurantes" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnVerEvaluaciones" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnVerSorteos" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -133,6 +136,14 @@
       </Properties>
       <Events>
         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnVerEvaluacionesMouseReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnVerSorteos">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ver Sorteos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnVerSorteosMouseReleased"/>
       </Events>
     </Component>
   </SubComponents>
