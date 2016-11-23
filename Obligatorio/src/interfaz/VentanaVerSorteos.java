@@ -78,7 +78,7 @@ public class VentanaVerSorteos extends javax.swing.JFrame {
         });
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        lblTitulo.setText("VER RESTAURANTES");
+        lblTitulo.setText("VER SORTEOS");
 
         tblSorteos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -111,16 +111,16 @@ public class VentanaVerSorteos extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(177, 177, 177)
+                        .addGap(201, 201, 201)
                         .addComponent(lblTitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(lblTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(37, Short.MAX_VALUE))
         );
