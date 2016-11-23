@@ -170,7 +170,7 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
                 ArrayList<Cliente> ganadores = sorteo.realizarSorteo();
                 if (!ganadores.isEmpty()) {
                     //hubo ganadores, mostrar su informacion
-                    String output = "";
+                    String output = "Ganador(es): \n";
                     for (int i = 0; i < ganadores.size(); i++) {
                         output = output + ganadores.get(i) + "\n";
                     }
@@ -203,12 +203,12 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbBxSorteosFocusLost
 
     private void cmbBxSorteosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbBxSorteosFocusGained
-  
+
 
     }//GEN-LAST:event_cmbBxSorteosFocusGained
 
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
         //carga el combobox de sorteos con todos los sorteos disponibles para el restaurante seleccionado
         Sorteo[] sorteos = new Sorteo[restaurante.getSorteos().size()];

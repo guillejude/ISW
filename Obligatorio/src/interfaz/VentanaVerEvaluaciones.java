@@ -8,10 +8,8 @@ package interfaz;
 import dominio.Evaluacion;
 import dominio.Restaurante;
 import dominio.Sistema;
-import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,11 +28,12 @@ public class VentanaVerEvaluaciones extends javax.swing.JFrame {
         this.padre = ventanaPrincipal;
         this.sistema = sistema;
         Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];
-        for(int i = 0; i<restaurantes.length; i++){
+        for (int i = 0; i < restaurantes.length; i++) {
             restaurantes[i] = this.sistema.getRestaurantes().get(i);
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
-        
+        Restaurante restaurante = this.sistema.getRestaurantes().get(0);
+        updateTabla(restaurante);
         this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
@@ -150,18 +149,21 @@ public class VentanaVerEvaluaciones extends javax.swing.JFrame {
 
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
         // TODO add your handling code here:
-        Restaurante restaurante =(Restaurante) cmbBxRestaurantes.getSelectedItem();
+        Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
+        updateTabla(restaurante);
+    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
+
+    private void updateTabla(Restaurante restaurante){
         DefaultTableModel table = (DefaultTableModel) tblRestaurantes.getModel();
         table.setRowCount(restaurante.getEvaluaciones().size());
-        for(int i = 0; i<restaurante.getEvaluaciones().size(); i++){
+        for (int i = 0; i < restaurante.getEvaluaciones().size(); i++) {
             Evaluacion evaluacion = (Evaluacion) restaurante.getEvaluaciones().get(i);
             tblRestaurantes.setValueAt(evaluacion.getCliente().getNombre(), i, 0);
             tblRestaurantes.setValueAt(evaluacion.getCliente().getEmail(), i, 1);
             tblRestaurantes.setValueAt(evaluacion.getPuntuacion(), i, 2);
             tblRestaurantes.setValueAt(evaluacion.getResena(), i, 3);
         }
-    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbBxRestaurantes;

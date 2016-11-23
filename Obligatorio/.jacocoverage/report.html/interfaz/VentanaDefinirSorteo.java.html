@@ -300,12 +300,12 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
 <span class="nc" id="L300">            }</span>
 <span class="nc bnc" id="L301" title="All 2 branches missed.">            if (((Date) datePickerEnd.getModel().getValue()).before((Date) datePickerStart.getModel().getValue())) {</span>
 <span class="nc" id="L302">                JOptionPane.showMessageDialog(null, &quot;La fecha de inicio debe ser menor a la de finalización&quot;);</span>
-            }
-<span class="nc bnc" id="L304" title="All 2 branches missed.">            if (((Date) datePickerStart.getModel().getValue()).before(date)) {</span>
-<span class="nc" id="L305">                JOptionPane.showMessageDialog(null, &quot;La fecha de inicio no puede ser previa a la creación del sorteo&quot;);</span>
-            }
-<span class="nc" id="L307">            Date fecha = new Date();</span>
-<span class="nc bnc" id="L308" title="All 2 branches missed.">            if (((Date) datePickerEnd.getModel().getValue()).before(fecha)) {</span>
+<span class="nc" id="L303">                retorno = false;</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">            }else if (((Date) datePickerStart.getModel().getValue()).before(date)) {</span>
+<span class="nc" id="L305">                retorno = false;</span>
+<span class="nc" id="L306">                JOptionPane.showMessageDialog(null, &quot;La fecha de inicio no puede ser previa a la creación del sorteo&quot;);</span>
+<span class="nc bnc" id="L307" title="All 2 branches missed.">            }else if (((Date) datePickerEnd.getModel().getValue()).before(new Date())) {</span>
+<span class="nc" id="L308">                retorno = false;</span>
 <span class="nc" id="L309">                JOptionPane.showMessageDialog(null, &quot;La fecha de fin debe de ser en un futuro (mañana en adelante)&quot;);</span>
             }
         }

@@ -346,72 +346,79 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
 <span class="nc bnc" id="L346" title="All 2 branches missed.">        if (validarCampos()) {</span>
 <span class="nc" id="L347">            Restaurante aEvaluar = (Restaurante) cmbBxRestaurantes.getSelectedItem();</span>
 <span class="nc" id="L348">            aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), puntuacion, txtReseña.getText());</span>
-<span class="nc" id="L349">            JOptionPane.showMessageDialog(null, &quot;Evaluación agregada con éxito&quot;);</span>
-<span class="nc" id="L350">            this.dispose();</span>
-<span class="nc" id="L351">            this.padre.setEnabled(true);</span>
-<span class="nc" id="L352">            this.padre.setVisible(true);</span>
+<span class="nc bnc" id="L349" title="All 6 branches missed.">            if (txtFldNombre.getText().isEmpty() || txtFldEmail.getText().isEmpty() || txtReseña.getText().isEmpty()) {</span>
+<span class="nc" id="L350">                JOptionPane.showMessageDialog(null, &quot;Evaluación Anonima agregada con éxito&quot;);</span>
+            } else {
+<span class="nc" id="L352">                JOptionPane.showMessageDialog(null, &quot;Evaluación agregada con éxito&quot;);</span>
+            }
+<span class="nc" id="L354">            this.dispose();</span>
+<span class="nc" id="L355">            this.padre.setEnabled(true);</span>
+<span class="nc" id="L356">            this.padre.setVisible(true);</span>
         }
 
 
-<span class="nc" id="L356">    }//GEN-LAST:event_btnConfirmarMouseReleased</span>
+<span class="nc" id="L360">    }//GEN-LAST:event_btnConfirmarMouseReleased</span>
 
     private void rbtnStar1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtnStar1MouseReleased
         // TODO add your handling code here:
-<span class="nc" id="L360">        rbtnStar1.setSelected(true);</span>
-<span class="nc" id="L361">        rbtnStar2.setSelected(false);</span>
-<span class="nc" id="L362">        rbtnStar3.setSelected(false);</span>
-<span class="nc" id="L363">        rbtnStar4.setSelected(false);</span>
-<span class="nc" id="L364">        rbtnStar5.setSelected(false);</span>
-<span class="nc" id="L365">        puntuacion = 1;</span>
-<span class="nc" id="L366">    }//GEN-LAST:event_rbtnStar1MouseReleased</span>
+<span class="nc" id="L364">        rbtnStar1.setSelected(true);</span>
+<span class="nc" id="L365">        rbtnStar2.setSelected(false);</span>
+<span class="nc" id="L366">        rbtnStar3.setSelected(false);</span>
+<span class="nc" id="L367">        rbtnStar4.setSelected(false);</span>
+<span class="nc" id="L368">        rbtnStar5.setSelected(false);</span>
+<span class="nc" id="L369">        puntuacion = 1;</span>
+<span class="nc" id="L370">    }//GEN-LAST:event_rbtnStar1MouseReleased</span>
 
     private void txtFldNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldNombreFocusGained
         // TODO add your handling code here:
-<span class="nc bnc" id="L370" title="All 2 branches missed.">        if (txtFldNombre.getText().equals(&quot;Ej: Juan&quot;)) {</span>
-<span class="nc" id="L371">            txtFldNombre.setText(&quot;&quot;);</span>
-<span class="nc" id="L372">            txtFldNombre.setForeground(Color.black);</span>
+<span class="nc bnc" id="L374" title="All 2 branches missed.">        if (txtFldNombre.getText().equals(&quot;Ej: Juan&quot;)) {</span>
+<span class="nc" id="L375">            txtFldNombre.setText(&quot;&quot;);</span>
+<span class="nc" id="L376">            txtFldNombre.setForeground(Color.black);</span>
         }
-<span class="nc" id="L374">    }//GEN-LAST:event_txtFldNombreFocusGained</span>
+<span class="nc" id="L378">    }//GEN-LAST:event_txtFldNombreFocusGained</span>
 
     private void txtFldEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldEmailFocusGained
         // TODO add your handling code here:
-<span class="nc bnc" id="L378" title="All 2 branches missed.">        if (txtFldEmail.getText().equals(&quot;Ej: juan@gmail.com&quot;)) {</span>
-<span class="nc" id="L379">            txtFldEmail.setText(&quot;&quot;);</span>
-<span class="nc" id="L380">            txtFldEmail.setForeground(Color.black);</span>
+<span class="nc bnc" id="L382" title="All 2 branches missed.">        if (txtFldEmail.getText().equals(&quot;Ej: juan@gmail.com&quot;)) {</span>
+<span class="nc" id="L383">            txtFldEmail.setText(&quot;&quot;);</span>
+<span class="nc" id="L384">            txtFldEmail.setForeground(Color.black);</span>
         }
-<span class="nc" id="L382">    }//GEN-LAST:event_txtFldEmailFocusGained</span>
+<span class="nc" id="L386">    }//GEN-LAST:event_txtFldEmailFocusGained</span>
 
     private void txtReseñaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtReseñaFocusGained
         // TODO add your handling code here:
-<span class="nc bnc" id="L386" title="All 2 branches missed.">        if (txtReseña.getText().equals(&quot;Ej: Me gusto mucho&quot;)) {</span>
-<span class="nc" id="L387">            txtReseña.setText(&quot;&quot;);</span>
-<span class="nc" id="L388">            txtReseña.setForeground(Color.black);</span>
+<span class="nc bnc" id="L390" title="All 2 branches missed.">        if (txtReseña.getText().equals(&quot;Ej: Me gusto mucho&quot;)) {</span>
+<span class="nc" id="L391">            txtReseña.setText(&quot;&quot;);</span>
+<span class="nc" id="L392">            txtReseña.setForeground(Color.black);</span>
         }
-<span class="nc" id="L390">    }//GEN-LAST:event_txtReseñaFocusGained</span>
+<span class="nc" id="L394">    }//GEN-LAST:event_txtReseñaFocusGained</span>
 
     public boolean validarCampos() {
         //Si la informacion que esta en los campos es la default de ejemplos, la borro
-<span class="nc bnc" id="L394" title="All 2 branches missed.">        if (txtFldNombre.getText().equals(&quot;Ej: Juan&quot;)) {</span>
-<span class="nc" id="L395">            txtFldNombre.setText(&quot;&quot;);</span>
+<span class="nc bnc" id="L398" title="All 2 branches missed.">        if (txtFldNombre.getText().equals(&quot;Ej: Juan&quot;)) {</span>
+<span class="nc" id="L399">            txtFldNombre.setText(&quot;&quot;);</span>
         }
-<span class="nc bnc" id="L397" title="All 2 branches missed.">        if (txtFldEmail.getText().equals(&quot;Ej: juan@gmail.com&quot;)) {</span>
-<span class="nc" id="L398">            txtFldEmail.setText(&quot;&quot;);</span>
+<span class="nc bnc" id="L401" title="All 2 branches missed.">        if (txtFldEmail.getText().equals(&quot;Ej: juan@gmail.com&quot;)) {</span>
+<span class="nc" id="L402">            txtFldEmail.setText(&quot;&quot;);</span>
         }
-<span class="nc bnc" id="L400" title="All 2 branches missed.">        if (txtReseña.getText().equals(&quot;Ej: Me gusto mucho&quot;)) {</span>
-<span class="nc" id="L401">            txtReseña.setText(&quot;&quot;);</span>
+<span class="nc bnc" id="L404" title="All 2 branches missed.">        if (txtReseña.getText().equals(&quot;Ej: Me gusto mucho&quot;)) {</span>
+<span class="nc" id="L405">            txtReseña.setText(&quot;&quot;);</span>
         }
         //Si escribio algun tipo de mail, lo verfico
-        try {
-<span class="nc" id="L405">            InternetAddress address = new InternetAddress(txtFldEmail.getText());</span>
-<span class="nc bnc" id="L406" title="All 2 branches missed.">            if (!txtFldEmail.getText().isEmpty()) {</span>
-<span class="nc" id="L407">                address.validate();</span>
+<span class="nc bnc" id="L408" title="All 2 branches missed.">        if (!txtFldEmail.getText().isEmpty()) {</span>
+            try {
+<span class="nc" id="L410">                InternetAddress address = new InternetAddress(txtFldEmail.getText());</span>
+<span class="nc bnc" id="L411" title="All 2 branches missed.">                if (!txtFldEmail.getText().isEmpty()) {</span>
+<span class="nc" id="L412">                    address.validate();</span>
+                }
+<span class="nc" id="L414">                return true;</span>
+<span class="nc" id="L415">            } catch (AddressException e) {</span>
+<span class="nc" id="L416">                JOptionPane.showMessageDialog(null, &quot;Email no valido&quot;);</span>
+<span class="nc" id="L417">                return false;</span>
             }
-<span class="nc" id="L409">            return true;</span>
-<span class="nc" id="L410">        } catch (AddressException e) {</span>
-<span class="nc" id="L411">            JOptionPane.showMessageDialog(null, &quot;Email no valido&quot;);</span>
-<span class="nc" id="L412">            return false;</span>
+        }else{
+<span class="nc" id="L420">            return true;</span>
         }
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -346,7 +346,11 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
         if (validarCampos()) {
             Restaurante aEvaluar = (Restaurante) cmbBxRestaurantes.getSelectedItem();
             aEvaluar.agregarEvaluacion(txtFldNombre.getText(), txtFldEmail.getText(), puntuacion, txtReseña.getText());
-            JOptionPane.showMessageDialog(null, "Evaluación agregada con éxito");
+            if (txtFldNombre.getText().isEmpty() || txtFldEmail.getText().isEmpty() || txtReseña.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Evaluación Anonima agregada con éxito");
+            } else {
+                JOptionPane.showMessageDialog(null, "Evaluación agregada con éxito");
+            }
             this.dispose();
             this.padre.setEnabled(true);
             this.padre.setVisible(true);
@@ -401,17 +405,20 @@ public class VentanaRealizarEvaluacion extends javax.swing.JFrame {
             txtReseña.setText("");
         }
         //Si escribio algun tipo de mail, lo verfico
-        try {
-            InternetAddress address = new InternetAddress(txtFldEmail.getText());
-            if (!txtFldEmail.getText().isEmpty()) {
-                address.validate();
+        if (!txtFldEmail.getText().isEmpty()) {
+            try {
+                InternetAddress address = new InternetAddress(txtFldEmail.getText());
+                if (!txtFldEmail.getText().isEmpty()) {
+                    address.validate();
+                }
+                return true;
+            } catch (AddressException e) {
+                JOptionPane.showMessageDialog(null, "Email no valido");
+                return false;
             }
+        }else{
             return true;
-        } catch (AddressException e) {
-            JOptionPane.showMessageDialog(null, "Email no valido");
-            return false;
         }
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

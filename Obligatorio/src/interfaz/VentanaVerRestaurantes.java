@@ -5,12 +5,9 @@
  */
 package interfaz;
 
-import dominio.Evaluacion;
 import dominio.Restaurante;
 import dominio.Sistema;
-import java.awt.Color;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,7 +27,7 @@ public class VentanaVerRestaurantes extends javax.swing.JFrame {
         this.sistema = sistema;
         DefaultTableModel table = (DefaultTableModel) tblRestaurantes.getModel();
         table.setRowCount(this.sistema.getRestaurantes().size());
-        for(int i = 0; i<this.sistema.getRestaurantes().size(); i++){
+        for (int i = 0; i < this.sistema.getRestaurantes().size(); i++) {
             Restaurante restaurante = this.sistema.getRestaurantes().get(i);
             tblRestaurantes.setValueAt(restaurante.getNombre(), i, 0);
             tblRestaurantes.setValueAt(restaurante.getDireccion(), i, 1);

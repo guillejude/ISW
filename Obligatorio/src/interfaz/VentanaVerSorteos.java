@@ -32,13 +32,13 @@ public class VentanaVerSorteos extends javax.swing.JFrame {
         initComponents();
         this.padre = ventanaPrincipal;
         this.sistema = sistema;
-        DefaultTableModel table = (DefaultTableModel) tblSorteos.getModel();
         Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];
-        for(int i = 0; i<restaurantes.length; i++){
+        for (int i = 0; i < restaurantes.length; i++) {
             restaurantes[i] = this.sistema.getRestaurantes().get(i);
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
-        
+        Restaurante restaurante = this.sistema.getRestaurantes().get(0);
+        updateTabla(restaurante);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
@@ -151,24 +151,27 @@ public class VentanaVerSorteos extends javax.swing.JFrame {
 
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
         // TODO add your handling code here:
-        Restaurante restaurante =(Restaurante) cmbBxRestaurantes.getSelectedItem();
+        Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
+        updateTabla(restaurante);
+    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
+
+    private void updateTabla(Restaurante restaurante) {
         DefaultTableModel table = (DefaultTableModel) tblSorteos.getModel();
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         table.setRowCount(restaurante.getSorteos().size());
-        for(int j = 0; j<restaurante.getSorteos().size(); j++){
-                Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(j);
-                tblSorteos.setValueAt(elSorteo.getNombre(), j, 0);
-                tblSorteos.setValueAt(df.format(elSorteo.getFechaInicio()), j, 1);
-                tblSorteos.setValueAt(df.format(elSorteo.getFechaInicio()), j, 2);
-                tblSorteos.setValueAt(elSorteo.getCantidadGanadores(), j, 3);
-                String realizado = "NO";
-                if(elSorteo.isRealizado()){
-                    realizado = "SI";
-                }
-                tblSorteos.setValueAt(realizado, j, 4);
+        for (int j = 0; j < restaurante.getSorteos().size(); j++) {
+            Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(j);
+            tblSorteos.setValueAt(elSorteo.getNombre(), j, 0);
+            tblSorteos.setValueAt(df.format(elSorteo.getFechaInicio()), j, 1);
+            tblSorteos.setValueAt(df.format(elSorteo.getFechaFin()), j, 2);
+            tblSorteos.setValueAt(elSorteo.getCantidadGanadores(), j, 3);
+            String realizado = "NO";
+            if (elSorteo.isRealizado()) {
+                realizado = "SI";
             }
-    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
-
+            tblSorteos.setValueAt(realizado, j, 4);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbBxRestaurantes;

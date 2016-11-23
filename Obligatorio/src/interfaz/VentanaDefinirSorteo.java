@@ -271,8 +271,6 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
             Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
             restaurante.definirSorteo(txtFldNombreSorteo.getText(), Integer.parseInt(txtFldCantGanadores.getText()), txtAreaDescripcionPremio.getText(), (Date) datePickerStart.getModel().getValue(), (Date) datePickerEnd.getModel().getValue());
             JOptionPane.showMessageDialog(null, "Se definio exitosamente el sorteo");
-            int cantidad = this.sistema.getCantSorteos();
-            this.sistema.setCantSorteos(cantidad+1);
             this.dispose();
             this.padre.setEnabled(true);
             this.padre.setVisible(true);
@@ -300,12 +298,12 @@ public class VentanaDefinirSorteo extends javax.swing.JFrame {
             }
             if (((Date) datePickerEnd.getModel().getValue()).before((Date) datePickerStart.getModel().getValue())) {
                 JOptionPane.showMessageDialog(null, "La fecha de inicio debe ser menor a la de finalización");
-            }
-            if (((Date) datePickerStart.getModel().getValue()).before(date)) {
+                retorno = false;
+            }else if (((Date) datePickerStart.getModel().getValue()).before(date)) {
+                retorno = false;
                 JOptionPane.showMessageDialog(null, "La fecha de inicio no puede ser previa a la creación del sorteo");
-            }
-            Date fecha = new Date();
-            if (((Date) datePickerEnd.getModel().getValue()).before(fecha)) {
+            }else if (((Date) datePickerEnd.getModel().getValue()).before(new Date())) {
+                retorno = false;
                 JOptionPane.showMessageDialog(null, "La fecha de fin debe de ser en un futuro (mañana en adelante)");
             }
         }
