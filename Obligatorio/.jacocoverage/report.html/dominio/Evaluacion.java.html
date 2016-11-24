@@ -5,8 +5,6 @@
  */
 package dominio;
 
-import java.util.Objects;
-
 /**
  *
  * @author pepe1
@@ -17,45 +15,45 @@ public class Evaluacion {
     private String resena;
     
     //Constructor para nueva evaluacion
-<span class="fc" id="L20">    public Evaluacion(Cliente cliente, int puntuacion, String resena) {</span>
-<span class="fc" id="L21">        this.cliente = cliente;</span>
-<span class="fc" id="L22">        this.puntuacion = puntuacion;</span>
-<span class="fc" id="L23">        this.resena = resena;</span>
-<span class="fc" id="L24">    }</span>
+<span class="fc" id="L18">    public Evaluacion(Cliente cliente, int puntuacion, String resena) {</span>
+<span class="fc" id="L19">        this.cliente = cliente;</span>
+<span class="fc" id="L20">        this.puntuacion = puntuacion;</span>
+<span class="fc" id="L21">        this.resena = resena;</span>
+<span class="fc" id="L22">    }</span>
 
     //Getters y Setters
     public Cliente getCliente() {
-<span class="fc" id="L28">        return cliente;</span>
+<span class="fc" id="L26">        return cliente;</span>
     }
 
     public void setCliente(Cliente cliente) {
-<span class="fc" id="L32">        this.cliente = cliente;</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L30">        this.cliente = cliente;</span>
+<span class="fc" id="L31">    }</span>
 
     public int getPuntuacion() {
-<span class="fc" id="L36">        return puntuacion;</span>
+<span class="fc" id="L34">        return puntuacion;</span>
     }
 
     public void setPuntuacion(int puntuacion) {
-<span class="fc" id="L40">        this.puntuacion = puntuacion;</span>
-<span class="fc" id="L41">    }</span>
+<span class="fc" id="L38">        this.puntuacion = puntuacion;</span>
+<span class="fc" id="L39">    }</span>
 
     public String getResena() {
-<span class="fc" id="L44">        return resena;</span>
+<span class="fc" id="L42">        return resena;</span>
     }
 
     public void setResena(String resena) {
-<span class="fc" id="L48">        this.resena = resena;</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L46">        this.resena = resena;</span>
+<span class="fc" id="L47">    }</span>
     
     @Override
     //Se define misma evaluacion con mismo cliente, mismo puntaje y misma resena
     public boolean equals(Object obj) {
-<span class="fc" id="L54">        boolean retorno = false;</span>
-<span class="fc bfc" id="L55" title="All 6 branches covered.">        if (this.getCliente().equals(((Evaluacion) obj).getCliente()) &amp;&amp; this.getPuntuacion()==((Evaluacion) obj).getPuntuacion() &amp;&amp; this.getResena().equals(((Evaluacion) obj).getResena())) {</span>
-<span class="fc" id="L56">            retorno = true;</span>
+<span class="fc" id="L52">        boolean retorno = false;</span>
+<span class="fc bfc" id="L53" title="All 6 branches covered.">        if (this.getCliente().equals(((Evaluacion) obj).getCliente()) &amp;&amp; this.getPuntuacion()==((Evaluacion) obj).getPuntuacion() &amp;&amp; this.getResena().equals(((Evaluacion) obj).getResena())) {</span>
+<span class="fc" id="L54">            retorno = true;</span>
         }
-<span class="fc" id="L58">        return retorno;</span>
+<span class="fc" id="L56">        return retorno;</span>
     }
     
 }

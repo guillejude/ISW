@@ -5,16 +5,13 @@
  */
 package interfaz;
 
-import dominio.Evaluacion;
 import dominio.Restaurante;
 import dominio.Sistema;
 import dominio.Sorteo;
-import java.awt.Color;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 

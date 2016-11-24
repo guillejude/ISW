@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="GUILLE" name="dominio.SorteoTest" skipped="0" tests="20" time="15.671" timestamp="2016-11-24T03:27:30">
+<testsuite errors="0" failures="0" hostname="GUILLE" name="dominio.SorteoTest" skipped="0" tests="20" time="15.505" timestamp="2016-11-24T03:35:29">
   <properties>
     <property name="netbeans.autoupdate.country" value="US" />
     <property name="ant.file.Obligatorio" value="C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build.xml" />
@@ -38,7 +38,7 @@
     <property name="user.name" value="Guillermo" />
     <property name="copylibs.rebase" value="true" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dominio.SorteoTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\test\results\TEST-dominio.SorteoTest.xml crashfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junitvmwatcher4980633639111220511.properties propsfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junit358990958293309652.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner dominio.SorteoTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\test\results\TEST-dominio.SorteoTest.xml crashfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junitvmwatcher3955087892715279950.properties propsfile=C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\build\junit1912899858337640598.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -286,7 +286,7 @@
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="libs.CopyLibs.classpath" value="C:\Program Files\NetBeans 8.0.2\java\ant\extra\org-netbeans-modules-java-j2seproject-copylibstask.jar" />
     <property name="libs.spring-framework300.classpath" value="C:\Program Files\NetBeans 8.0.2\ide\modules\org-apache-commons-logging.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\cglib-2.2.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-aop-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-aspects-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-beans-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-build-src-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-context-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-context-support-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-core-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-expression-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-framework-bom-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-instrument-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-instrument-tomcat-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-jdbc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-jms-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-orm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-oxm-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-struts-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-test-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-tx-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-web-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-webmvc-3.2.7.RELEASE.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\spring-3.0\spring-webmvc-portlet-3.2.7.RELEASE.jar" />
-    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\Guillermo\AppData\Roaming\NetBeans\8.0.2\modules\ext\jacocoagent.jar&quot;=includes=defaultpackage.*:dominio.*:interfaz.*,destfile=&quot;C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\jacoco.exec-387682314111863&quot;" />
+    <property name="run.jvmargs" value="  -javaagent:&quot;C:\Users\Guillermo\AppData\Roaming\NetBeans\8.0.2\modules\ext\jacocoagent.jar&quot;=includes=defaultpackage.*:dominio.*:interfaz.*,destfile=&quot;C:\Users\Guillermo\Documents\Facultad\ObligatorioIngSoft\Obligatorio\jacoco.exec-388163605506691&quot;" />
     <property name="libs.hibernate4-persistence.classpath" value="C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\antlr-2.7.7.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\c3p0-0.9.2.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-c3p0-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\mchange-commons-java-0.2.3.4.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\dom4j-1.6.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\ehcache-core-2.4.3.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-ehcache-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-core-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\jboss-logging-3.1.3.GA.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-commons-annotations-4.0.4.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-entitymanager-4.3.1.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\javassist-3.18.1-GA.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\jboss-transaction-api_1.2_spec-1.0.0.Final.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\slf4j-api-1.6.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\slf4j-simple-1.6.1.jar;C:\Program Files\NetBeans 8.0.2\java\modules\ext\hibernate4\hibernate-jpa-2.1-api-1.0.0.Final.jar" />
     <property name="dist.archive.excludes" value="" />
     <property name="libs.JAXB-ENDORSED.src" value="" />
@@ -309,46 +309,46 @@
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoConParticipante" time="4.335" />
-  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoSinParticipantes" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoConMasParticipantesQueGanadores" time="7.748" />
-  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoConParticipantesSorteoYaRealizado" time="3.48" />
-  <testcase classname="dominio.SorteoTest" name="testGetFechaFin" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testSetFechaFin" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testToString" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testIsRealizado" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testSetNombre" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testSetRealizado" time="0.001" />
-  <testcase classname="dominio.SorteoTest" name="testEquals" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testGetParticipantes" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testGetDescripcionPremio" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testSetDescripcionPremio" time="0.001" />
-  <testcase classname="dominio.SorteoTest" name="testGetFechaInicio" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testSetFechaInicio" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoConParticipantesSorteoYaRealizado" time="4.169" />
+  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoConMasParticipantesQueGanadores" time="7.646" />
+  <testcase classname="dominio.SorteoTest" name="testSetDescripcionPremio" time="0.0" />
+  <testcase classname="dominio.SorteoTest" name="testSetFechaInicio" time="0.0" />
+  <testcase classname="dominio.SorteoTest" name="testSetCantidadGanadores" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testSetParticipantes" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testGetDescripcionPremio" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testGetFechaInicio" time="0.001" />
   <testcase classname="dominio.SorteoTest" name="testGetCantidadGanadores" time="0.001" />
-  <testcase classname="dominio.SorteoTest" name="testSetParticipantes" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testSetCantidadGanadores" time="0.0" />
-  <testcase classname="dominio.SorteoTest" name="testGetNombre" time="0.001" />
-  <system-out><![CDATA[test realizarSorteo con participante
-test realizarSorteo sin participantes
+  <testcase classname="dominio.SorteoTest" name="testGetParticipantes" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoConParticipante" time="3.46" />
+  <testcase classname="dominio.SorteoTest" name="testRealizarSorteoSinParticipantes" time="0.0" />
+  <testcase classname="dominio.SorteoTest" name="testSetRealizado" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testIsRealizado" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testGetFechaFin" time="0.0" />
+  <testcase classname="dominio.SorteoTest" name="testGetNombre" time="0.003" />
+  <testcase classname="dominio.SorteoTest" name="testToString" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testEquals" time="0.001" />
+  <testcase classname="dominio.SorteoTest" name="testSetFechaFin" time="0.0" />
+  <testcase classname="dominio.SorteoTest" name="testSetNombre" time="0.001" />
+  <system-out><![CDATA[test realizarSorteo con participantes pero con sorteo ya realizado
 test realizarSorteo con mas participantes que ganadores
-test realizarSorteo con participantes pero con sorteo ya realizado
-test setFechaFin
-test setFechaInicio
-test toString
-test isRealizado
-test setNombre
-test setRealizado
-test equals
-test getParticipantes
-test getDescripcionPremio
 test setDescripcionPremio
-test setFechaInicio
 test setFechaInicio
 test getCantidadGanadores
 test setParticipantes
+test getDescripcionPremio
+test setFechaInicio
 test getCantidadGanadores
+test getParticipantes
+test realizarSorteo con participante
+test realizarSorteo sin participantes
+test setRealizado
+test isRealizado
+test setFechaFin
 test getNombre
+test toString
+test equals
+test setFechaInicio
+test setNombre
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

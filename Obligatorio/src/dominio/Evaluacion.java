@@ -5,8 +5,6 @@
  */
 package dominio;
 
-import java.util.Objects;
-
 /**
  *
  * @author pepe1
