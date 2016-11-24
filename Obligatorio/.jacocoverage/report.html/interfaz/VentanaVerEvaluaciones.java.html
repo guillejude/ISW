@@ -8,10 +8,8 @@ package interfaz;
 import dominio.Evaluacion;
 import dominio.Restaurante;
 import dominio.Sistema;
-import java.awt.Color;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,18 +23,19 @@ public class VentanaVerEvaluaciones extends javax.swing.JFrame {
     private Sistema sistema;
 
     //Constructor 
-<span class="nc" id="L28">    public VentanaVerEvaluaciones(VentanaPrincipal ventanaPrincipal, Sistema sistema) {</span>
-<span class="nc" id="L29">        initComponents();</span>
-<span class="nc" id="L30">        this.padre = ventanaPrincipal;</span>
-<span class="nc" id="L31">        this.sistema = sistema;</span>
-<span class="nc" id="L32">        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];</span>
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        for(int i = 0; i&lt;restaurantes.length; i++){</span>
-<span class="nc" id="L34">            restaurantes[i] = this.sistema.getRestaurantes().get(i);</span>
+<span class="nc" id="L26">    public VentanaVerEvaluaciones(VentanaPrincipal ventanaPrincipal, Sistema sistema) {</span>
+<span class="nc" id="L27">        initComponents();</span>
+<span class="nc" id="L28">        this.padre = ventanaPrincipal;</span>
+<span class="nc" id="L29">        this.sistema = sistema;</span>
+<span class="nc" id="L30">        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];</span>
+<span class="nc bnc" id="L31" title="All 2 branches missed.">        for (int i = 0; i &lt; restaurantes.length; i++) {</span>
+<span class="nc" id="L32">            restaurantes[i] = this.sistema.getRestaurantes().get(i);</span>
         }
-<span class="nc" id="L36">        cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));</span>
-        
-<span class="nc" id="L38">        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);</span>
-<span class="nc" id="L39">    }</span>
+<span class="nc" id="L34">        cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));</span>
+<span class="nc" id="L35">        Restaurante restaurante = this.sistema.getRestaurantes().get(0);</span>
+<span class="nc" id="L36">        updateTabla(restaurante);</span>
+<span class="nc" id="L37">        this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);</span>
+<span class="nc" id="L38">    }</span>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,25 +46,25 @@ public class VentanaVerEvaluaciones extends javax.swing.JFrame {
     // &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<span class="nc" id="L50">        lblTitulo = new javax.swing.JLabel();</span>
-<span class="nc" id="L51">        jScrollPane1 = new javax.swing.JScrollPane();</span>
-<span class="nc" id="L52">        tblRestaurantes = new javax.swing.JTable();</span>
-<span class="nc" id="L53">        cmbBxRestaurantes = new javax.swing.JComboBox&lt;String&gt;();</span>
+<span class="nc" id="L49">        lblTitulo = new javax.swing.JLabel();</span>
+<span class="nc" id="L50">        jScrollPane1 = new javax.swing.JScrollPane();</span>
+<span class="nc" id="L51">        tblRestaurantes = new javax.swing.JTable();</span>
+<span class="nc" id="L52">        cmbBxRestaurantes = new javax.swing.JComboBox&lt;String&gt;();</span>
 
-<span class="nc" id="L55">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
-<span class="nc" id="L56">        addWindowListener(new java.awt.event.WindowAdapter() {</span>
+<span class="nc" id="L54">        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);</span>
+<span class="nc" id="L55">        addWindowListener(new java.awt.event.WindowAdapter() {</span>
             public void windowClosed(java.awt.event.WindowEvent evt) {
-<span class="nc" id="L58">                formWindowClosed(evt);</span>
-<span class="nc" id="L59">            }</span>
+<span class="nc" id="L57">                formWindowClosed(evt);</span>
+<span class="nc" id="L58">            }</span>
             public void windowClosing(java.awt.event.WindowEvent evt) {
-<span class="nc" id="L61">                formWindowClosing(evt);</span>
-<span class="nc" id="L62">            }</span>
+<span class="nc" id="L60">                formWindowClosing(evt);</span>
+<span class="nc" id="L61">            }</span>
         });
 
-<span class="nc" id="L65">        lblTitulo.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 15)); // NOI18N</span>
-<span class="nc" id="L66">        lblTitulo.setText(&quot;VER EVALUACIONES&quot;);</span>
+<span class="nc" id="L64">        lblTitulo.setFont(new java.awt.Font(&quot;Tahoma&quot;, 1, 15)); // NOI18N</span>
+<span class="nc" id="L65">        lblTitulo.setText(&quot;VER EVALUACIONES&quot;);</span>
 
-<span class="nc" id="L68">        tblRestaurantes.setModel(new javax.swing.table.DefaultTableModel(</span>
+<span class="nc" id="L67">        tblRestaurantes.setModel(new javax.swing.table.DefaultTableModel(</span>
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -75,93 +74,96 @@ public class VentanaVerEvaluaciones extends javax.swing.JFrame {
             new String [] {
                 &quot;Nombre&quot;, &quot;Email&quot;, &quot;Evaluacion&quot;, &quot;Reseña&quot;
             }
-<span class="nc" id="L78">        ) {</span>
-<span class="nc" id="L79">            Class[] types = new Class [] {</span>
+<span class="nc" id="L77">        ) {</span>
+<span class="nc" id="L78">            Class[] types = new Class [] {</span>
                 java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
-<span class="nc" id="L84">                return types [columnIndex];</span>
+<span class="nc" id="L83">                return types [columnIndex];</span>
             }
         });
-<span class="nc" id="L87">        jScrollPane1.setViewportView(tblRestaurantes);</span>
+<span class="nc" id="L86">        jScrollPane1.setViewportView(tblRestaurantes);</span>
 
-<span class="nc" id="L89">        cmbBxRestaurantes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
-<span class="nc" id="L90">        cmbBxRestaurantes.addFocusListener(new java.awt.event.FocusAdapter() {</span>
+<span class="nc" id="L88">        cmbBxRestaurantes.setModel(new javax.swing.DefaultComboBoxModel(new String[] { &quot;Item 1&quot;, &quot;Item 2&quot;, &quot;Item 3&quot;, &quot;Item 4&quot; }));</span>
+<span class="nc" id="L89">        cmbBxRestaurantes.addFocusListener(new java.awt.event.FocusAdapter() {</span>
             public void focusLost(java.awt.event.FocusEvent evt) {
-<span class="nc" id="L92">                cmbBxRestaurantesFocusLost(evt);</span>
-<span class="nc" id="L93">            }</span>
+<span class="nc" id="L91">                cmbBxRestaurantesFocusLost(evt);</span>
+<span class="nc" id="L92">            }</span>
         });
-<span class="nc" id="L95">        cmbBxRestaurantes.addActionListener(new java.awt.event.ActionListener() {</span>
+<span class="nc" id="L94">        cmbBxRestaurantes.addActionListener(new java.awt.event.ActionListener() {</span>
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-<span class="nc" id="L97">                cmbBxRestaurantesActionPerformed(evt);</span>
-<span class="nc" id="L98">            }</span>
+<span class="nc" id="L96">                cmbBxRestaurantesActionPerformed(evt);</span>
+<span class="nc" id="L97">            }</span>
         });
 
-<span class="nc" id="L101">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
-<span class="nc" id="L102">        getContentPane().setLayout(layout);</span>
-<span class="nc" id="L103">        layout.setHorizontalGroup(</span>
-<span class="nc" id="L104">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L105">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
-<span class="nc" id="L106">                .addGap(0, 0, Short.MAX_VALUE)</span>
-<span class="nc" id="L107">                .addComponent(lblTitulo)</span>
-<span class="nc" id="L108">                .addGap(187, 187, 187))</span>
-<span class="nc" id="L109">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L110">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L111">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L112">                        .addContainerGap()</span>
-<span class="nc" id="L113">                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
-<span class="nc" id="L114">                    .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L115">                        .addGap(190, 190, 190)</span>
-<span class="nc" id="L116">                        .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
-<span class="nc" id="L117">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
+<span class="nc" id="L100">        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());</span>
+<span class="nc" id="L101">        getContentPane().setLayout(layout);</span>
+<span class="nc" id="L102">        layout.setHorizontalGroup(</span>
+<span class="nc" id="L103">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L104">            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()</span>
+<span class="nc" id="L105">                .addGap(0, 0, Short.MAX_VALUE)</span>
+<span class="nc" id="L106">                .addComponent(lblTitulo)</span>
+<span class="nc" id="L107">                .addGap(187, 187, 187))</span>
+<span class="nc" id="L108">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L109">                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L110">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L111">                        .addContainerGap()</span>
+<span class="nc" id="L112">                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE))</span>
+<span class="nc" id="L113">                    .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L114">                        .addGap(190, 190, 190)</span>
+<span class="nc" id="L115">                        .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))</span>
+<span class="nc" id="L116">                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))</span>
         );
-<span class="nc" id="L119">        layout.setVerticalGroup(</span>
-<span class="nc" id="L120">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
-<span class="nc" id="L121">            .addGroup(layout.createSequentialGroup()</span>
-<span class="nc" id="L122">                .addGap(18, 18, 18)</span>
-<span class="nc" id="L123">                .addComponent(lblTitulo)</span>
-<span class="nc" id="L124">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L125">                .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L126">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
-<span class="nc" id="L127">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
-<span class="nc" id="L128">                .addContainerGap(37, Short.MAX_VALUE))</span>
+<span class="nc" id="L118">        layout.setVerticalGroup(</span>
+<span class="nc" id="L119">            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)</span>
+<span class="nc" id="L120">            .addGroup(layout.createSequentialGroup()</span>
+<span class="nc" id="L121">                .addGap(18, 18, 18)</span>
+<span class="nc" id="L122">                .addComponent(lblTitulo)</span>
+<span class="nc" id="L123">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L124">                .addComponent(cmbBxRestaurantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L125">                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)</span>
+<span class="nc" id="L126">                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)</span>
+<span class="nc" id="L127">                .addContainerGap(37, Short.MAX_VALUE))</span>
         );
 
-<span class="nc" id="L131">        pack();</span>
-<span class="nc" id="L132">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
+<span class="nc" id="L130">        pack();</span>
+<span class="nc" id="L131">    }// &lt;/editor-fold&gt;//GEN-END:initComponents</span>
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
         /*this.padre.setEnabled(true);
          this.padre.setVisible(true);*/
-<span class="nc" id="L138">    }//GEN-LAST:event_formWindowClosed</span>
+<span class="nc" id="L137">    }//GEN-LAST:event_formWindowClosed</span>
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         // TODO add your handling code here:
-<span class="nc" id="L142">        this.dispose();</span>
-<span class="nc" id="L143">        this.padre.setEnabled(true);</span>
-<span class="nc" id="L144">        this.padre.setVisible(true);</span>
-<span class="nc" id="L145">    }//GEN-LAST:event_formWindowClosing</span>
+<span class="nc" id="L141">        this.dispose();</span>
+<span class="nc" id="L142">        this.padre.setEnabled(true);</span>
+<span class="nc" id="L143">        this.padre.setVisible(true);</span>
+<span class="nc" id="L144">    }//GEN-LAST:event_formWindowClosing</span>
 
     private void cmbBxRestaurantesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesFocusLost
         // TODO add your handling code here:
-<span class="nc" id="L149">    }//GEN-LAST:event_cmbBxRestaurantesFocusLost</span>
+<span class="nc" id="L148">    }//GEN-LAST:event_cmbBxRestaurantesFocusLost</span>
 
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L153">        Restaurante restaurante =(Restaurante) cmbBxRestaurantes.getSelectedItem();</span>
-<span class="nc" id="L154">        DefaultTableModel table = (DefaultTableModel) tblRestaurantes.getModel();</span>
-<span class="nc" id="L155">        table.setRowCount(restaurante.getEvaluaciones().size());</span>
-<span class="nc bnc" id="L156" title="All 2 branches missed.">        for(int i = 0; i&lt;restaurante.getEvaluaciones().size(); i++){</span>
-<span class="nc" id="L157">            Evaluacion evaluacion = (Evaluacion) restaurante.getEvaluaciones().get(i);</span>
-<span class="nc" id="L158">            tblRestaurantes.setValueAt(evaluacion.getCliente().getNombre(), i, 0);</span>
-<span class="nc" id="L159">            tblRestaurantes.setValueAt(evaluacion.getCliente().getEmail(), i, 1);</span>
-<span class="nc" id="L160">            tblRestaurantes.setValueAt(evaluacion.getPuntuacion(), i, 2);</span>
-<span class="nc" id="L161">            tblRestaurantes.setValueAt(evaluacion.getResena(), i, 3);</span>
-        }
-<span class="nc" id="L163">    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed</span>
+<span class="nc" id="L152">        Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();</span>
+<span class="nc" id="L153">        updateTabla(restaurante);</span>
+<span class="nc" id="L154">    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed</span>
 
+    private void updateTabla(Restaurante restaurante){
+<span class="nc" id="L157">        DefaultTableModel table = (DefaultTableModel) tblRestaurantes.getModel();</span>
+<span class="nc" id="L158">        table.setRowCount(restaurante.getEvaluaciones().size());</span>
+<span class="nc bnc" id="L159" title="All 2 branches missed.">        for (int i = 0; i &lt; restaurante.getEvaluaciones().size(); i++) {</span>
+<span class="nc" id="L160">            Evaluacion evaluacion = (Evaluacion) restaurante.getEvaluaciones().get(i);</span>
+<span class="nc" id="L161">            tblRestaurantes.setValueAt(evaluacion.getCliente().getNombre(), i, 0);</span>
+<span class="nc" id="L162">            tblRestaurantes.setValueAt(evaluacion.getCliente().getEmail(), i, 1);</span>
+<span class="nc" id="L163">            tblRestaurantes.setValueAt(evaluacion.getPuntuacion(), i, 2);</span>
+<span class="nc" id="L164">            tblRestaurantes.setValueAt(evaluacion.getResena(), i, 3);</span>
+        }
+<span class="nc" id="L166">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox&lt;String&gt; cmbBxRestaurantes;

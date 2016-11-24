@@ -35,15 +35,7 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
         }
         cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));
         Restaurante restaurante = this.sistema.getRestaurantes().get(0);
-        Sorteo[] sorteos = new Sorteo[restaurante.getSorteos().size()];
-        for (int i = 0; i < sorteos.length; i++) {
-            Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(i);
-            if (!elSorteo.isRealizado()) {
-                sorteos[i] = (Sorteo) restaurante.getSorteos().get(i);
-            }
-        }
-        cmbBxSorteos.setModel(new DefaultComboBoxModel(sorteos));
-
+        setCBSorteos(restaurante);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     }
 
@@ -210,18 +202,28 @@ public class VentanaRealizarSorteo extends javax.swing.JFrame {
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
         // TODO add your handling code here:
         Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();
-        //carga el combobox de sorteos con todos los sorteos disponibles para el restaurante seleccionado
-        Sorteo[] sorteos = new Sorteo[restaurante.getSorteos().size()];
-        for (int i = 0; i < sorteos.length; i++) {
+        setCBSorteos(restaurante);
+    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
+
+    private void setCBSorteos(Restaurante restaurante) {
+        int cantSorteos = 0;
+        for (int i = 0; i < restaurante.getSorteos().size(); i++) {
+            if (!((Sorteo) restaurante.getSorteos().get(i)).isRealizado()) {
+                cantSorteos++;
+            }
+        }
+        Sorteo[] sorteos = new Sorteo[cantSorteos];
+        cantSorteos = 0;
+        for (int i = 0; i < restaurante.getSorteos().size(); i++) {
             Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(i);
             if (!elSorteo.isRealizado()) {
-                sorteos[i] = (Sorteo) restaurante.getSorteos().get(i);
+                sorteos[cantSorteos] = (Sorteo) restaurante.getSorteos().get(i);
+                cantSorteos++;
             }
         }
         cmbBxSorteos.setModel(new DefaultComboBoxModel(sorteos));
-    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed
 
-
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LblElegirRestaurante;
     private javax.swing.JButton btnRealizarSorteo;

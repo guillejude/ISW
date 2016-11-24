@@ -122,26 +122,27 @@ public class Sorteo {
                 Random rand = new Random();
                 int cantParticipantes = participantes.size();
                 int cantGanadores = Math.min(cantidadGanadores, cantParticipantes);
-                ArrayList<Integer> numerosGanadores = new ArrayList(cantGanadores);
+                int[] numerosGanadores = new int[cantGanadores];
                 if (cantParticipantes <= cantGanadores) {
                     //ganan todos
                     for (int i = 0; i < cantGanadores; i++) {
-                        numerosGanadores.add(i);
+                        numerosGanadores[i] = i;
                     }
                 } else {
                     //ganan algunos al azar
-                    for (int i = 0; i < cantGanadores; i++) {
+                    /*for (int i = 0; i < cantGanadores; i++) {
                         int numeroAzar = rand.nextInt(cantParticipantes);
                         while (numerosGanadores.contains(numeroAzar)) {
                             numeroAzar = rand.nextInt(cantParticipantes);
                         }
                         numerosGanadores.add(numeroAzar);
-                    }
+                    }*/
+                    numerosGanadores = new Random().ints(0, cantParticipantes).distinct().limit(cantGanadores).toArray();
                 }
                 //aviso a ganadores y guardo para el retorno
                 Mail mail = new Mail();
                 for (int i = 0; i < cantGanadores; i++) {
-                    int numero = numerosGanadores.get(i);
+                    int numero = numerosGanadores[i];
                     Cliente ganador = participantes.get(numero);
                     //lo agrego a la lista de retorno
                     retorno.add(ganador);

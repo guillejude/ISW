@@ -122,37 +122,38 @@ public class Sorteo {
 <span class="fc" id="L122">                Random rand = new Random();</span>
 <span class="fc" id="L123">                int cantParticipantes = participantes.size();</span>
 <span class="fc" id="L124">                int cantGanadores = Math.min(cantidadGanadores, cantParticipantes);</span>
-<span class="fc" id="L125">                ArrayList&lt;Integer&gt; numerosGanadores = new ArrayList(cantGanadores);</span>
+<span class="fc" id="L125">                int[] numerosGanadores = new int[cantGanadores];</span>
 <span class="fc bfc" id="L126" title="All 2 branches covered.">                if (cantParticipantes &lt;= cantGanadores) {</span>
                     //ganan todos
 <span class="fc bfc" id="L128" title="All 2 branches covered.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
-<span class="fc" id="L129">                        numerosGanadores.add(i);</span>
+<span class="fc" id="L129">                        numerosGanadores[i] = i;</span>
                     }
                 } else {
                     //ganan algunos al azar
-<span class="fc bfc" id="L133" title="All 2 branches covered.">                    for (int i = 0; i &lt; cantGanadores; i++) {</span>
-<span class="fc" id="L134">                        int numeroAzar = rand.nextInt(cantParticipantes);</span>
-<span class="pc bpc" id="L135" title="1 of 2 branches missed.">                        while (numerosGanadores.contains(numeroAzar)) {</span>
-<span class="nc" id="L136">                            numeroAzar = rand.nextInt(cantParticipantes);</span>
+                    /*for (int i = 0; i &lt; cantGanadores; i++) {
+                        int numeroAzar = rand.nextInt(cantParticipantes);
+                        while (numerosGanadores.contains(numeroAzar)) {
+                            numeroAzar = rand.nextInt(cantParticipantes);
                         }
-<span class="fc" id="L138">                        numerosGanadores.add(numeroAzar);</span>
-                    }
+                        numerosGanadores.add(numeroAzar);
+                    }*/
+<span class="fc" id="L140">                    numerosGanadores = new Random().ints(0, cantParticipantes).distinct().limit(cantGanadores).toArray();</span>
                 }
                 //aviso a ganadores y guardo para el retorno
-<span class="fc" id="L142">                Mail mail = new Mail();</span>
-<span class="fc bfc" id="L143" title="All 2 branches covered.">                for (int i = 0; i &lt; cantGanadores; i++) {</span>
-<span class="fc" id="L144">                    int numero = numerosGanadores.get(i);</span>
-<span class="fc" id="L145">                    Cliente ganador = participantes.get(numero);</span>
+<span class="fc" id="L143">                Mail mail = new Mail();</span>
+<span class="fc bfc" id="L144" title="All 2 branches covered.">                for (int i = 0; i &lt; cantGanadores; i++) {</span>
+<span class="fc" id="L145">                    int numero = numerosGanadores[i];</span>
+<span class="fc" id="L146">                    Cliente ganador = participantes.get(numero);</span>
                     //lo agrego a la lista de retorno
-<span class="fc" id="L147">                    retorno.add(ganador);</span>
-<span class="fc" id="L148">                    this.ganadores.add(ganador);</span>
+<span class="fc" id="L148">                    retorno.add(ganador);</span>
+<span class="fc" id="L149">                    this.ganadores.add(ganador);</span>
                     //mandar mail a ganador
-<span class="fc" id="L150">                    mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio);</span>
-<span class="fc" id="L151">                    this.realizado = true;</span>
+<span class="fc" id="L151">                    mail.SendMail(ganador.getNombre(),nombre, ganador.getEmail(), descripcionPremio);</span>
+<span class="fc" id="L152">                    this.realizado = true;</span>
                 }
             }
         }
-<span class="fc" id="L155">        return retorno;</span>
+<span class="fc" id="L156">        return retorno;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

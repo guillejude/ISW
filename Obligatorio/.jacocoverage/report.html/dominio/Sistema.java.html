@@ -6,7 +6,6 @@
 package dominio;
 
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,52 +13,41 @@ import javax.swing.JOptionPane;
  */
 public class Sistema {
     private ArrayList&lt;Restaurante&gt; restaurantes;
-    private int cantSorteos;
-
     //Metodo Constructor de Sistema
-<span class="fc" id="L20">    public Sistema() {</span>
-<span class="fc" id="L21">        this.restaurantes = new ArrayList();</span>
-<span class="fc" id="L22">        this.cantSorteos = 0;</span>
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L17">    public Sistema() {</span>
+<span class="fc" id="L18">        this.restaurantes = new ArrayList();</span>
+<span class="fc" id="L19">    }</span>
 
     //Metodos Getters y Setters
     public ArrayList&lt;Restaurante&gt; getRestaurantes() {
-<span class="fc" id="L27">        return restaurantes;</span>
+<span class="fc" id="L23">        return restaurantes;</span>
     }
 
     public void setRestaurantes(ArrayList&lt;Restaurante&gt; restaurantes) {
-<span class="fc" id="L31">        this.restaurantes = restaurantes;</span>
-<span class="fc" id="L32">    }</span>
-
-    public int getCantSorteos() {
-<span class="nc" id="L35">        return cantSorteos;</span>
-    }
-
-    public void setCantSorteos(int cantSorteos) {
-<span class="nc" id="L39">        this.cantSorteos = cantSorteos;</span>
-<span class="nc" id="L40">    }</span>
+<span class="fc" id="L27">        this.restaurantes = restaurantes;</span>
+<span class="fc" id="L28">    }</span>
     
     public boolean agregarRestaurante(String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){
         //crea y agrega un nuevo restaurante al sistema si es que no se encuentra ya en el sistema
-<span class="fc" id="L44">        Restaurante restaurante = new Restaurante(nombre, direccion, horarioApertura, horarioCierre, tipoComida);</span>
-<span class="fc bfc" id="L45" title="All 2 branches covered.">        if(!restaurantes.contains(restaurante)){</span>
+<span class="fc" id="L32">        Restaurante restaurante = new Restaurante(nombre, direccion, horarioApertura, horarioCierre, tipoComida);</span>
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if(!restaurantes.contains(restaurante)){</span>
             //no existe, entonces se agrega
-<span class="fc" id="L47">            restaurantes.add(restaurante);</span>
-<span class="fc" id="L48">            return true;</span>
+<span class="fc" id="L35">            restaurantes.add(restaurante);</span>
+<span class="fc" id="L36">            return true;</span>
         }else{
             //ya existe, no se agrega
-<span class="fc" id="L51">            return false;</span>
+<span class="fc" id="L39">            return false;</span>
         }
     }
     
      public void editarRestaurante(Restaurante rest, String nombre, String direccion, String horarioApertura, String horarioCierre, String tipoComida){
         //edita los datos de un restaurante previamente ingresado al sistema
-<span class="fc" id="L57">        rest.setNombre(nombre);</span>
-<span class="fc" id="L58">        rest.setDireccion(direccion);</span>
-<span class="fc" id="L59">        rest.setHorarioAbrir(horarioApertura);</span>
-<span class="fc" id="L60">        rest.setHorarioCerrar(horarioCierre);</span>
-<span class="fc" id="L61">        rest.setTipoComida(tipoComida);</span>
-<span class="fc" id="L62">    }</span>
+<span class="fc" id="L45">        rest.setNombre(nombre);</span>
+<span class="fc" id="L46">        rest.setDireccion(direccion);</span>
+<span class="fc" id="L47">        rest.setHorarioAbrir(horarioApertura);</span>
+<span class="fc" id="L48">        rest.setHorarioCerrar(horarioCierre);</span>
+<span class="fc" id="L49">        rest.setTipoComida(tipoComida);</span>
+<span class="fc" id="L50">    }</span>
     
     
 }

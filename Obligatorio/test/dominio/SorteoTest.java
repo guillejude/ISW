@@ -253,7 +253,7 @@ public class SorteoTest {
         System.out.println("test realizarSorteo con participante");
         Date inicio = new Date(116, 10, 10);
         Date fin = new Date(117, 10, 10);
-        Sorteo sorteo = new Sorteo("Pizza", 4, "Pizza", inicio, fin);
+        Sorteo sorteo = new Sorteo("Pizza", 2, "Pizza", inicio, fin);
         //Agrego participantes
         Cliente cliente = new Cliente("Juan", "juan@hotmail.com");
         sorteo.getParticipantes().add(cliente);
@@ -282,6 +282,37 @@ public class SorteoTest {
         //pruebo que hay dos ganadores
         assertEquals(2, sorteo.realizarSorteo().size());
     }
+    
+    /*@Test
+    public void testRealizarSorteoConMuchosParticipantes() {
+        System.out.println("test realizarSorteo con muchos participantes");
+        Date inicio = new Date(116, 10, 10);
+        Date fin = new Date(117, 10, 10);
+        Sorteo sorteo = new Sorteo("Pizza", 10, "Pizza", inicio, fin);
+        //Agrego participantesa
+        Cliente cliente1 = new Cliente("Juan", "juan@hotmail.com");
+        Cliente cliente2 = new Cliente("A", "juan@hotmail.com");
+        Cliente cliente3 = new Cliente("B", "juan@hotmail.com");
+        Cliente cliente4 = new Cliente("C", "juan@hotmail.com");
+        Cliente cliente5 = new Cliente("A", "juan@hotmail.com");
+        Cliente cliente6 = new Cliente("B", "juan@hotmail.com");
+        Cliente cliente7 = new Cliente("C", "juan@hotmail.com");
+        Cliente cliente8 = new Cliente("A", "juan@hotmail.com");
+        Cliente cliente9 = new Cliente("B", "juan@hotmail.com");
+        Cliente cliente0 = new Cliente("C", "juan@hotmail.com");
+        sorteo.getParticipantes().add(cliente1);
+        sorteo.getParticipantes().add(cliente2);
+        sorteo.getParticipantes().add(cliente3);
+        sorteo.getParticipantes().add(cliente4);
+        sorteo.getParticipantes().add(cliente5);
+        sorteo.getParticipantes().add(cliente6);
+        sorteo.getParticipantes().add(cliente7);
+        sorteo.getParticipantes().add(cliente8);
+        sorteo.getParticipantes().add(cliente9);
+        sorteo.getParticipantes().add(cliente0);
+        //pruebo que hay dos ganadores
+        assertEquals(10, sorteo.realizarSorteo().size());
+    }*/
 
     @Test
     public void testRealizarSorteoConParticipantesSorteoYaRealizado() {

@@ -32,13 +32,13 @@ public class VentanaVerSorteos extends javax.swing.JFrame {
 <span class="nc" id="L32">        initComponents();</span>
 <span class="nc" id="L33">        this.padre = ventanaPrincipal;</span>
 <span class="nc" id="L34">        this.sistema = sistema;</span>
-<span class="nc" id="L35">        DefaultTableModel table = (DefaultTableModel) tblSorteos.getModel();</span>
-<span class="nc" id="L36">        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">        for(int i = 0; i&lt;restaurantes.length; i++){</span>
-<span class="nc" id="L38">            restaurantes[i] = this.sistema.getRestaurantes().get(i);</span>
+<span class="nc" id="L35">        Restaurante[] restaurantes = new Restaurante[this.sistema.getRestaurantes().size()];</span>
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        for (int i = 0; i &lt; restaurantes.length; i++) {</span>
+<span class="nc" id="L37">            restaurantes[i] = this.sistema.getRestaurantes().get(i);</span>
         }
-<span class="nc" id="L40">        cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));</span>
-        
+<span class="nc" id="L39">        cmbBxRestaurantes.setModel(new DefaultComboBoxModel(restaurantes));</span>
+<span class="nc" id="L40">        Restaurante restaurante = this.sistema.getRestaurantes().get(0);</span>
+<span class="nc" id="L41">        updateTabla(restaurante);</span>
 <span class="nc" id="L42">        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);</span>
 <span class="nc" id="L43">    }</span>
 
@@ -151,24 +151,27 @@ public class VentanaVerSorteos extends javax.swing.JFrame {
 
     private void cmbBxRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbBxRestaurantesActionPerformed
         // TODO add your handling code here:
-<span class="nc" id="L154">        Restaurante restaurante =(Restaurante) cmbBxRestaurantes.getSelectedItem();</span>
-<span class="nc" id="L155">        DefaultTableModel table = (DefaultTableModel) tblSorteos.getModel();</span>
-<span class="nc" id="L156">        DateFormat df = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);</span>
-<span class="nc" id="L157">        table.setRowCount(restaurante.getSorteos().size());</span>
-<span class="nc bnc" id="L158" title="All 2 branches missed.">        for(int j = 0; j&lt;restaurante.getSorteos().size(); j++){</span>
-<span class="nc" id="L159">                Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(j);</span>
-<span class="nc" id="L160">                tblSorteos.setValueAt(elSorteo.getNombre(), j, 0);</span>
-<span class="nc" id="L161">                tblSorteos.setValueAt(df.format(elSorteo.getFechaInicio()), j, 1);</span>
-<span class="nc" id="L162">                tblSorteos.setValueAt(df.format(elSorteo.getFechaInicio()), j, 2);</span>
-<span class="nc" id="L163">                tblSorteos.setValueAt(elSorteo.getCantidadGanadores(), j, 3);</span>
-<span class="nc" id="L164">                String realizado = &quot;NO&quot;;</span>
-<span class="nc bnc" id="L165" title="All 2 branches missed.">                if(elSorteo.isRealizado()){</span>
-<span class="nc" id="L166">                    realizado = &quot;SI&quot;;</span>
-                }
-<span class="nc" id="L168">                tblSorteos.setValueAt(realizado, j, 4);</span>
-            }
-<span class="nc" id="L170">    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed</span>
+<span class="nc" id="L154">        Restaurante restaurante = (Restaurante) cmbBxRestaurantes.getSelectedItem();</span>
+<span class="nc" id="L155">        updateTabla(restaurante);</span>
+<span class="nc" id="L156">    }//GEN-LAST:event_cmbBxRestaurantesActionPerformed</span>
 
+    private void updateTabla(Restaurante restaurante) {
+<span class="nc" id="L159">        DefaultTableModel table = (DefaultTableModel) tblSorteos.getModel();</span>
+<span class="nc" id="L160">        DateFormat df = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);</span>
+<span class="nc" id="L161">        table.setRowCount(restaurante.getSorteos().size());</span>
+<span class="nc bnc" id="L162" title="All 2 branches missed.">        for (int j = 0; j &lt; restaurante.getSorteos().size(); j++) {</span>
+<span class="nc" id="L163">            Sorteo elSorteo = (Sorteo) restaurante.getSorteos().get(j);</span>
+<span class="nc" id="L164">            tblSorteos.setValueAt(elSorteo.getNombre(), j, 0);</span>
+<span class="nc" id="L165">            tblSorteos.setValueAt(df.format(elSorteo.getFechaInicio()), j, 1);</span>
+<span class="nc" id="L166">            tblSorteos.setValueAt(df.format(elSorteo.getFechaFin()), j, 2);</span>
+<span class="nc" id="L167">            tblSorteos.setValueAt(elSorteo.getCantidadGanadores(), j, 3);</span>
+<span class="nc" id="L168">            String realizado = &quot;NO&quot;;</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">            if (elSorteo.isRealizado()) {</span>
+<span class="nc" id="L170">                realizado = &quot;SI&quot;;</span>
+            }
+<span class="nc" id="L172">            tblSorteos.setValueAt(realizado, j, 4);</span>
+        }
+<span class="nc" id="L174">    }</span>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox&lt;String&gt; cmbBxRestaurantes;
