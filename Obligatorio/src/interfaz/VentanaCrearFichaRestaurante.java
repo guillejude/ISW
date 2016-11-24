@@ -290,6 +290,41 @@ public class VentanaCrearFichaRestaurante extends javax.swing.JFrame {
             retorno = false;
             JOptionPane.showMessageDialog(null, "Faltan campos a completar");
         }
+        if(txtFldNombre.getText().equals("Ej: McDonalds") || txtFldDireccion.getText().equals("Ej: Cuareim 1414") || txtFldHorarioApertura.getText().equals("Ej: 10:30") || txtFldHorarioCierre.getText().equals("Ej: 22:00") || txtFldTipoComida.getText().equals("Ej: Parrillada")){
+            retorno = false;
+            JOptionPane.showMessageDialog(null, "Faltan campos a completar");
+        }
+        //pruebo que la hora este bien ingresada
+        if(retorno){
+            int horaInicio;
+            int minInicio;
+            int horaFin;
+            int minFin;
+            try{
+                String horarioAp = txtFldHorarioApertura.getText();
+                String[] apertura = horarioAp.split(":");
+                String horarioCi = txtFldHorarioCierre.getText();
+                String[] cierre = horarioCi.split(":");
+                if(apertura.length==2 && cierre.length==2){
+                    horaInicio = Integer.parseInt(apertura[0]);
+                    minInicio = Integer.parseInt(apertura[1]);
+                    horaFin = Integer.parseInt(cierre[0]);
+                    minFin = Integer.parseInt(cierre[1]);
+                    if(horaInicio>=0 && horaFin >=0 && minInicio>=0 && minFin>=0 && horaInicio<24 && horaFin<24 && minFin<60 && minInicio<60){
+                        retorno = true;
+                    }else{
+                        JOptionPane.showMessageDialog(null, "Hora debe estar entre 00 y 23, minutos entre 00 y 59");
+                        retorno = false;
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Los horarios deben tener el formato HORA:MINUTO");
+                    retorno = false;
+                }
+            }catch(NumberFormatException e){
+                JOptionPane.showMessageDialog(null, "Los horarios deben tener el formato HORA:MINUTO");
+                retorno = false;
+            }
+        }
         return retorno;
     }
 
